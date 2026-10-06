@@ -841,11 +841,11 @@ const METAS = [
    note:'Não consta no escopo da proposta. É um desejo do comercial da Algar; está em avaliação.',
    detail:'Objetivo, segundo a reunião de 02/10: dar ao comercial da Algar visibilidade de clientes com ambiente sobrecarregado, para oferecer aumento de recursos. Relatório de uso das VMs com métricas, agrupamento, frequência e formato definidos com o Daniel Prado Pereira Lima (Algar). Usa as fontes de consumo previstas na proposta (Nova, Gnocchi, Prometheus).',
    fases:[
-    {n:'Entender com o Daniel quais métricas, o agrupamento, a frequência e o formato do relatório', party:'binario', status:'backlog', start:'2026-10-08', due:'2026-10-09', id:''},
-    {n:'Ver de onde tirar os dados (Gnocchi, Prometheus, banco do Nova) e se tem histórico suficiente', party:'binario', status:'backlog', start:'2026-10-13', due:'2026-10-14', id:''},
-    {n:'Montar um rascunho do relatório e validar com ele', party:'binario', status:'backlog', start:'2026-10-15', due:'2026-10-19', id:''},
-    {n:'Implementar a extração', party:'binario', status:'backlog', start:'2026-10-20', due:'2026-10-26', id:''},
-    {n:'Automatizar a geração, se for recorrente', party:'binario', status:'backlog', start:'2026-10-27', due:'2026-10-30', id:''},
+    {n:'Entender com o Daniel quais métricas, o agrupamento, a frequência e o formato do relatório', oculto:true, party:'binario', status:'backlog', start:'2026-10-08', due:'2026-10-09', id:''},
+    {n:'Ver de onde tirar os dados (Gnocchi, Prometheus, banco do Nova) e se tem histórico suficiente', oculto:true, party:'binario', status:'backlog', start:'2026-10-13', due:'2026-10-14', id:''},
+    {n:'Montar um rascunho do relatório e validar com ele', oculto:true, party:'binario', status:'backlog', start:'2026-10-15', due:'2026-10-19', id:''},
+    {n:'Implementar a extração', oculto:true, party:'binario', status:'backlog', start:'2026-10-20', due:'2026-10-26', id:''},
+    {n:'Automatizar a geração, se for recorrente', oculto:true, party:'binario', status:'backlog', start:'2026-10-27', due:'2026-10-30', id:''},
     {n:'Confirmar o escopo com o comercial (o relatório não consta na proposta)', party:'ambos', assignee:'Wagner Bento Felix', status:'in progress', start:'2026-10-02', due:'2026-10-09', id:'', origem:'Reunião 02/10'}
    ]},
  { num:6, id:'', status:'backlog', start:'2026-10-07', due:'2026-10-30',
@@ -974,7 +974,7 @@ const SIDE = VISIBLE.filter(m=>m.num===999 || m.excludeFromIndex);
 // Itens "folha" de uma meta: atividades da fase, ou a própria fase quando ela não tem atividades.
 function leaves(m){
   const byDate=(a,b)=>((a.start||a.due||0)-(b.start||b.due||0))||((a.due||0)-(b.due||0));
-  return m.fases.slice().sort(byDate).flatMap(f => (f.ativ&&f.ativ.length)
+  return m.fases.filter(f=>!f.oculto).sort(byDate).flatMap(f => (f.ativ&&f.ativ.length)
     ? f.ativ.map(a=>({...a, party:a.party||f.party, fase:f.n, meta:m.short, metaNum:m.num, owner:a.assignee||f.assignee||m.assignee}))
     : [{...f, fase:'', meta:m.short, metaNum:m.num, owner:f.assignee||m.assignee}]);
 }

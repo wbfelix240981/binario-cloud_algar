@@ -56,6 +56,8 @@ button{font-family:inherit}
 .sync .dot{width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 3px rgba(40,190,165,.25)}
 .icon-btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;font-size:12.5px;font-weight:700;cursor:pointer}
 .icon-btn:hover{background:rgba(255,255,255,.14)}
+.icon-btn.pdf-btn{background:var(--brand);border-color:var(--brand)}
+.icon-btn.pdf-btn:hover{background:var(--brand-600)}
 
 /* ---------- Layout ---------- */
 .wrap{max-width:1220px;margin:0 auto;padding:0 24px}
@@ -425,6 +427,8 @@ footer a{color:var(--brand-700);font-weight:700}
 }
 
 /* ---------- Impressão / PDF ---------- */
+.print-only{display:none}
+@page cronograma{size:A4 landscape;margin:8mm}
 @media print{
   #login,.toolbar,.tb-actions,.chips{display:none !important}
   .topbar{position:static}
@@ -434,8 +438,28 @@ footer a{color:var(--brand-700);font-weight:700}
   .fase .ativs{display:block !important}
   .meta,.kpi,.attn-col,.side,.person{box-shadow:none;break-inside:avoid}
   .attn-list{max-height:none}
-  #view-gantt,#view-pessoas{display:block !important}
+  /* o cronograma vai sozinho na última página, em paisagem */
+  #view-pessoas,footer,.g-legend .sp,#secSide{display:none !important}
+  #view-gantt{display:block !important;page:cronograma;break-before:page}
+  #view-gantt.print-skip{display:none !important}
+  .print-only{display:block !important}
+  .gantt-title h2{margin:0 0 2px;font-size:18px;font-weight:900;color:var(--navy)}
+  .gantt-title p{margin:0 0 8px;font-size:11px;color:var(--text-3)}
+  .gantt{box-shadow:none;margin-top:0}
   .g-scroll{overflow:visible}
+  .g-right{width:100% !important;min-width:0 !important}
+  .g-left{width:320px}
+  .g-row,.g-rr{height:62px}
+  .g-row .n{font-size:12px}
+  .g-row .a{font-size:10px}
+  .g-bar{top:19px;height:24px}
+  .g-bar span{font-size:10.5px}
+  .g-over{top:24px;height:14px}
+  .g-ms{top:24px;width:13px;height:13px}
+  .g-h{height:28px}
+  .g-grid{top:28px}
+  .g-today b{top:6px}
+  .g-legend{padding:6px 10px;font-size:10px}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
 </style>
@@ -482,8 +506,8 @@ footer a{color:var(--brand-700);font-weight:700}
       <button class="icon-btn" id="btnTheme" title="Alternar tema">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg><span class="lbl">Tema</span>
       </button>
-      <button class="icon-btn" id="btnPrint" title="Imprimir / salvar PDF">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/></svg><span class="lbl">PDF</span>
+      <button class="icon-btn pdf-btn" id="btnPrint" title="Salvar o painel em PDF (o cronograma vai na última página)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/></svg><span class="lbl">Salvar PDF</span>
       </button>
       <button class="icon-btn" id="btnLogout" title="Sair">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg><span class="lbl">Sair</span>
@@ -557,7 +581,7 @@ footer a{color:var(--brand-700);font-weight:700}
       </div>
     </div>
 
-    <div id="view-gantt" class="hidden"><div class="gantt" id="gantt"></div></div>
+    <div id="view-gantt" class="hidden"><div class="print-only gantt-title"><h2>Cronograma do projeto</h2><p id="ganttPrintSub"></p></div><div class="gantt" id="gantt"></div></div>
     <div id="view-pessoas" class="hidden"><div class="people" id="people"></div><div class="contacts" id="contacts"></div></div>
   </section>
 
@@ -907,7 +931,7 @@ function metaProg(m){
   return l.reduce((t,x)=>t+peso(x),0)/l.length;
 }
 
-let view='projeto', statusFilter='all', partyFilter='all', ganttScale='fit', EDIT_MODE=false;
+let view='projeto', statusFilter='all', partyFilter='all', ganttScale='fit', EDIT_MODE=false, PRINT_GANTT=false;
 applyEdits();
 const openMetas=new Set();   // marcos começam minimizados
 
@@ -1121,7 +1145,7 @@ function renderGantt(){
     const kids=leaves(m).filter(f=>f.due && (partyFilter==='all'||f.party===partyFilter) && (metaHit||hit(f.n,t)||hit(PARTY[f.party]?.label,t)));
     if(!metaHit && !kids.length) return;
     rows.push({p:true, num:m.num, name:(m.num===999?'':`M${m.num} · `)+m.short, who:m.assignee, start:m.start||m.due, due:m.due, status:m.status, prog:metaProg(m), item:m});
-    if(m.num!==999) kids.forEach(f=>rows.push({p:false, num:m.num, name:f.n, who:PARTY[f.party]?.label||f.owner, party:f.party, start:f.start||(f.due-5*DAY), due:f.due, status:f.status, prog:peso(f), item:f}));
+    if(m.num!==999 && !PRINT_GANTT) kids.forEach(f=>rows.push({p:false, num:m.num, name:f.n, who:PARTY[f.party]?.label||f.owner, party:f.party, start:f.start||(f.due-5*DAY), due:f.due, status:f.status, prog:peso(f), item:f}));
   });
   const g=document.getElementById('gantt');
   if(!rows.length){ g.innerHTML='<div class="empty" style="border:none">Nenhum item do cronograma encontrado.</div>'; return; }
@@ -1203,7 +1227,33 @@ function applyTheme(t){ document.documentElement.dataset.theme=t; try{localStora
 let savedTheme=null; try{savedTheme=localStorage.getItem(THEME_KEY);}catch(e){}
 applyTheme(savedTheme || 'light');
 document.getElementById('btnTheme').onclick=()=>applyTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
-document.getElementById('btnPrint').onclick=()=>{ document.querySelectorAll('.meta').forEach(e=>e.classList.add('open')); window.print(); };
+window.addEventListener('beforeprint',()=>{ if(!PRINT_GANTT){ PRINT_GANTT=true; renderGantt(); } });
+window.addEventListener('afterprint',()=>{ if(PRINT_GANTT){ PRINT_GANTT=false; if(view==='gantt') renderGantt(); } });
+function prepararPDF(){
+  const prev={view, scale:ganttScale, title:document.title, open:new Set(openMetas)};
+  if(EDIT_MODE){ EDIT_MODE=false; rerenderAll(); }
+  ganttScale='fit'; PRINT_GANTT=true;
+  MAIN.forEach(m=>openMetas.add(m.num));
+  renderProjeto();                       // todos os marcos abertos
+  renderGantt();                         // cronograma completo para a última página
+  document.getElementById('view-gantt').classList.remove('print-skip');
+  document.getElementById('ganttPrintSub').textContent = 'Visão por marco · o detalhe das atividades está nas páginas anteriores · gerado em ' + new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});
+  document.querySelectorAll('.mtg').forEach(e=>e.classList.add('open'));
+  const d=new Date(); document.title='Painel_Algar_'+String(d.getDate()).padStart(2,'0')+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+d.getFullYear();
+  return prev;
+}
+function restaurarAposPDF(prev){
+  document.title=prev.title; ganttScale=prev.scale; PRINT_GANTT=false;
+  openMetas.clear(); prev.open.forEach(n=>openMetas.add(n));
+  document.querySelectorAll('.mtg').forEach(e=>e.classList.remove('open'));
+  setView(prev.view);
+}
+document.getElementById('btnPrint').onclick=()=>{
+  const prev=prepararPDF();
+  const done=()=>{ window.removeEventListener('afterprint',done); restaurarAposPDF(prev); };
+  window.addEventListener('afterprint',done);
+  setTimeout(()=>window.print(), 80);
+};
 
 /* ---------- Sincronização ---------- */
 const syncTxt = new Date(LAST_SYNC_UTC).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});

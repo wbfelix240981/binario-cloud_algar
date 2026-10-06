@@ -443,7 +443,6 @@ footer a{color:var(--brand-700);font-weight:700}
 
 /* ---------- Impressão / PDF ---------- */
 .print-only{display:none}
-@page cronograma{size:A4 landscape;margin:8mm}
 @media print{
   #login,.toolbar,.tb-actions,.chips{display:none !important}
   .topbar{position:static}
@@ -476,6 +475,114 @@ footer a{color:var(--brand-700);font-weight:700}
   .g-today b{top:6px}
   .g-legend{padding:6px 10px;font-size:10px}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* =====================================================================
+   PDF / impressão: layout de documento A4 (vem por último para valer
+   sobre as regras de tela e de celular)
+   ===================================================================== */
+@page{size:A4;margin:12mm 11mm 14mm 11mm;
+  @bottom-left{content:"Projeto Algar · BCAPI | BC Billing · Binário Cloud";font:600 8px 'Nunito Sans',sans-serif;color:#7b8b99}
+  @bottom-right{content:"Página " counter(page) " de " counter(pages);font:600 8px 'Nunito Sans',sans-serif;color:#7b8b99}}
+@page cronograma{size:A4 landscape;margin:9mm 10mm 12mm 10mm}
+@media print{
+  html,body{background:#fff !important}
+  body{font-size:11px}
+  .topbar{display:none !important}
+  .wrap{max-width:none;padding:0}
+  /* capa */
+  .hero{border-radius:12px;overflow:hidden}
+  .hero::after{display:none}
+  .hero-in{max-width:none;padding:16px 20px 18px;grid-template-columns:1fr auto;gap:16px}
+  .eyebrow{font-size:9px;padding:3px 9px}
+  .hero h1{font-size:24px;margin:8px 0 6px}
+  .hero-meta{gap:4px 14px;margin-top:8px;font-size:10px}
+  .ring,.ring svg{width:92px;height:92px}
+  .ring .num b{font-size:22px}
+  .ring .num small{font-size:8px}
+  /* indicadores e proposta */
+  .kpis{grid-template-columns:repeat(6,1fr);gap:6px;margin-top:8px}
+  .kpi{padding:8px 10px;border-radius:10px;box-shadow:none}
+  .kpi .v{font-size:20px}
+  .kpi .v small{font-size:11px !important}
+  .kpi .l{font-size:9px;margin-top:3px}
+  .kpi .bar{margin-top:6px;height:3px}
+  .sec{margin-top:14px}
+  .sec-head{margin-bottom:6px}
+  .sec-head h2{font-size:14px}
+  .sec-head h2::before{height:15px;width:4px}
+  .sec-head p{font-size:9.5px;margin-top:1px}
+  .scope{grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:0}
+  .scope div{padding:8px 10px;box-shadow:none;border-radius:10px}
+  .scope b{font-size:14px}
+  .scope span{font-size:9px}
+  /* atenção agora */
+  .attn{grid-template-columns:1fr 1fr;gap:8px}
+  .attn-col{box-shadow:none;border-radius:10px}
+  .attn-col h3{padding:6px 10px;font-size:11px}
+  .attn-item{padding:5px 10px;font-size:10px}
+  .attn-empty{padding:8px;font-size:10px}
+  /* reuniões */
+  .mtg{padding:10px 12px;box-shadow:none;border-radius:10px;break-inside:auto}
+  .mtg-h{break-after:avoid}
+  .mtg-d{width:40px;height:44px}.mtg-d b{font-size:16px}
+  .mtg h3{font-size:12.5px;margin-bottom:4px}
+  .mtg-who{font-size:8.5px;padding:2px 7px}
+  .mtg-sum{font-size:9px;margin-top:4px}
+  .mtg-chev{display:none}
+  .mtg h4{font-size:9px;margin-bottom:4px}
+  .mtg-dec{padding:8px 10px;margin-top:8px}
+  .mtg-dec ol,.mtg ul{font-size:10px;line-height:1.4}
+  .mtg-dec li,.mtg ul li{margin-bottom:3px;break-inside:avoid}
+  .mtg-dec small,.mtg-risk small,.mtg ul.pend small{font-size:8.5px}
+  .mtg-b{gap:12px;margin-top:8px}
+  .mtg ul.pend li{padding:5px 8px}
+  .mtg-risk li{padding:5px 8px;font-size:9.5px}
+  .mtg-obs{font-size:9px;margin-top:6px;padding-top:6px}
+  /* marcos: sem página em branco entre eles */
+  .metas{gap:8px;margin-top:6px}
+  .meta{break-inside:auto;box-shadow:none;border-radius:10px}
+  .meta-head{grid-template-columns:40px 1fr auto 130px;gap:10px;padding:8px 12px;break-after:avoid;break-inside:avoid}
+  .meta-head .badge{grid-column:auto;grid-row:auto}
+  .meta-head .prog{grid-column:auto}
+  .meta-head .chev{display:none}
+  .mnum{width:36px;height:36px;border-radius:10px;font-size:14px}
+  .mnum small{font-size:6.5px}
+  .mname .t{font-size:12.5px;white-space:normal}
+  .mname .s{font-size:9px;margin-top:2px;gap:4px}
+  .pill,.badge,.party{font-size:8.5px;padding:2px 7px}
+  .prog .pct{font-size:9px;width:30px}
+  .prog .track{height:6px}
+  .meta-body{padding:8px 12px 10px}
+  .meta-desc{font-size:10px;line-height:1.45;margin-bottom:6px}
+  .owner-line{margin:0 0 6px;font-size:9px}
+  .deliv,.owner-line .note{font-size:8.5px;padding:2px 8px}
+  .mini-kpis{margin-bottom:6px;gap:4px}
+  .mini-kpis span{font-size:8.5px;padding:2px 7px}
+  .checklist{padding:2px 10px;border-radius:8px}
+  .grp-t{font-size:8px;margin:6px 0 1px;break-after:avoid}
+  .grp-t.grp-extra{margin-top:6px;padding-top:6px}
+  .ativ{grid-template-columns:11px 1fr auto auto auto;gap:6px;padding:4px 2px;font-size:10px;break-inside:avoid}
+  .ativ .ext{display:none}
+  .ativ .ck{width:11px;height:11px;border-width:1.5px;border-radius:3px}
+  .ativ .an small{font-size:8.5px}
+  .ativ .an .obs{font-size:9px;padding:3px 7px;margin-top:3px}
+  .ativ .dt{font-size:8.5px}
+  .ativ .party,.ativ .dt{display:inline-flex !important}
+  /* cronograma */
+  .gantt-title h2{font-size:16px}
+  /* títulos e quebras de página */
+  #secReunioes .sec-head p{display:none}
+  #view-projeto{break-before:page}
+  .print-sec{margin:0 0 8px}
+  .print-sec h2{margin:0;font-size:16px;font-weight:900;color:var(--navy);display:flex;align-items:center;gap:8px}
+  .print-sec h2::before{content:'';width:4px;height:16px;border-radius:3px;background:var(--brand)}
+  .print-sec p{margin:2px 0 0 12px;font-size:9.5px;color:var(--text-3)}
+  .meta-head + .meta-body .meta-desc{break-before:avoid}
+  .meta{break-before:auto}
+  .meta-head{break-inside:avoid;break-after:avoid-page}
+  .meta-body > .meta-desc,.meta-body > .owner-line,.meta-body > .mini-kpis{break-inside:avoid;break-after:avoid}
+  .mtg + .mtg{margin-top:10px}
 }
 </style>
 </head>
@@ -585,6 +692,7 @@ footer a{color:var(--brand-700);font-weight:700}
 
     <div class="editbar hidden" id="editbar"></div>
     <div id="view-projeto">
+      <div class="print-only print-sec"><h2>Marcos e atividades</h2><p>Status, prazos e responsáveis de cada marco. Legenda: Binário · Algar · Binário + Algar.</p></div>
       <div class="filters">
         <div class="chips" id="chips"></div>
         <div class="chips" id="partyChips"></div>

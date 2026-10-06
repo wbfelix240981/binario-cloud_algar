@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planejamento Algar · BCAPI | BC Billing</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAiCAYAAADVhWD8AAAEOUlEQVR4nKWYa2hURxTH/+dyS8zGmM3dxEQCiVITJaa29oNWUSyWUkF8VIgNyiqoqKjER6vYVlpL1dqWBEXEBygiWBTrC+uLJYIKQf2QDyKiaR4YjclGJQpCSYI7/bB37zzuzL48cPfOzD0z57dnzpm5cynglDGAQHDFK4hChvYMhHk/RgXbAyGmkOgAsiVibleSmmQ4gs11BEVSjZKGJRWYYIipuno422dAZ1DtmJaQpsiSwtm8gzxFObuva03Env+LoQP1GTAxwUmqh2U4WwbRTYcydm6+BG0WkxeEZ5I9BlsPksSInaOJKZ2QbFcHobTZGYGohgAMHzEcZaNGoSA/H73RKHqiLzA0OCioMn8/r0nOYFvWU7ykExbzihvWrsSun7+XHkf7XuDEqbM4efpvtLV36qeJBA8JYBbPoDRAACDGACLs/eNXHwgAlIwsxpb6NWiO/IOG3TswrqoyPq0kZirxyysSLD0IAbF3ehiLMGZ0OVYuW5yUORAYhtXLwzh2sBGlJSP5uEQKHAezeHcBhIB3LU16K0NDqKtdkBRElI9rqnH0QANy83Lh97oMZvkU3Gpk7Sw4nfd8Hor1tgMAeqN9aQPNnD4VR/b9KRgQL26Y8oormOoVgPA2Gjf6pKsbXc+eSYPPXhiWwAGgdsEcbN20DtVVY41QX86vQ/PdFrebkGUUr1qStia1K8rLMGPaFO+S/pzwD89cuILwqno8bG0zwsyb85WXQAwEpqS6JmZ8PAbxKz163I6dv+8z9vji8xngcQIXjEP5YyYtGgVcyJCLVyO43XxP26u6aixyhn0gdpSguGey2ZmJB6EpLFUpDAbVQTwoy6edLg/JEIlISP42BwSDBYa9jTQwKSQQCGhaNfuPQZyCEa4a+aCsdAYQpSjkKG8a4k6cepy+l6+U9zdey9gzRSEn1UwklafdPQBPag7EY0Z8X00+WF4gF6UlRVmBtHd2YXCAv17IfpRihgGIIRGEp85eNA46+dNJABiYRB4vT5o4AdOnTdb2a+voUPTjq0yibEnPhEqk6aYRZu+eHfjko2pfe2lJMX74dr2x3+lzl7Tt3pIg7U3CWhMsLMT9O01wfOsClyPHT+L85WsAgPGVlVixtA4146u0ug8eteKzWXO1z7wU8MO4BSJs37YZ2zauM8JkIj/91ojG/Ye1EAmxzE8Zdu5pxKGjJ94b5Nyla2jYf1haFnV5omSTcHeL3/34C/46c/69QMKrNyTRYACLX5RXXM68nVQ6SSSmLn7fumk9lixaiA/HVGQGsir9Ax+H4RRGIACo/Xo+loe/gRNyEAoGEXKC+G9gAP39b9D/+jWePO1G5MZNXL9xC897ommDxGGKypnxdCABGXTcOpOrWYnNwABGIO+TiHCwYoD3qUQs+06GyvLOSBugKWH4AMLYWiC4BzLxc4ayW3tNLCvn/A83iy8+3r4GUwAAAABJRU5ErkJggg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800;6..12,900&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ Identidade visual Algar (cor-tema #28bea5) ============ */
+:root{
+  --brand:#28bea5; --brand-600:#1fa48e; --brand-700:#16806f; --brand-50:#e8f8f5; --brand-100:#c9efe8;
+  --navy:#0d2b3e; --navy-2:#143a52;
+  --bg:#f3f6f8; --surface:#ffffff; --surface-2:#f7fafb; --line:#e3e9ee; --line-2:#cfd9e1;
+  --text:#0d2b3e; --text-2:#46596a; --text-3:#7b8b99;
+  --ok:#1fa48e; --ok-bg:#e3f6f2;
+  --prog:#1f78d1; --prog-bg:#e6f0fb;
+  --warn:#d98a00; --warn-bg:#fff4dd;
+  --late:#d93848; --late-bg:#fde8ea;
+  --plan:#7a5ad8; --plan-bg:#f0ebfd;
+  --rev:#e0661b; --rev-bg:#fdeee3;
+  --idle:#7b8b99; --idle-bg:#eef2f5;
+  --shadow:0 1px 2px rgba(13,43,62,.05), 0 6px 20px -10px rgba(13,43,62,.18);
+  --r:16px;
+  --sans:'Nunito Sans',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+:root[data-theme="dark"]{
+  --bg:#0a1a24; --surface:#10232f; --surface-2:#0d1e29; --line:#1d3443; --line-2:#2a4557;
+  --text:#eaf3f6; --text-2:#b3c4cf; --text-3:#7f95a3;
+  --brand-50:#0f3330; --brand-100:#15463f;
+  --ok-bg:#0f3330; --prog-bg:#0f2a44; --warn-bg:#3a2a07; --late-bg:#3b1419; --plan-bg:#251d45; --rev-bg:#3a1f0f; --idle-bg:#1a2c38;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 26px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button{font-family:inherit}
+::selection{background:var(--brand);color:#fff}
+
+/* ---------- Topbar ---------- */
+.topbar{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;border-bottom:3px solid var(--brand)}
+.topbar-in{max-width:1220px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+.brandline{display:flex;align-items:center;gap:12px;min-width:0}
+.bc-mark{display:inline-flex;align-items:center;gap:7px;color:#fff;font-weight:800;font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+.bc-mark img{height:28px;width:auto}
+.bc-mark b{font-weight:400;color:#a9c3cf;margin-left:3px}
+.brandline .x{color:var(--brand);font-weight:900;font-size:18px}
+.client-word{font-weight:900;font-size:21px;letter-spacing:-.02em;color:#fff}
+.client-word i{font-style:normal;color:var(--brand)}
+.tb-sub{font-size:12px;color:#a9c3cf;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb-actions{display:flex;align-items:center;gap:8px}
+.sync{display:flex;align-items:center;gap:7px;font-size:12px;color:#cfe3ea;margin-right:6px}
+.sync .dot{width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 3px rgba(40,190,165,.25)}
+.icon-btn{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;font-size:12.5px;font-weight:700;cursor:pointer}
+.icon-btn:hover{background:rgba(255,255,255,.14)}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,var(--navy) 0%,var(--navy-2) 55%,#16806f 130%);color:#fff;border-radius:0 0 28px 28px}
+.hero::after{content:'';position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(40,190,165,.45),transparent 65%)}
+.hero-in{position:relative;z-index:1;max-width:1220px;margin:0 auto;padding:40px 24px 34px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);background:rgba(40,190,165,.12);border:1px solid rgba(40,190,165,.35);padding:5px 12px;border-radius:999px}
+.hero h1{font-size:clamp(28px,4vw,44px);font-weight:900;letter-spacing:-.02em;line-height:1.08;margin:14px 0 10px}
+.hero h1 span{color:var(--brand)}
+.hero p{margin:0;max-width:62ch;color:#c7dbe3;font-size:15px;line-height:1.6}
+.hero-meta{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px;font-size:13px;color:#a9c3cf}
+.hero-meta b{color:#fff;font-weight:800}
+.ring{position:relative;width:150px;height:150px;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring .bg{fill:none;stroke:rgba(255,255,255,.12);stroke-width:12}
+.ring .fg{fill:none;stroke:var(--brand);stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1)}
+.ring .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring .num b{font-size:36px;font-weight:900;line-height:1}
+.ring .num small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#a9c3cf;margin-top:4px}
+
+/* ---------- KPIs ---------- */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:-26px;position:relative;z-index:2}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 14px;box-shadow:var(--shadow);cursor:pointer;transition:transform .15s,border-color .15s}
+.kpi:hover{transform:translateY(-2px);border-color:var(--brand)}
+.kpi .v{font-size:28px;font-weight:900;line-height:1}
+.kpi .l{font-size:12px;font-weight:700;color:var(--text-3);margin-top:6px}
+.kpi .bar{height:4px;border-radius:9px;background:var(--line);margin-top:10px;overflow:hidden}
+.kpi .bar i{display:block;height:100%;border-radius:9px}
+.kpi.k-ok .v{color:var(--ok)} .kpi.k-prog .v{color:var(--prog)} .kpi.k-idle .v{color:var(--idle)}
+.kpi.k-warn .v{color:var(--warn)} .kpi.k-late .v{color:var(--late)}
+.kpi.k-late.alert{border-color:var(--late);background:linear-gradient(180deg,var(--late-bg),var(--surface))}
+
+/* ---------- Section heads ---------- */
+.sec{margin-top:34px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{margin:0;font-size:21px;font-weight:900;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+.sec-head h2::before{content:'';width:6px;height:22px;border-radius:4px;background:var(--brand)}
+.sec-head p{margin:4px 0 0 16px;color:var(--text-3);font-size:13px}
+
+/* ---------- Atenção agora ---------- */
+.attn{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.attn-col{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.attn-col h3{margin:0;padding:14px 18px;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.attn-col.late h3{color:var(--late);background:var(--late-bg)}
+.attn-col.warn h3{color:var(--warn);background:var(--warn-bg)}
+.attn-col h3 .count{font-family:var(--mono);font-size:12px;padding:2px 9px;border-radius:999px;background:var(--surface)}
+.attn-list{max-height:280px;overflow:auto;padding:6px 0}
+.attn-item{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:9px 18px;border-bottom:1px dashed var(--line);font-size:13px}
+.attn-item:last-child{border-bottom:none}
+.attn-item .t{font-weight:700}
+.attn-item .c{grid-column:1;color:var(--text-3);font-size:11.5px}
+.attn-item .d{grid-row:1/3;grid-column:2;align-self:center;text-align:right;font-family:var(--mono);font-size:11px;font-weight:600}
+.attn-col.late .d{color:var(--late)} .attn-col.warn .d{color:var(--warn)}
+.attn-empty{padding:26px 18px;text-align:center;color:var(--text-3);font-size:13px}
+
+/* ---------- Tabs + controls ---------- */
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px;box-shadow:var(--shadow);position:sticky;top:62px;z-index:20}
+.tabs{display:flex;gap:4px;background:var(--surface-2);border:1px solid var(--line);padding:4px;border-radius:999px}
+.tab{border:none;background:transparent;color:var(--text-2);font-weight:800;font-size:13px;padding:8px 16px;border-radius:999px;cursor:pointer}
+.tab.active{background:var(--brand);color:#fff;box-shadow:0 4px 12px -4px rgba(40,190,165,.7)}
+.search{position:relative;flex:1;min-width:200px;max-width:360px}
+.search input{width:100%;height:38px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--text);padding:0 14px 0 38px;font:inherit;font-size:13.5px;outline:none}
+.search input:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-50)}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text-3)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px}
+.chip{border:1px solid var(--line-2);background:var(--surface);color:var(--text-2);font-size:12px;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer}
+.chip:hover{border-color:var(--brand)}
+.chip.active{background:var(--navy);border-color:var(--navy);color:#fff}
+:root[data-theme="dark"] .chip.active{background:var(--brand);border-color:var(--brand)}
+.chip .n{font-family:var(--mono);opacity:.7;margin-left:4px}
+
+/* ---------- Badges ---------- */
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-shipped{color:var(--ok);background:var(--ok-bg)} .s-progress{color:var(--prog);background:var(--prog-bg)}
+.s-planning{color:var(--plan);background:var(--plan-bg)} .s-review{color:var(--rev);background:var(--rev-bg)}
+.s-test{color:var(--plan);background:var(--plan-bg)} .s-blocked{color:var(--late);background:var(--late-bg)}
+.s-backlog{color:var(--idle);background:var(--idle-bg)}
+.pill{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill.late{color:var(--late);background:var(--late-bg)} .pill.warn{color:var(--warn);background:var(--warn-bg)}
+.pill.block{color:#fff;background:var(--late)}
+
+/* ---------- Metas ---------- */
+.metas{display:flex;flex-direction:column;gap:12px;margin-top:12px}
+.meta{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;transition:border-color .15s}
+.meta:hover{border-color:var(--line-2)}
+.pill-int{font-size:10.5px;font-weight:800;color:#fff;background:var(--navy);padding:3px 9px;border-radius:999px;vertical-align:3px;margin-left:6px;white-space:nowrap}
+:root[data-theme="dark"] .pill-int{background:#2a4f6a}
+.meta.internal{border:1.5px dashed var(--navy)}
+.meta.is-late{border-left:5px solid var(--late)} .meta.is-warn{border-left:5px solid var(--warn)}
+.meta.is-done{border-left:5px solid var(--ok)}
+.meta-head{display:grid;grid-template-columns:58px 1fr auto 200px 28px;gap:16px;align-items:center;padding:16px 18px;cursor:pointer}
+.mnum{width:48px;height:48px;border-radius:14px;background:var(--brand-50);color:var(--brand-700);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:18px;line-height:1}
+:root[data-theme="dark"] .mnum{color:var(--brand)}
+.mnum small{font-size:8.5px;letter-spacing:.08em;font-weight:800;opacity:.8;margin-bottom:2px}
+.mname{min-width:0}
+.mname .t{font-weight:800;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mname .s{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:5px;font-size:12px;color:var(--text-3)}
+.mname .s .sep{opacity:.5}
+.prog{display:flex;align-items:center;gap:10px}
+.prog .track{flex:1;height:8px;border-radius:9px;background:var(--line);overflow:hidden}
+.prog .fill{height:100%;border-radius:9px;background:linear-gradient(90deg,var(--brand-600),var(--brand))}
+.prog .pct{font-family:var(--mono);font-size:12px;font-weight:600;width:38px;text-align:right;color:var(--text-2)}
+.chev{color:var(--text-3);transition:transform .2s}
+.meta.open .chev{transform:rotate(180deg);color:var(--brand)}
+.meta-body{display:none;border-top:1px solid var(--line);background:var(--surface-2);padding:16px 18px 18px}
+.meta.open .meta-body{display:block}
+.meta-desc{font-size:13.5px;color:var(--text-2);line-height:1.6;margin:0 0 14px}
+.mini-kpis{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.mini-kpis span{font-size:12px;font-weight:700;padding:5px 11px;border-radius:10px;background:var(--surface);border:1px solid var(--line);color:var(--text-2)}
+.mini-kpis b{font-family:var(--mono);margin-right:4px}
+
+.fase{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:8px;overflow:hidden}
+.fase-row{display:grid;grid-template-columns:1fr auto 120px auto 22px 22px;gap:12px;align-items:center;padding:11px 14px;cursor:pointer}
+.fase-row:hover{background:var(--brand-50)}
+.fase-row .fn{font-weight:700;font-size:13.5px}
+.fase-row .fn small{display:block;font-weight:600;color:var(--text-3);font-size:11.5px;margin-top:2px}
+.fase-row .who{font-size:12px;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+.fase-row .mini{height:6px;border-radius:9px;background:var(--line);overflow:hidden}
+.fase-row .mini i{display:block;height:100%;background:var(--brand)}
+.ext{color:var(--text-3);display:flex}
+.ext:hover{color:var(--brand)}
+.fase .fchev{color:var(--text-3);transition:transform .2s}
+.fase.open .fchev{transform:rotate(180deg)}
+.ativs{display:none;border-top:1px dashed var(--line);padding:6px 14px 10px 14px}
+.fase.open .ativs{display:block}
+.ativ{display:grid;grid-template-columns:16px 1fr auto auto auto 18px;gap:10px;align-items:center;padding:7px 4px;font-size:13px;border-bottom:1px solid var(--line)}
+.ativ:last-child{border-bottom:none}
+.ativ .ck{width:16px;height:16px;border-radius:5px;border:2px solid var(--line-2);display:flex;align-items:center;justify-content:center}
+.ativ.done .ck{background:var(--ok);border-color:var(--ok)}
+.ativ.done .ck::after{content:'';width:7px;height:4px;border:2px solid #fff;border-top:none;border-right:none;transform:rotate(-45deg) translate(1px,-1px)}
+.ativ.done .an{color:var(--text-3);text-decoration:line-through;text-decoration-color:var(--line-2)}
+.ativ.late .ck{border-color:var(--late);background:var(--late-bg)}
+.ativ.warn .ck{border-color:var(--warn);background:var(--warn-bg)}
+.ativ.blocked .ck{border-color:var(--late);background:var(--late)}
+.ativ.late .an{color:var(--late);font-weight:700}
+.ativ.warn .an{color:var(--warn);font-weight:700}
+.ativ .dt{font-family:var(--mono);font-size:11px;color:var(--text-3);white-space:nowrap}
+.ativ .dt s{opacity:.7}
+.ativ .dt .new{color:var(--prog);font-weight:600}
+.no-items{font-size:12.5px;color:var(--text-3);padding:6px 2px}
+
+/* ---------- Frentes paralelas ---------- */
+.side-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.side{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+.side.is-late{border-top:4px solid var(--late)} .side.is-warn{border-top:4px solid var(--warn)} .side.is-done{opacity:.75}
+.side .t{font-weight:800;font-size:14px;line-height:1.35}
+.side .f{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;color:var(--text-3)}
+.side details{font-size:12.5px;color:var(--text-2)}
+.side summary{cursor:pointer;font-weight:700;color:var(--brand-700)}
+:root[data-theme="dark"] .side summary{color:var(--brand)}
+.side ul{margin:8px 0 0;padding-left:16px;max-height:200px;overflow:auto}
+.side li{margin:3px 0}
+
+/* ---------- Gantt ---------- */
+.gantt{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;margin-top:12px}
+.g-legend{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--text-2)}
+.g-legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:6px;vertical-align:-2px}
+.g-legend .sp{margin-left:auto;display:flex;gap:4px}
+.g-legend .sp button{border:1px solid var(--line-2);background:var(--surface);color:var(--text-2);font-weight:800;font-size:11.5px;padding:4px 10px;border-radius:999px;cursor:pointer}
+.g-legend .sp button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.g-body{display:flex}
+.g-left{flex:none;width:280px;border-right:1px solid var(--line)}
+.g-scroll{flex:1;overflow-x:auto}
+.g-right{position:relative}
+.g-h{height:44px;border-bottom:1px solid var(--line);background:var(--surface-2);font-size:11px;font-weight:800;color:var(--text-3);text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;padding:0 14px}
+.g-right .g-h{padding:0;position:relative}
+.g-row{height:40px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;padding:0 14px;overflow:hidden}
+.g-row.p{background:var(--surface-2);cursor:pointer}
+.g-row.c{padding-left:30px}
+.g-row .n{font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-row.c .n{font-weight:600}
+.g-row .a{font-size:10.5px;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-rr{height:40px;border-bottom:1px solid var(--line);position:relative}
+.g-rr.p{background:var(--surface-2)}
+.g-tick{position:absolute;top:0;bottom:0;border-left:1px solid var(--line);font-size:10.5px;font-weight:800;color:var(--text-3);padding:0 6px;display:flex;align-items:center;text-transform:uppercase}
+.g-grid{position:absolute;top:44px;bottom:0;border-left:1px dashed var(--line);pointer-events:none}
+.g-bar{position:absolute;top:10px;height:20px;border-radius:7px;min-width:8px;display:flex;align-items:center;overflow:hidden;cursor:default}
+.g-bar .done{position:absolute;inset:0 auto 0 0;background:rgba(255,255,255,.28)}
+.g-bar span{position:relative;font-size:10.5px;font-weight:800;color:#fff;padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-bar.late{box-shadow:0 0 0 2px var(--late)}
+.g-over{position:absolute;top:14px;height:12px;border-radius:0 5px 5px 0;background:repeating-linear-gradient(135deg,var(--late) 0 4px,transparent 4px 8px);border:1px solid var(--late);border-left:none;opacity:.8}
+.g-ms{position:absolute;top:13px;width:14px;height:14px;transform:translateX(-50%) rotate(45deg);border-radius:3px;box-shadow:0 0 0 2px var(--surface)}
+.g-ms.late{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--late)}
+.g-today{position:absolute;top:0;bottom:0;border-left:2px solid var(--late);z-index:3;pointer-events:none}
+.g-today b{position:absolute;top:26px;left:-22px;background:var(--late);color:#fff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:6px}
+
+/* ---------- Responsáveis ---------- */
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-top:12px}
+.person{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--shadow)}
+.person .top{display:flex;align-items:center;gap:12px}
+.avatar{width:42px;height:42px;border-radius:50%;background:var(--brand);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+.person .nm{font-weight:800;font-size:14.5px}
+.person .rl{font-size:12px;color:var(--text-3)}
+.stack{display:flex;height:10px;border-radius:9px;overflow:hidden;background:var(--line);margin:14px 0 10px}
+.stack i{display:block;height:100%}
+.person .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center}
+.person .nums div{background:var(--surface-2);border-radius:10px;padding:7px 4px}
+.person .nums b{display:block;font-size:17px;font-weight:900}
+.person .nums small{font-size:10.5px;color:var(--text-3);font-weight:700}
+
+/* ---------- Footer ---------- */
+footer{margin-top:44px;border-top:1px solid var(--line);padding:22px 0 40px;font-size:12px;color:var(--text-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:var(--brand-700);font-weight:700}
+.hidden{display:none !important}
+.empty{background:var(--surface);border:1px dashed var(--line-2);border-radius:var(--r);padding:30px;text-align:center;color:var(--text-3);font-size:13.5px}
+
+/* ---------- Login ---------- */
+#login{position:fixed;inset:0;z-index:999;display:grid;grid-template-columns:1.1fr 1fr;background:var(--surface)}
+#login .side-art{background:linear-gradient(140deg,var(--navy),var(--navy-2) 60%,var(--brand-700));color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+#login .side-art::after{content:'';position:absolute;width:520px;height:520px;border-radius:50%;right:-200px;bottom:-200px;background:radial-gradient(circle,rgba(40,190,165,.5),transparent 65%)}
+#login .side-art h2{font-size:38px;font-weight:900;line-height:1.1;margin:0 0 12px;position:relative;z-index:1}
+#login .side-art h2 span{color:var(--brand)}
+#login .side-art p{color:#c7dbe3;max-width:40ch;line-height:1.6;position:relative;z-index:1}
+#login .form-side{display:flex;align-items:center;justify-content:center;padding:32px}
+.lcard{width:min(380px,100%)}
+.lcard h1{font-size:26px;font-weight:900;margin:0 0 6px}
+.lcard p{color:var(--text-3);margin:0 0 26px;font-size:14px}
+.lfield{margin-bottom:14px}
+.lfield label{display:block;font-size:12.5px;font-weight:800;margin-bottom:6px;color:var(--text-2)}
+.lfield input{width:100%;height:46px;border-radius:12px;border:1.5px solid var(--line-2);background:var(--surface);color:var(--text);padding:0 14px;font:inherit;font-size:15px;outline:none}
+.lfield input:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--brand-50)}
+.lbtn{width:100%;height:48px;border:none;border-radius:999px;background:var(--brand);color:#fff;font-weight:900;font-size:15px;cursor:pointer;margin-top:6px;box-shadow:0 8px 18px -8px rgba(40,190,165,.8)}
+.lbtn:hover{background:var(--brand-600)}
+.lerr{display:none;margin-top:14px;padding:10px 12px;border-radius:10px;background:var(--late-bg);color:var(--late);font-size:13px;font-weight:700;text-align:center}
+.lerr.show{display:block;animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.lfoot{margin-top:24px;font-size:12px;color:var(--text-3);text-align:center}
+
+
+/* ---------- Responsável (parte) ---------- */
+.party{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap;border:1px solid transparent}
+.p-bin{color:#fff;background:var(--navy)}
+:root[data-theme="dark"] .p-bin{background:#2a4f6a}
+.p-alg{color:#fff;background:var(--brand-600)}
+.p-both{color:var(--navy);background:linear-gradient(90deg,var(--brand-100),#d8e3ec);border-color:var(--line-2)}
+:root[data-theme="dark"] .p-both{color:#fff;background:linear-gradient(90deg,var(--brand-700),#2a4f6a)}
+.filters{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 18px;align-items:center}
+.filters .chips{margin:14px 0 4px}
+.chip.pc.active.p-bin,.chip.pc.active.p-alg,.chip.pc.active.p-both{border-color:transparent}
+.ativ{grid-template-columns:16px 1fr auto auto auto 18px}
+.ativ .an small{display:block;font-size:11px;color:var(--text-3);font-weight:600;margin-top:1px}
+.ativ .an .obs{display:block;margin-top:5px;font-size:12px;font-weight:600;color:var(--text-2);background:var(--brand-50);border-left:3px solid var(--brand);border-radius:6px;padding:5px 9px;white-space:pre-wrap;text-decoration:none}
+.ed-obs{flex:1 1 100%;display:flex;flex-direction:column;gap:3px;font-size:10px;font-weight:800;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em;padding-left:28px}
+.ed-obs textarea{min-height:34px;resize:vertical;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--text);font:inherit;font-size:13px;font-weight:600;padding:7px 10px;text-transform:none;letter-spacing:0}
+.ed-obs textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-50)}
+.owner-line{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:-4px 0 14px;font-size:12.5px;color:var(--text-2)}
+.owner-line .note{background:var(--warn-bg);color:var(--warn);font-weight:700;padding:4px 10px;border-radius:10px}
+.deliv{display:inline-flex;gap:6px;align-items:center;font-size:11.5px;font-weight:700;color:var(--brand-700);background:var(--brand-50);border:1px solid var(--brand-100);padding:3px 9px;border-radius:999px}
+:root[data-theme="dark"] .deliv{color:var(--brand)}
+.checklist{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 14px}
+
+/* ---------- Base da proposta ---------- */
+.scope{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+.scope div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow)}
+.scope b{display:block;font-size:20px;font-weight:900;color:var(--brand-700)}
+:root[data-theme="dark"] .scope b{color:var(--brand)}
+.scope span{font-size:12px;color:var(--text-3);font-weight:700}
+.track{display:grid;grid-template-columns:repeat(7,1fr);gap:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
+.step{position:relative;padding:16px 14px 14px;border-right:1px solid var(--line)}
+.step:last-child{border-right:none}
+.step .no{width:28px;height:28px;border-radius:50%;background:var(--brand-50);color:var(--brand-700);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;margin-bottom:8px}
+:root[data-theme="dark"] .step .no{color:var(--brand)}
+.step.has .no{background:var(--brand);color:#fff}
+.step h4{margin:0 0 4px;font-size:13.5px;font-weight:900}
+.step p{margin:0;font-size:11.5px;color:var(--text-3);line-height:1.45}
+.step .gate{display:flex;gap:6px;align-items:flex-start;margin-top:10px;font-size:11px;font-weight:700;color:var(--text-2)}
+.step .gate i{flex:none;width:9px;height:9px;background:#f2b705;transform:rotate(45deg);margin-top:3px;border-radius:2px}
+.step .links{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px}
+.step .links span{font-size:10.5px;font-weight:800;color:#fff;background:var(--brand-600);padding:2px 8px;border-radius:999px;cursor:pointer}
+.contacts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.contacts .box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;box-shadow:var(--shadow)}
+.contacts h4{margin:0 0 10px;font-size:13px;font-weight:900;display:flex;gap:8px;align-items:center}
+.contacts ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.contacts li{font-size:12.5px;color:var(--text-2)}
+.contacts li b{color:var(--text);font-weight:800}
+@media (max-width:1000px){
+  .track{grid-template-columns:repeat(2,1fr)} .step{border-bottom:1px solid var(--line)}
+  .scope{grid-template-columns:repeat(2,1fr)} .contacts{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .ativ{grid-template-columns:16px 1fr auto}
+  .ativ .party{display:none}
+}
+
+/* ---------- Reuniões ---------- */
+.mtg{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 18px;margin-bottom:12px}
+.mtg-h{display:flex;gap:14px;align-items:center;cursor:pointer;border-radius:12px}
+.mtg-h > div:nth-child(2){flex:1;min-width:0}
+.mtg-h:hover h3{color:var(--brand-700)}
+.mtg-sum{margin-top:8px;font-size:12px;font-weight:700;color:var(--text-3)}
+.mtg-chev{flex:none;color:var(--text-3);transition:transform .2s}
+.mtg.open .mtg-chev{transform:rotate(180deg);color:var(--brand)}
+.mtg-body{display:none}
+.mtg.open .mtg-body{display:block}
+@media print{ .mtg-body{display:block!important} }
+.mtg-d{flex:none;width:52px;height:56px;border-radius:12px;background:var(--navy);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.mtg-d b{font-size:22px;font-weight:900}.mtg-d span{font-size:11px;font-weight:800;text-transform:uppercase;color:var(--brand);margin-top:3px}
+.mtg h3{margin:2px 0 8px;font-size:16px;font-weight:900}
+.mtg-p{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mtg-who{font-size:11px;font-weight:800;padding:3px 9px;border-radius:999px;background:var(--idle-bg);color:var(--text-2)}
+.mtg-who.p-bin{background:var(--navy);color:#fff}.mtg-who.p-alg{background:var(--brand-600);color:#fff}
+.mtg-dur{font-size:11.5px;color:var(--text-3);font-weight:700;margin-left:4px}
+.mtg-b{display:grid;grid-template-columns:1.2fr 1fr;gap:18px;margin-top:14px}
+.mtg h4{margin:0 0 8px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3)}
+.mtg ul{margin:0;padding-left:18px;font-size:13px;color:var(--text-2);line-height:1.55}
+.mtg ul li{margin-bottom:5px}
+.mtg ul.pend{list-style:none;padding:0}
+.mtg ul.pend li{background:var(--warn-bg);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;gap:2px}
+.mtg ul.pend li span{color:var(--text);font-weight:700}
+.mtg ul.pend small{color:var(--text-3);font-size:11.5px;font-weight:700}
+.mtg ul.pend a{color:var(--brand-700);font-weight:900}
+.mtg-obs{margin-top:12px;font-size:12px;color:var(--text-3);border-top:1px dashed var(--line);padding-top:10px}
+@media (max-width:800px){ .mtg-b{grid-template-columns:1fr} }
+
+/* ---------- Modo edição ---------- */
+.editbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:12px;padding:12px 16px;border-radius:var(--r);background:var(--warn-bg);border:1.5px dashed var(--warn)}
+.editbar .eb-t{display:flex;flex-direction:column;gap:2px;font-size:12.5px;color:var(--text-2)}
+.editbar .eb-t b:first-child{color:var(--warn);font-size:14px}
+.editbar .eb-w{font-family:var(--mono);font-size:11px;color:var(--text-3)}
+.editbar .eb-a{display:flex;flex-wrap:wrap;gap:8px}
+.eb-btn{border:1px solid var(--line-2);background:var(--surface);color:var(--text);font-weight:800;font-size:12.5px;padding:8px 14px;border-radius:999px;cursor:pointer}
+.eb-btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.eb-btn:hover{filter:brightness(1.05)}
+#btnEdit.on{background:var(--brand);border-color:var(--brand)}
+.ativ.edit{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 4px}
+.ativ.edit .an{flex:1 1 280px;min-width:0}
+.ativ.edit.changed{background:var(--brand-50);border-radius:8px;padding-left:8px;padding-right:8px}
+.ativ.edit .ck{cursor:pointer;padding:0;background:var(--surface)}
+.ativ.edit.done .ck{background:var(--ok)}
+.ed-flag{color:var(--brand-700)!important;font-weight:800!important}
+.ed-group{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+.ed-group label{display:flex;flex-direction:column;gap:2px;font-size:10px;font-weight:800;color:var(--text-3);text-transform:uppercase;letter-spacing:.04em}
+.ed-group input,.ed-group select{height:32px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--text);font:inherit;font-size:12.5px;font-weight:700;padding:0 8px;text-transform:none;letter-spacing:0}
+.ed-group input:focus,.ed-group select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-50)}
+.ed-group select.ed-status{border-width:1.5px}
+.ed-group select.s-shipped{border-color:var(--ok);color:var(--ok)} .ed-group select.s-progress{border-color:var(--prog);color:var(--prog)}
+.ed-group select.s-blocked{border-color:var(--late);color:var(--late)} .ed-group select.s-review,.ed-group select.s-test,.ed-group select.s-planning{border-color:var(--plan);color:var(--plan)}
+.ed-undo{height:32px;width:32px;border-radius:8px;border:1px solid var(--line-2);background:var(--surface);color:var(--text-2);cursor:pointer;font-size:15px;font-weight:900}
+@media print{ .editbar,#btnEdit{display:none!important} }
+
+/* ---------- Responsivo ---------- */
+@media (max-width:1000px){
+  .kpis{grid-template-columns:repeat(3,1fr)}
+  .meta-head{grid-template-columns:50px 1fr 28px}
+  .meta-head .chev{grid-column:3;grid-row:1}
+  .meta-head .badge{grid-column:2;grid-row:2;justify-self:start}
+  .meta-head .prog{grid-column:1/-1}
+  .attn{grid-template-columns:1fr}
+  #login{grid-template-columns:1fr} #login .side-art{display:none}
+}
+@media (max-width:640px){
+  .wrap{padding:0 14px}
+  .topbar-in{padding:10px 14px}
+  .tb-sub,.sync span,.icon-btn .lbl,.bc-mark > span{display:none}
+  .hero-in{grid-template-columns:1fr;padding:28px 14px 40px}
+  .ring{width:120px;height:120px} .ring svg{width:120px;height:120px}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .toolbar{top:56px}
+  .search{max-width:none;min-width:100%}
+  .tabs{width:100%} .tab{flex:1;padding:8px 6px;font-size:12px}
+  .fase-row{grid-template-columns:1fr auto 22px}
+  .fase-row .who,.fase-row .mini,.fase-row .ext{display:none}
+  .ativ{grid-template-columns:16px 1fr auto;}
+  .ativ .dt,.ativ .ext{display:none}
+  .g-left{width:160px}
+}
+
+/* ---------- Impressão / PDF ---------- */
+@media print{
+  #login,.toolbar,.tb-actions,.chips{display:none !important}
+  .topbar{position:static}
+  body{background:#fff}
+  .hero{border-radius:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .meta .meta-body{display:block !important}
+  .fase .ativs{display:block !important}
+  .meta,.kpi,.attn-col,.side,.person{box-shadow:none;break-inside:avoid}
+  .attn-list{max-height:none}
+  #view-gantt,#view-pessoas{display:block !important}
+  .g-scroll{overflow:visible}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= LOGIN ================= -->
+<div id="login">
+  <div class="side-art">
+    <span class="bc-mark" style="align-self:flex-start;position:relative;z-index:1;font-size:20px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAiCAYAAADVhWD8AAAEOUlEQVR4nKWYa2hURxTH/+dyS8zGmM3dxEQCiVITJaa29oNWUSyWUkF8VIgNyiqoqKjER6vYVlpL1dqWBEXEBygiWBTrC+uLJYIKQf2QDyKiaR4YjclGJQpCSYI7/bB37zzuzL48cPfOzD0z57dnzpm5cynglDGAQHDFK4hChvYMhHk/RgXbAyGmkOgAsiVibleSmmQ4gs11BEVSjZKGJRWYYIipuno422dAZ1DtmJaQpsiSwtm8gzxFObuva03Env+LoQP1GTAxwUmqh2U4WwbRTYcydm6+BG0WkxeEZ5I9BlsPksSInaOJKZ2QbFcHobTZGYGohgAMHzEcZaNGoSA/H73RKHqiLzA0OCioMn8/r0nOYFvWU7ykExbzihvWrsSun7+XHkf7XuDEqbM4efpvtLV36qeJBA8JYBbPoDRAACDGACLs/eNXHwgAlIwsxpb6NWiO/IOG3TswrqoyPq0kZirxyysSLD0IAbF3ehiLMGZ0OVYuW5yUORAYhtXLwzh2sBGlJSP5uEQKHAezeHcBhIB3LU16K0NDqKtdkBRElI9rqnH0QANy83Lh97oMZvkU3Gpk7Sw4nfd8Hor1tgMAeqN9aQPNnD4VR/b9KRgQL26Y8oormOoVgPA2Gjf6pKsbXc+eSYPPXhiWwAGgdsEcbN20DtVVY41QX86vQ/PdFrebkGUUr1qStia1K8rLMGPaFO+S/pzwD89cuILwqno8bG0zwsyb85WXQAwEpqS6JmZ8PAbxKz163I6dv+8z9vji8xngcQIXjEP5YyYtGgVcyJCLVyO43XxP26u6aixyhn0gdpSguGey2ZmJB6EpLFUpDAbVQTwoy6edLg/JEIlISP42BwSDBYa9jTQwKSQQCGhaNfuPQZyCEa4a+aCsdAYQpSjkKG8a4k6cepy+l6+U9zdey9gzRSEn1UwklafdPQBPag7EY0Z8X00+WF4gF6UlRVmBtHd2YXCAv17IfpRihgGIIRGEp85eNA46+dNJABiYRB4vT5o4AdOnTdb2a+voUPTjq0yibEnPhEqk6aYRZu+eHfjko2pfe2lJMX74dr2x3+lzl7Tt3pIg7U3CWhMsLMT9O01wfOsClyPHT+L85WsAgPGVlVixtA4146u0ug8eteKzWXO1z7wU8MO4BSJs37YZ2zauM8JkIj/91ojG/Ye1EAmxzE8Zdu5pxKGjJ94b5Nyla2jYf1haFnV5omSTcHeL3/34C/46c/69QMKrNyTRYACLX5RXXM68nVQ6SSSmLn7fumk9lixaiA/HVGQGsir9Ax+H4RRGIACo/Xo+loe/gRNyEAoGEXKC+G9gAP39b9D/+jWePO1G5MZNXL9xC897ommDxGGKypnxdCABGXTcOpOrWYnNwABGIO+TiHCwYoD3qUQs+06GyvLOSBugKWH4AMLYWiC4BzLxc4ayW3tNLCvn/A83iy8+3r4GUwAAAABJRU5ErkJggg==" alt="" style="height:38px"><span>binário<b>cloud</b></span></span>
+    <div>
+      <h2>Projeto <span>Algar</span><br>em tempo real.</h2>
+      <p>Marcos do planejamento BCAPI | BC Billing: o que é da Binário, o que é da Algar e o que fazemos juntos.</p>
+    </div>
+    <div style="font-size:12px;color:#a9c3cf;position:relative;z-index:1">Binário Cloud · Escritório de Projetos</div>
+  </div>
+  <div class="form-side">
+    <form class="lcard" id="loginForm" autocomplete="off">
+      <h1>Entrar no painel</h1>
+      <p>Acesso restrito aos participantes do projeto.</p>
+      <div class="lfield"><label for="lu">Usuário</label><input id="lu" autocomplete="username" placeholder="seu usuário"></div>
+      <div class="lfield"><label for="lp">Senha</label><input id="lp" type="password" autocomplete="current-password" placeholder="••••••••"></div>
+      <button class="lbtn" type="submit">Entrar</button>
+      <div class="lerr" id="lerr">Usuário ou senha incorretos.</div>
+      <div class="lfoot">Painel de projeto operado pela Binário Cloud</div>
+    </form>
+  </div>
+</div>
+
+<!-- ================= TOPBAR ================= -->
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brandline">
+      <span class="bc-mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAiCAYAAADVhWD8AAAEOUlEQVR4nKWYa2hURxTH/+dyS8zGmM3dxEQCiVITJaa29oNWUSyWUkF8VIgNyiqoqKjER6vYVlpL1dqWBEXEBygiWBTrC+uLJYIKQf2QDyKiaR4YjclGJQpCSYI7/bB37zzuzL48cPfOzD0z57dnzpm5cynglDGAQHDFK4hChvYMhHk/RgXbAyGmkOgAsiVibleSmmQ4gs11BEVSjZKGJRWYYIipuno422dAZ1DtmJaQpsiSwtm8gzxFObuva03Env+LoQP1GTAxwUmqh2U4WwbRTYcydm6+BG0WkxeEZ5I9BlsPksSInaOJKZ2QbFcHobTZGYGohgAMHzEcZaNGoSA/H73RKHqiLzA0OCioMn8/r0nOYFvWU7ykExbzihvWrsSun7+XHkf7XuDEqbM4efpvtLV36qeJBA8JYBbPoDRAACDGACLs/eNXHwgAlIwsxpb6NWiO/IOG3TswrqoyPq0kZirxyysSLD0IAbF3ehiLMGZ0OVYuW5yUORAYhtXLwzh2sBGlJSP5uEQKHAezeHcBhIB3LU16K0NDqKtdkBRElI9rqnH0QANy83Lh97oMZvkU3Gpk7Sw4nfd8Hor1tgMAeqN9aQPNnD4VR/b9KRgQL26Y8oormOoVgPA2Gjf6pKsbXc+eSYPPXhiWwAGgdsEcbN20DtVVY41QX86vQ/PdFrebkGUUr1qStia1K8rLMGPaFO+S/pzwD89cuILwqno8bG0zwsyb85WXQAwEpqS6JmZ8PAbxKz163I6dv+8z9vji8xngcQIXjEP5YyYtGgVcyJCLVyO43XxP26u6aixyhn0gdpSguGey2ZmJB6EpLFUpDAbVQTwoy6edLg/JEIlISP42BwSDBYa9jTQwKSQQCGhaNfuPQZyCEa4a+aCsdAYQpSjkKG8a4k6cepy+l6+U9zdey9gzRSEn1UwklafdPQBPag7EY0Z8X00+WF4gF6UlRVmBtHd2YXCAv17IfpRihgGIIRGEp85eNA46+dNJABiYRB4vT5o4AdOnTdb2a+voUPTjq0yibEnPhEqk6aYRZu+eHfjko2pfe2lJMX74dr2x3+lzl7Tt3pIg7U3CWhMsLMT9O01wfOsClyPHT+L85WsAgPGVlVixtA4146u0ug8eteKzWXO1z7wU8MO4BSJs37YZ2zauM8JkIj/91ojG/Ye1EAmxzE8Zdu5pxKGjJ94b5Nyla2jYf1haFnV5omSTcHeL3/34C/46c/69QMKrNyTRYACLX5RXXM68nVQ6SSSmLn7fumk9lixaiA/HVGQGsir9Ax+H4RRGIACo/Xo+loe/gRNyEAoGEXKC+G9gAP39b9D/+jWePO1G5MZNXL9xC897ommDxGGKypnxdCABGXTcOpOrWYnNwABGIO+TiHCwYoD3qUQs+06GyvLOSBugKWH4AMLYWiC4BzLxc4ayW3tNLCvn/A83iy8+3r4GUwAAAABJRU5ErkJggg==" alt=""><span>binário<b>cloud</b></span></span>
+      <span class="x">×</span>
+      <span class="client-word" id="clientWord">Algar</span>
+      <span class="tb-sub" id="tbSub"></span>
+    </div>
+    <div class="tb-actions">
+      <div class="sync"><span class="dot"></span><span id="syncTxt">Sincronizado com ClickUp</span></div>
+      <button class="icon-btn hidden" id="btnEdit" title="Editar status, datas e responsáveis">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg><span class="lbl">Editar</span>
+      </button>
+      <button class="icon-btn" id="btnTheme" title="Alternar tema">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg><span class="lbl">Tema</span>
+      </button>
+      <button class="icon-btn" id="btnPrint" title="Imprimir / salvar PDF">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/></svg><span class="lbl">PDF</span>
+      </button>
+      <button class="icon-btn" id="btnLogout" title="Sair">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg><span class="lbl">Sair</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow" id="heroEyebrow">Painel de acompanhamento</span>
+      <h1 id="heroTitle"></h1>
+      <p id="heroDesc"></p>
+      <div class="hero-meta" id="heroMeta"></div>
+    </div>
+    <div class="ring">
+      <svg width="150" height="150" viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="50"/><circle class="fg" id="ringFg" cx="60" cy="60" r="50"/></svg>
+      <div class="num"><b id="ringPct">0%</b><small>concluído</small></div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <div class="kpis" id="kpis"></div>
+
+  <!-- Base da proposta -->
+  <section class="sec" id="secProposta">
+    <div class="sec-head"><div><h2>Base da proposta</h2><p id="propSub"></p></div></div>
+    <div class="scope" id="scope"></div>
+  </section>
+
+  <!-- Atenção agora -->
+  <section class="sec" id="secAttn">
+    <div class="sec-head"><div><h2>Atenção agora</h2><p>Atividades vencidas e os próximos passos definidos para o projeto.</p></div></div>
+    <div class="attn" id="attn"></div>
+  </section>
+
+  <!-- Reuniões -->
+  <section class="sec" id="secReunioes">
+    <div class="sec-head"><div><h2>Reuniões e decisões</h2><p>Clique na reunião para ver os pontos acordados e as pendências.</p></div></div>
+    <div id="reunioes"></div>
+  </section>
+
+
+  <!-- Navegação -->
+  <section class="sec">
+    <div class="toolbar">
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-v="projeto">Marcos</button>
+        <button class="tab" data-v="gantt">Cronograma</button>
+        <button class="tab" data-v="pessoas">Responsáveis</button>
+      </div>
+      <label class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="q" placeholder="Buscar marco, atividade ou responsável…">
+      </label>
+    </div>
+
+    <div class="editbar hidden" id="editbar"></div>
+    <div id="view-projeto">
+      <div class="filters">
+        <div class="chips" id="chips"></div>
+        <div class="chips" id="partyChips"></div>
+      </div>
+      <div class="metas" id="metas"></div>
+      <div class="sec hidden" id="secSide">
+        <div class="sec-head"><div><h2>Frentes paralelas e pendências</h2><p>Itens acompanhados fora dos marcos principais (não entram no índice de conclusão).</p></div></div>
+        <div class="side-grid" id="side"></div>
+      </div>
+    </div>
+
+    <div id="view-gantt" class="hidden"><div class="gantt" id="gantt"></div></div>
+    <div id="view-pessoas" class="hidden"><div class="people" id="people"></div><div class="contacts" id="contacts"></div></div>
+  </section>
+
+  <footer>
+    <span>Base: Proposta Técnica BCAPI | BC Billing v4.1 (17/09/2026), Passagem Técnica (28/09/2026), marcos sugeridos pelo time Algar e Reunião Técnica de 02/10/2026</span>
+    <span id="footGen"></span>
+  </footer>
+</main>
+
+<script>
+// Cópia do HTML original (usada pelo botão "Baixar painel atualizado").
+const PAGE_SOURCE = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+/* =====================================================================
+   CONFIGURAÇÃO DO PROJETO
+   Formato compatível com o painel Neugebauer (num, status, due, fases,
+   ativ, original_due…). Novidades opcionais:
+     - "start" em metas e fases;
+     - "party" em fases/atividades: 'binario' | 'algar' | 'ambos'.
+   Datas: milissegundos (como o ClickUp) ou texto "AAAA-MM-DD".
+   ===================================================================== */
+const PROJECT = {
+  client: 'Algar',
+  title: 'Projeto <span>Algar</span> · BCAPI | BC Billing',
+  eyebrow: 'Cloud Plus Algar · Planejamento Algar',
+  description: '',
+  sponsor: 'Binário Cloud · Escritório de Projetos',
+  sourceUrl: 'https://app.clickup.com/',
+  scheduleDraft: true   // datas estimadas; troque para false quando o cronograma for aprovado no kickoff
+};
+const LAST_SYNC_UTC = "2026-10-05T20:45:00Z";
+
+// editor:true → pode entrar no modo de edição. Hash SHA-256 de "usuario:senha". Para gerar: no console → await hashCred('usuario','senha')
+// Tela de login. false = suspensa: o painel abre direto com o acesso "binario"
+//   (pode editar; na versão interna também vê os itens internos).
+const LOGIN_ATIVO = false;
+
+const CREDENCIAIS = [
+  { usuario:'algar',   hash:'f84c258169b1d87ace70a3300507374de821fcb4329ed1677d09159e19a077d2', nome:'Acesso Algar' },
+  { usuario:'binario', hash:'3522f338cf05866513fa0cbaa23d9bace7f5288e683cba83e36d499171f073eb', nome:'Binário Cloud', editor:true }
+];
+
+/* ---------- Base da proposta (Proposta Técnica v4.1 · Passagem Técnica 28/09) ---------- */
+const PROPOSTA = {
+  ref: 'Proposta Técnica BCAPI | BC Billing v4.1 (17/09/2026) · Passagem técnica do escopo (28/09/2026)',
+  escopo: [
+    ['2.316', 'cores físicos (base de licenciamento)'],
+    ['4 regiões', 'Uberlândia, São Paulo, Nordeste e Sul'],
+    ['36 meses', 'licença BCOS 3.0 Core e suporte'],
+    ['24×7', 'suporte · Crítica 4h · Alta 8h · Média 12h · Baixa 48h']
+  ],
+  fases: [
+    {n:'Mobilização',            a:'Kickoff, governança, responsáveis, comunicação e riscos iniciais', gate:'Plano de trabalho aprovado'},
+    {n:'Descoberta e desenho',   a:'Inventário técnico, APIs, regras comerciais, integrações e segurança', gate:'Desenho detalhado validado'},
+    {n:'Preparação',             a:'Infraestrutura, conectividade, DNS, certificados e identidades', gate:'Ambiente pronto para instalação'},
+    {n:'Instalação e integração',a:'Deploy, conectores, catálogo inicial, regras e perfis de acesso', gate:'Fluxo técnico integrado'},
+    {n:'Testes e homologação',   a:'Testes funcionais, integração, segurança e cenários de billing', gate:'Evidências aceitas pelas partes'},
+    {n:'Produção e capacitação', a:'Go-live controlado, treinamento e documentação', gate:'Aceite de entrada em produção'},
+    {n:'Estabilização',          a:'Acompanhamento assistido e transição para o suporte', gate:'Encerramento da implantação'}
+  ],
+  contatos: {
+    algar: [
+      ['Flávio Roberto Janones de Sousa','Produtos · Negócios'],
+      ['Emerson Alexandre de Paulo','Brain · Novos Negócios'],
+      ['Julis Rimet Laini Oliveira','Ponto focal técnico'],
+      ['Daniel Prado Pereira Lima','Solicitante do relatório de VMs · conduziu o fluxo do Portal B2B'],
+      ['Glauberson Vilar de Oliveira','Infraestrutura OpenStack (Keystone, VMs, firewall)'],
+      ['Gabriel','UX · nomes de domínio e produto']
+    ],
+    binario: [
+      ['Wagner Bento Felix','Responsável pelo Marco 1 (SSO no Portal B2B)'],
+      ['Joab de Araújo Silva','Produto · painel de consumo, SSO e redirect'],
+      ['Guilherme','Endpoints das APIs (SKUs e consumo)'],
+      ['Rodney Botelho','Pré-Vendas'],
+      ['Tiago Oliveira','Diretor de Produtos'],
+      ['Cássio Nascimento','Account Manager']
+    ]
+  }
+};
+
+/* ---------- Registro de reuniões ---------- */
+/* ---------- Próximos passos (preenchido manualmente) ----------
+   Formato: { n:'Descrição', quem:'Responsável', party:'binario'|'algar'|'ambos', prazo:'AAAA-MM-DD', marco:'M1' } */
+const PROXIMOS_PASSOS = [];
+
+const REUNIOES = [
+ { data:'2026-10-02', titulo:'Reunião Técnica Algar x Binário', duracao:'55 min',
+   participantes:[['Wagner Bento Felix','binario'],['Joab de Araújo Silva','binario'],['Emerson Alexandre de Paulo','algar'],['Daniel Prado Pereira Lima','algar'],['Julis Rimet Laini Oliveira','algar'],['Glauberson Vilar de Oliveira','algar']],
+   pontos:[
+     'Fluxo: o cliente entra na área logada do Portal B2B, abre o Cloud Plus e, se for perfil administrador ou financeiro, clica no botão que o leva ao painel de consumo da Binário. O Mesa de TI é a visão administrativa interna da Algar.',
+     'O usuário já logado no Portal B2B cai direto na página financeira (Invoice), sem passar pela página inicial.',
+     'O painel produtivo hoje responde na porta 8080. O Joab vai ajustar para a 443, para o link ficar limpo; o que foi mostrado na reunião é o sandbox.',
+     'Para validar o SSO falta só incluir a URL do BCP no trusted dashboard da federação do Keystone (stage de São Paulo). O Glauberson fez à mão no stage e vai consolidar nos templates do director.',
+     'O Cloud Plus de São Paulo usa hoje o Red Hat SSO como IdP. O painel de consumo usa o Identity Hub, que precisa estar configurado como provedor no Keystone de produção (São Paulo e Uberlândia).',
+     'O painel terá seletor de região: o cliente vê só as regiões do contrato, porque o token do SSO devolve apenas o que ele tem acesso.',
+     'Criar projeto em outra região gera um roteador, que consome IPv4 público e capacidade de rede. Proposta da Algar: cobrar por roteador/projeto e por banda (100 Mb a 1 Gb), via aditivo contratual.',
+     'Ciclos de faturamento mensais nos dias 3, 12 e 21. A mediação da Algar já consome as APIs da Binário.',
+     'Calculadora: na V1 segue a calculadora da Algar; o menu da calculadora da Binário fica desabilitado (ou aponta para o endereço interno da VPN). O nome "billing" pode mudar; a área de UX (Gabriel) participa da decisão.',
+     'Domínios: definir os nomes do painel de consumo e da calculadora para emitir um único certificado cobrindo os dois.',
+     'As VMs foram criadas para a POC e precisam ser ajustadas para produção: nomes, rede, CPU, memória, disco (o consumo guarda histórico), redundância e isolamento dos serviços.',
+     'As liberações de firewall pendentes da reunião anterior dependem dos domínios, dos requisitos técnicos e de onde o ambiente será hospedado.',
+     'O relatório de consumo por VM é um desejo do comercial da Algar (prospectar clientes com ambiente sobrecarregado) e não consta no escopo da proposta; está em avaliação.',
+     'A API de SKUs e flavors já existe no pacote da Binário; o Guilherme envia os endpoints.',
+     'A coleta nas novas regiões (Nordeste e Sul, Canonical) começa a ser configurada na próxima semana. É crítica: sem coleta, não há faturamento.',
+     'Usuários do Mesa de TI: por enquanto a Binário cria sob demanda; depois a criação será automática via Blazon, o sistema de solicitação de acessos da Algar.',
+     'Kickoff na semana seguinte, conforme a agenda do Emerson. A Binário reforçou o time (Joab, Guilherme e mais um time de delivery) e vai liberar este painel para a Algar acompanhar o projeto.'
+   ],
+   pendencias:[
+     ['Enviar as diretrizes de dimensionamento do ambiente produtivo (CPU, memória, disco, redundância)','Joab → Glauberson','M6'],
+     ['Definir os domínios do painel de consumo e da calculadora (com UX/Gabriel)','Julis','M6'],
+     ['Gerar a chave privada e o CSR de um certificado único para os dois domínios','Joab + Glauberson','M6'],
+     ['Incluir a URL do BCP no trusted dashboard do Keystone (stage SP)','Glauberson','M1'],
+     ['Configurar o Identity Hub no Keystone de produção (SP e Uberlândia)','Algar + Binário','M1'],
+     ['Publicar o painel produtivo na porta 443','Joab','M2'],
+     ['Enviar os endpoints da API de SKUs e flavors','Guilherme (Binário)','M3'],
+     ['Retornar sobre o relatório de consumo por VM (fora do escopo da proposta)','Wagner','M4'],
+     ['Levar ao Janones a proposta de cobrança por roteador/projeto e por banda e dar retorno a Daniel e Glauberson','Julis','M6'],
+     ['Iniciar a coleta nas regiões Nordeste e Sul','Binário','M6'],
+     ['Liberar o acesso ao Mesa de TI e criar os usuários','Binário','M1']
+   ],
+   obs:'Registro feito a partir da gravação completa (55 min), transcrita automaticamente; trechos com áudio ruim podem ter imprecisões.'
+ }
+];
+
+/* ---------- MARCOS (sugestão do time Algar) — Kickoff 07/10, término estimado 30/10 ----------
+   "fases" de cada marco = atividades da lista; party indica quem executa. */
+const METAS = [
+ { num:0, id:'', status:'backlog', start:'2026-10-07', due:'2026-10-07',
+   name:'Marco 0 — Kickoff do planejamento Algar', short:'Kickoff',
+   assignee:'Wagner Bento Felix', tags:['Governança'],
+   entregavel:'Plano de projeto e governança',
+   detail:'Reunião de abertura com Binário Cloud e Algar para validar os marcos, as datas estimadas, os responsáveis de cada atividade e a cadência de acompanhamento.',
+   fases:[
+    {n:'Realizar a reunião de kickoff', party:'ambos', status:'backlog', start:'2026-10-07', due:'2026-10-07', id:''},
+    {n:'Validar marcos, responsáveis e datas estimadas', party:'ambos', status:'backlog', start:'2026-10-07', due:'2026-10-07', id:''},
+    {n:'Definir pontos focais e cadência de acompanhamento', party:'ambos', status:'backlog', start:'2026-10-07', due:'2026-10-07', id:''},
+    {n:'Publicar este painel e liberar usuários para a Algar acompanhar o projeto', party:'binario', assignee:'Wagner Bento Felix', status:'in progress', start:'2026-10-02', due:'2026-10-07', id:'', origem:'Reunião 02/10'}
+   ]},
+ { num:1, id:'', status:'backlog', start:'2026-10-07', due:'2026-10-30',
+   name:'Marco 1 — SSO no Portal B2B (Azure AD + Keystone)', short:'SSO no Portal B2B',
+   assignee:'Wagner Bento Felix', tags:['Portal B2B','Identidade'],
+   entregavel:'Portal e APIs habilitados',
+   detail:'Login único no Portal B2B com Microsoft Entra ID (Azure), federado no Keystone do OpenStack, cobrindo dev, hml e prod. Atende ao controle "Identidade e acesso" da proposta (item 6.2).',
+   fases:[
+    {n:'Levantar como o portal autentica hoje', party:'ambos', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:''},
+    {n:'Confirmar a versão do OpenStack e se a federação no Keystone já está habilitada', party:'binario', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:''},
+    {n:'Definir se só usuários internos entram pelo Azure ou se clientes B2B também vão usar o Azure deles', party:'ambos', status:'backlog', start:'2026-10-08', due:'2026-10-14', id:''},
+    {n:'Criar o App Registration no Azure, com redirect URIs de dev, hml e prod', party:'binario', status:'backlog', start:'2026-10-13', due:'2026-10-15', id:''},
+    {n:'Definir as claims e grupos do Azure e o mapeamento para projeto e role no Keystone', party:'binario', status:'backlog', start:'2026-10-14', due:'2026-10-19', id:''},
+    {n:'Configurar o Identity Provider e o mapping no Keystone', party:'binario', status:'backlog', start:'2026-10-19', due:'2026-10-22', id:''},
+    {n:'Ajustar o backend do portal para o fluxo OIDC (login, troca de token, sessão, logout)', party:'algar', status:'backlog', start:'2026-10-15', due:'2026-10-23', id:''},
+    {n:'Ajustar o front (botão de login com Microsoft, callback, mensagens de erro)', party:'algar', status:'backlog', start:'2026-10-20', due:'2026-10-26', id:''},
+    {n:'Validar os cenários de MFA, token expirado e usuário removido do grupo', party:'ambos', status:'backlog', start:'2026-10-26', due:'2026-10-28', id:''},
+    {n:'Documentar e combinar a virada', party:'ambos', status:'backlog', start:'2026-10-29', due:'2026-10-30', id:''},
+    {n:'Testar o SSO no ambiente sandbox', party:'binario', assignee:'Joab de Araújo Silva', status:'in progress', start:'2026-10-02', due:'2026-10-14', id:'', origem:'Reunião 02/10'},
+    {n:'Incluir a URL do BCP no trusted dashboard da federação do Keystone (stage SP) para validar o SSO', party:'algar', assignee:'Glauberson Vilar de Oliveira', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:'', origem:'Reunião 02/10'},
+    {n:'Criar os usuários do Mesa de TI automaticamente via Blazon (até lá, a Binário cria sob demanda)', party:'ambos', status:'backlog', start:'2026-10-19', due:'2026-10-26', id:'', origem:'Reunião 02/10 · pedido do Julis'},
+    {n:'Configurar o Identity Hub como provedor de identidade no Keystone de produção (São Paulo e Uberlândia)', party:'ambos', status:'backlog', start:'2026-10-13', due:'2026-10-23', id:'', origem:'Reunião 02/10'},
+    {n:'Consolidar a federação do Keystone nos templates do director (hoje feita à mão no stage)', party:'algar', assignee:'Glauberson Vilar de Oliveira', status:'backlog', start:'2026-10-13', due:'2026-10-21', id:'', origem:'Reunião 02/10'},
+    {n:'Liberar o acesso ao Mesa de TI e criar os usuários solicitados', party:'binario', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:'', origem:'Reunião 02/10'}
+   ]},
+ { num:2, id:'', status:'backlog', start:'2026-10-08', due:'2026-10-30',
+   name:'Marco 2 — Redirect do BCP API para o Portal B2B', short:'Redirect do BCP API para o Portal B2B',
+   assignee:'Time Algar', tags:['Portal B2B','Integração','billing.cloudalgar.com.br'],
+   entregavel:'Portal e APIs habilitados',
+   detail:'Fluxo combinado na reunião de 02/10: o cliente entra na área logada do Portal B2B, onde vê todos os produtos da Algar, inclusive o Cloud Plus. Quem tem perfil administrador ou financeiro vê um botão que o redireciona para o painel de custos da Binário (billing.cloudalgar.com.br), com o contexto assinado na URL. O Mesa de TI é a visão de administração interna e não é o destino do cliente.',
+   fases:[
+    {n:'Definir o formato da URL e como o contexto vai assinado', party:'algar', status:'backlog', start:'2026-10-08', due:'2026-10-14', id:''},
+    {n:'Criar no backend o endpoint que recebe e valida', party:'algar', status:'backlog', start:'2026-10-15', due:'2026-10-21', id:''},
+    {n:'Criar no front a rota que leva o usuário para a tela certa', party:'algar', status:'backlog', start:'2026-10-21', due:'2026-10-26', id:''},
+    {n:'Testar ponta a ponta', party:'algar', status:'backlog', start:'2026-10-27', due:'2026-10-30', id:''},
+    {n:'Confirmar o sistema de destino: billing.cloudalgar.com.br (visão do cliente), não o Mesa de TI', party:'ambos', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:'', origem:'Reunião 02/10'},
+    {n:'Publicar o painel produtivo na porta 443 (hoje responde na 8080), com link limpo', party:'binario', assignee:'Joab de Araújo Silva', status:'backlog', start:'2026-10-07', due:'2026-10-14', id:'', origem:'Reunião 02/10'},
+    {n:'Exibir o botão de custos só para os perfis administrador e financeiro do Cloud Plus', party:'algar', status:'backlog', start:'2026-10-15', due:'2026-10-21', id:'', origem:'Reunião 02/10'},
+    {n:'Levar o usuário já logado direto à página financeira (Invoice), sem passar pela inicial', party:'binario', assignee:'Joab de Araújo Silva', status:'backlog', start:'2026-10-13', due:'2026-10-20', id:'', origem:'Reunião 02/10'},
+    {n:'Configurar o redirect em produção (mesmo link do sandbox, sem o "sandbox")', party:'binario', assignee:'Joab de Araújo Silva', status:'backlog', start:'2026-10-20', due:'2026-10-23', id:'', origem:'Reunião 02/10'}
+   ]},
+ { num:3, id:'', status:'backlog', start:'2026-10-07', due:'2026-10-30',
+   name:'Marco 3 — API de SKUs e Flavors', short:'API de SKUs e Flavors',
+   assignee:'Time Algar', tags:['Catálogo','API'],
+   entregavel:'Catálogo e regras iniciais',
+   note:'Execução do time Algar. A atuação da Binário é só enviar o link (endpoints da API, que já existe no pacote).',
+   detail:'A Algar quer um lugar único para consultar o valor de SKUs e flavors, e esse lugar será a Binário. API que expõe SKUs e a ligação com os flavors do Nova no formato que o time consumidor espera. Conecta-se ao catálogo de produtos e SKUs do BC Billing (item 4.2 da proposta).',
+   fases:[
+    {n:'Enviar o link para o time Algar (endpoints da API de SKUs e flavors, já existente no pacote)', party:'binario', assignee:'Guilherme (Binário)', status:'backlog', start:'2026-10-07', due:'2026-10-07', id:'', origem:'Reunião 02/10'},
+    {n:'Entender com o time consumidor o formato esperado e se precisa de preço ou só de especificação', party:'algar', status:'backlog', start:'2026-10-08', due:'2026-10-09', id:''},
+    {n:'Mapear de onde vêm os SKUs e como eles se ligam aos flavors do Nova', party:'algar', status:'backlog', start:'2026-10-13', due:'2026-10-15', id:''},
+    {n:'Montar o contrato da API (OpenAPI) e validar com o consumidor', party:'algar', status:'backlog', start:'2026-10-16', due:'2026-10-20', id:''},
+    {n:'Definir a autenticação da API', party:'algar', status:'backlog', start:'2026-10-16', due:'2026-10-20', id:''},
+    {n:'Implementar o endpoint com a transformação para o formato deles', party:'algar', status:'backlog', start:'2026-10-21', due:'2026-10-27', id:''},
+    {n:'Fazer os testes, a documentação e o deploy', party:'algar', status:'backlog', start:'2026-10-27', due:'2026-10-29', id:''},
+    {n:'Homologar com o time consumidor', party:'algar', status:'backlog', start:'2026-10-29', due:'2026-10-30', id:''}
+   ]},
+ { num:4, id:'', status:'backlog', start:'2026-10-08', due:'2026-10-30',
+   name:'Marco 4 — Relatório de utilização de VMs para o Daniel', short:'Relatório de utilização de VMs',
+   assignee:'Binário Cloud', tags:['Relatório','Observabilidade'],
+   entregavel:'Portal e dashboards (consumo e tendências)',
+   note:'Não consta no escopo da proposta. É um desejo do comercial da Algar; está em avaliação.',
+   detail:'Objetivo, segundo a reunião de 02/10: dar ao comercial da Algar visibilidade de clientes com ambiente sobrecarregado, para oferecer aumento de recursos. Relatório de uso das VMs com métricas, agrupamento, frequência e formato definidos com o Daniel Prado Pereira Lima (Algar). Usa as fontes de consumo previstas na proposta (Nova, Gnocchi, Prometheus).',
+   fases:[
+    {n:'Entender com o Daniel quais métricas, o agrupamento, a frequência e o formato do relatório', party:'binario', status:'backlog', start:'2026-10-08', due:'2026-10-09', id:''},
+    {n:'Ver de onde tirar os dados (Gnocchi, Prometheus, banco do Nova) e se tem histórico suficiente', party:'binario', status:'backlog', start:'2026-10-13', due:'2026-10-14', id:''},
+    {n:'Montar um rascunho do relatório e validar com ele', party:'binario', status:'backlog', start:'2026-10-15', due:'2026-10-19', id:''},
+    {n:'Implementar a extração', party:'binario', status:'backlog', start:'2026-10-20', due:'2026-10-26', id:''},
+    {n:'Automatizar a geração, se for recorrente', party:'binario', status:'backlog', start:'2026-10-27', due:'2026-10-30', id:''},
+    {n:'Confirmar o escopo com o comercial (o relatório não consta na proposta)', party:'ambos', assignee:'Wagner Bento Felix', status:'in progress', start:'2026-10-02', due:'2026-10-09', id:'', origem:'Reunião 02/10'}
+   ]},
+ { num:6, id:'', status:'backlog', start:'2026-10-07', due:'2026-10-30',
+   name:'Marco 6 — Ambiente produtivo, domínios e novas regiões', short:'Ambiente produtivo e novas regiões',
+   assignee:'Wagner Bento Felix', tags:['Infraestrutura','Certificados','Regiões'],
+   entregavel:'Solução instalada e configurada · Conectores e coleta inicial',
+   detail:'Frentes que saíram da reunião de 02/10: levar as VMs da POC para produção, definir domínios e certificado, liberar firewall e começar a coleta no Nordeste e no Sul (Canonical). Sem coleta nas novas regiões não há faturamento.',
+   fases:[
+    {n:'Enviar as diretrizes de dimensionamento do ambiente produtivo (CPU, memória, disco, redundância) para o Glauberson', party:'binario', assignee:'Joab de Araújo Silva', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:'', origem:'Reunião 02/10'},
+    {n:'Definir os domínios do painel de consumo e da calculadora (com UX/Gabriel)', party:'algar', assignee:'Julis Rimet Laini Oliveira', status:'backlog', start:'2026-10-07', due:'2026-10-14', id:'', origem:'Reunião 02/10'},
+    {n:'Começar a coleta nas novas regiões Nordeste e Sul (Canonical)', party:'binario', status:'backlog', start:'2026-10-07', due:'2026-10-23', id:'', origem:'Reunião 02/10'},
+    {n:'Definir a cobrança por roteador/projeto e por banda (avaliar aditivo contratual com Produtos)', party:'algar', assignee:'Julis Rimet Laini Oliveira', status:'backlog', start:'2026-10-07', due:'2026-10-16', id:'', origem:'Reunião 02/10'},
+    {n:'Desabilitar o menu da calculadora da Binário na V1 ou apontá-lo para o endereço interno (VPN)', party:'ambos', status:'backlog', start:'2026-10-13', due:'2026-10-16', id:'', origem:'Reunião 02/10'},
+    {n:'Ajustar as VMs da POC para produção (nomes, rede, recursos e isolamento dos serviços)', party:'algar', assignee:'Glauberson Vilar de Oliveira', status:'backlog', start:'2026-10-13', due:'2026-10-23', id:'', origem:'Reunião 02/10'},
+    {n:'Gerar a chave privada e o CSR e emitir um único certificado para os dois domínios', party:'ambos', assignee:'Joab + Glauberson', status:'backlog', start:'2026-10-15', due:'2026-10-21', id:'', origem:'Reunião 02/10'},
+    {n:'Criar o seletor de região no painel de consumo (só as regiões do contrato)', party:'binario', assignee:'Joab de Araújo Silva', status:'backlog', start:'2026-10-19', due:'2026-10-26', id:'', origem:'Reunião 02/10'},
+    {n:'Liberar firewall e acesso externo conforme domínio e local de hospedagem', party:'algar', status:'backlog', start:'2026-10-21', due:'2026-10-28', id:'', origem:'Reunião 02/10'}
+   ]},
+ { num:7, id:'', status:'backlog', start:'2026-10-13', due:'2026-10-30',
+   name:'Marco 7 — Alarmística da coleta com abertura de chamado no ITSM (Jira)', short:'Alarmística da coleta + chamado no Jira',
+   assignee:'Wagner Bento Felix', tags:['Observabilidade','ITSM','Jira'],
+   entregavel:'Observabilidade operacional (item 6.3 da proposta)',
+   detail:'Quando a coleta parar ou falhar em qualquer região, um alarme dispara e abre automaticamente um chamado no ITSM (Jira) da Algar, para que a falha seja tratada antes de impactar o faturamento. A proposta prevê o acompanhamento da execução das coletas, do atraso de eventos e das falhas de processamento (item 6.3).',
+   fases:[
+    {n:'Definir o que é falha de coleta (sem dados por X horas, erro de API, atraso de eventos) e a severidade de cada caso', party:'ambos', status:'backlog', start:'2026-10-13', due:'2026-10-15', id:'', origem:'Definido em 05/10'},
+    {n:'Levantar no Jira da Algar o projeto/fila, o tipo de chamado, os campos obrigatórios e a prioridade', party:'algar', status:'backlog', start:'2026-10-13', due:'2026-10-16', id:'', origem:'Definido em 05/10'},
+    {n:'Liberar credencial e acesso à API do Jira para abertura automática de chamados', party:'algar', status:'backlog', start:'2026-10-16', due:'2026-10-19', id:'', origem:'Definido em 05/10'},
+    {n:'Configurar o monitoramento da coleta por região (Uberlândia, São Paulo, Nordeste e Sul)', party:'binario', status:'backlog', start:'2026-10-19', due:'2026-10-23', id:'', origem:'Definido em 05/10'},
+    {n:'Configurar o alarme e a integração que abre o chamado no Jira automaticamente', party:'binario', status:'backlog', start:'2026-10-21', due:'2026-10-26', id:'', origem:'Definido em 05/10'},
+    {n:'Testar simulando uma parada da coleta (alarme disparado e chamado aberto no Jira)', party:'ambos', status:'backlog', start:'2026-10-27', due:'2026-10-28', id:'', origem:'Definido em 05/10'},
+    {n:'Documentar o fluxo de atendimento: quem recebe o chamado e o prazo por severidade (SLA da proposta)', party:'ambos', status:'backlog', start:'2026-10-29', due:'2026-10-30', id:'', origem:'Definido em 05/10'}
+   ]}
+
+];
+
+/* =====================================================================
+   A PARTIR DAQUI: LÓGICA DO PAINEL (não precisa editar)
+   ===================================================================== */
+const STATUS = {
+  'backlog':    {label:'Não iniciado', cls:'s-backlog',  color:'#7b8b99'},
+  'in planning':{label:'Planejamento', cls:'s-planning', color:'#7a5ad8'},
+  'in progress':{label:'Em andamento', cls:'s-progress', color:'#1f78d1'},
+  'in test':    {label:'Em teste',     cls:'s-test',     color:'#7a5ad8'},
+  'in review':  {label:'Em revisão',   cls:'s-review',   color:'#e0661b'},
+  'blocked':    {label:'Bloqueada',    cls:'s-blocked',  color:'#d93848'},
+  'shipped':    {label:'Concluído',    cls:'s-shipped',  color:'#1fa48e'}
+};
+const PARTY = {
+  binario:{label:'Binário',         cls:'p-bin',  color:'#0d2b3e'},
+  algar:  {label:'Algar',           cls:'p-alg',  color:'#1fa48e'},
+  ambos:  {label:'Binário + Algar', cls:'p-both', color:'#7fb9b0'}
+};
+const ACTIVE = ['in planning','in progress','in test','in review'];
+// Quanto cada status vale no % de conclusão (ajuste se quiser outra régua).
+const STATUS_PESO = {'backlog':0, 'in planning':0.1, 'in progress':0.5, 'in review':0.75, 'in test':0.75, 'blocked':0, 'shipped':1};
+const peso = x => STATUS_PESO[x.status] ?? 0;
+const DAY = 86400000;
+
+const toMs = v => v==null||v==='' ? null : (typeof v==='number' ? v : (/^\d+$/.test(v) ? Number(v) : new Date(v+(String(v).length===10?'T12:00:00':'')).getTime()));
+const sod = ms => { const d=new Date(ms); d.setHours(0,0,0,0); return d.getTime(); };
+const sow = ms => { const d=new Date(sod(ms)); d.setDate(d.getDate()-((d.getDay()+6)%7)); return d.getTime(); };
+const TODAY = sod(Date.now()), WEEK_START = sow(Date.now()), WEEK_END = WEEK_START+7*DAY-1;
+const fmt = ms => ms ? new Date(ms).toLocaleDateString('pt-BR',{day:'2-digit',month:'short'}).replace('.','') : '—';
+const fmtY = ms => ms ? new Date(ms).toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'}).replace('.','') : '—';
+const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const st = s => STATUS[s] || {label:s, cls:'s-backlog', color:'#7b8b99'};
+const badge = s => `<span class="badge ${st(s).cls}">${st(s).label}</span>`;
+const partyChip = p => PARTY[p] ? `<span class="party ${PARTY[p].cls}">${PARTY[p].label}</span>` : '';
+const cuLink = id => id ? `<a class="ext" href="https://app.clickup.com/t/${id}" target="_blank" rel="noopener" title="Abrir no ClickUp" onclick="event.stopPropagation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/></svg></a>` : '<span></span>';
+
+METAS.forEach(m=>{
+  m.due=toMs(m.due); m.start=toMs(m.start);
+  m._orig={status:m.status, start:m.start, due:m.due};
+  (m.fases||[]).forEach((f,fi)=>{ f.due=toMs(f.due); f.start=toMs(f.start); f.original_due=toMs(f.original_due);
+    f.key=m.num+'.'+fi; f._orig={status:f.status, start:f.start, due:f.due, party:f.party, obs:f.obs||''};
+    (f.ativ||[]).forEach((a,ai)=>{ a.due=toMs(a.due); a.original_due=toMs(a.original_due);
+      a.key=m.num+'.'+fi+'.'+ai; a._orig={status:a.status, start:toMs(a.start), due:a.due, party:a.party, obs:a.obs||''}; }); });
+});
+
+/* ---------- Edições (modo edição) ----------
+   SAVED_EDITS guarda as alterações já embutidas no arquivo (via "Baixar painel atualizado").
+   As alterações feitas neste navegador ficam também no localStorage. */
+const SAVED_EDITS = /*EDITS_START*/{}/*EDITS_END*/;
+const EDIT_KEY = 'algar_painel_edicoes_v1';
+let EDITS = JSON.parse(JSON.stringify(SAVED_EDITS));
+try{ const l=JSON.parse(localStorage.getItem(EDIT_KEY)||'null'); if(l && (l._updated||'') > (EDITS._updated||'')) EDITS=l; }catch(e){}
+function saveEdits(){ EDITS._updated=new Date().toISOString(); try{ localStorage.setItem(EDIT_KEY, JSON.stringify(EDITS)); }catch(e){} }
+const editCount = () => Object.keys(EDITS).filter(k=>k[0]!=='_').length;
+function forEachItem(fn){ METAS.forEach(m=>m.fases.forEach(f=>{ fn(f); (f.ativ||[]).forEach(fn); })); }
+function deriveStatus(list, fallback){
+  if(!list.length) return fallback;
+  if(list.every(x=>x.status==='shipped')) return 'shipped';
+  if(list.some(x=>x.status==='blocked')) return 'blocked';
+  if(list.some(x=>x.status!=='backlog')) return 'in progress';
+  return 'backlog';
+}
+function applyEdits(){
+  forEachItem(x=>{ const o=x._orig, e=EDITS[x.key]||{};
+    x.status = e.status ?? o.status; x.party = e.party ?? o.party; x.obs = e.obs ?? o.obs;
+    x.start = e.start ? toMs(e.start) : o.start; x.due = e.due ? toMs(e.due) : o.due;
+    if(x.start && x.due && x.start > x.due) x.start = x.due; });
+  METAS.forEach(m=>{
+    const lv=leaves(m);
+    m.status = deriveStatus(lv, m._orig.status);
+    const st=lv.map(x=>x.start||x.due).filter(Boolean), du=lv.map(x=>x.due).filter(Boolean);
+    m.start = st.length ? Math.min(...st) : m._orig.start; m.due = du.length ? Math.max(...du) : m._orig.due;
+  });
+}
+// Marcos internos (internal:true) só aparecem para quem entra com usuário editor (binario).
+if(!LOGIN_ATIVO){
+  try{ sessionStorage.setItem('algar_painel_sessao', JSON.stringify({nome:'Binário Cloud', editor:true})); }catch(e){}
+}
+const VIEW_INTERNAL = (()=>{ if(!LOGIN_ATIVO) return true; try{ const v=sessionStorage.getItem('algar_painel_sessao'); if(!v) return false;
+  try{ const o=JSON.parse(v); if(o&&typeof o==='object') return !!o.editor; }catch(e){} return v==='Binário Cloud'; }catch(e){ return false; } })();
+const VISIBLE = METAS.filter(m=>!m.internal || VIEW_INTERNAL);
+const MAIN = VISIBLE.filter(m=>m.num!==999 && !m.excludeFromIndex);
+const SIDE = VISIBLE.filter(m=>m.num===999 || m.excludeFromIndex);
+
+// Itens "folha" de uma meta: atividades da fase, ou a própria fase quando ela não tem atividades.
+function leaves(m){
+  const byDate=(a,b)=>((a.start||a.due||0)-(b.start||b.due||0))||((a.due||0)-(b.due||0));
+  return m.fases.slice().sort(byDate).flatMap(f => (f.ativ&&f.ativ.length)
+    ? f.ativ.map(a=>({...a, party:a.party||f.party, fase:f.n, meta:m.short, metaNum:m.num, owner:a.assignee||f.assignee||m.assignee}))
+    : [{...f, fase:'', meta:m.short, metaNum:m.num, owner:f.assignee||m.assignee}]);
+}
+const allLeaves = list => list.flatMap(leaves);
+
+function dueState(item){
+  if(item.status==='shipped') return null;
+  const d = item.original_due ?? item.due;
+  if(!d) return null;
+  const day = sod(d);
+  if(day < TODAY) return 'late';
+  if(day <= WEEK_END) return 'warn';
+  return null;
+}
+const daysLate = item => Math.round((TODAY - sod(item.original_due ?? item.due))/DAY);
+const isDone = x => x.status==='shipped';
+function metaProg(m){
+  const l=leaves(m);
+  if(!l.length) return isDone(m)?1:0;
+  return l.reduce((t,x)=>t+peso(x),0)/l.length;
+}
+
+let view='projeto', statusFilter='all', partyFilter='all', ganttScale='fit', EDIT_MODE=false;
+applyEdits();
+const openMetas=new Set();   // marcos começam minimizados
+
+/* ---------- Cabeçalho, anel, KPIs ---------- */
+function renderHeader(){
+  document.getElementById('heroTitle').innerHTML = PROJECT.title;
+  document.getElementById('heroEyebrow').textContent = PROJECT.eyebrow;
+  const hd=document.getElementById('heroDesc'); hd.textContent = PROJECT.description; hd.style.display = PROJECT.description ? '' : 'none';
+  const ini=Math.min(...MAIN.map(m=>m.start||m.due)), fim=Math.max(...MAIN.map(m=>m.due));
+  const total=fim-ini, decorrido=Math.min(Math.max(TODAY-ini,0),total);
+  const lv=allLeaves(MAIN);
+  const cntP = p => lv.filter(x=>x.party===p).length;
+  document.getElementById('heroMeta').innerHTML =
+    `<span>Kickoff <b>${fmtY((MAIN.find(m=>m.num===0)||{}).due||ini)}</b></span><span>Término ${PROJECT.scheduleDraft?'estimado':'previsto'} <b>${fmtY(fim)}</b></span>`+
+    `<span>Tempo decorrido <b>${total>0?Math.round(decorrido/total*100):0}%</b></span>`+
+    `<span>Atividades <b>${cntP('binario')} Binário · ${cntP('algar')} Algar · ${cntP('ambos')} conjuntas</b></span>`;
+  document.getElementById('tbSub').textContent = '· Planejamento Algar';
+
+  const pct = lv.length ? Math.round(lv.reduce((t,x)=>t+peso(x),0)/lv.length*100) : 0;
+  const C=2*Math.PI*50, fg=document.getElementById('ringFg');
+  fg.style.strokeDasharray=C; fg.style.strokeDashoffset=C;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>fg.style.strokeDashoffset=C*(1-pct/100)));
+  document.getElementById('ringPct').textContent=pct+'%';
+
+  const doneM = MAIN.filter(isDone).length, andamento = MAIN.filter(m=>ACTIVE.includes(m.status)).length;
+  const all = allLeaves(VISIBLE);
+  const late = all.filter(a=>dueState(a)==='late').length;
+  const prox = all.filter(a=>!isDone(a) && dueState(a)!=='late' && (a.original_due??a.due) && sod(a.original_due??a.due)<=TODAY+14*DAY).length;
+  const doneL = lv.filter(isDone).length;
+  const k = (cls,v,l,barPct,col,act)=>`<div class="kpi ${cls}" data-act="${act||''}"><div class="v">${v}</div><div class="l">${l}</div>${barPct!=null?`<div class="bar"><i style="width:${barPct}%;background:${col}"></i></div>`:''}</div>`;
+  document.getElementById('kpis').innerHTML =
+    k('', MAIN.length, 'Marcos (com o kickoff)', null,null,'all') +
+    k('k-ok', doneM, 'Marcos concluídos', MAIN.length?doneM/MAIN.length*100:0,'var(--ok)','shipped') +
+    k('k-prog', andamento, 'Marcos em andamento', MAIN.length?andamento/MAIN.length*100:0,'var(--prog)','in progress') +
+    k('k-idle', `${doneL}<small style="font-size:15px;color:var(--text-3)">/${lv.length}</small>`, 'Atividades entregues', lv.length?doneL/lv.length*100:0,'var(--brand)','') +
+    k('k-warn', PROXIMOS_PASSOS.length, 'Próximos passos', null,null,'attn') +
+    k('k-late'+(late?' alert':''), late, 'Atividades atrasadas', null,null,'attn');
+  document.querySelectorAll('.kpi').forEach(el=>el.onclick=()=>{
+    const a=el.dataset.act;
+    if(a==='attn') document.getElementById('secAttn').scrollIntoView({behavior:'smooth'});
+    else if(a){ setView('projeto'); statusFilter=a; renderProjeto(); document.getElementById('tabs').scrollIntoView({behavior:'smooth',block:'center'}); }
+  });
+}
+
+/* ---------- Atenção agora ---------- */
+function renderAttn(){
+  const items = [...allLeaves(VISIBLE), ...SIDE.map(m=>({...m, n:m.short, meta:'Frente paralela', fase:'', owner:m.assignee}))];
+  const dOf = a => a.original_due ?? a.due;
+  const late = items.filter(a=>dueState(a)==='late').sort((a,b)=>daysLate(b)-daysLate(a));
+  const prox = items.filter(a=>!isDone(a) && dueState(a)!=='late' && dOf(a) && sod(dOf(a))<=TODAY+14*DAY).sort((a,b)=>dOf(a)-dOf(b));
+  const row = (a,kind)=>`<div class="attn-item"><span class="t">${esc(a.n)} ${partyChip(a.party)}${a.status==='blocked'?' <span class="pill block">bloqueada</span>':''}</span>
+    <span class="c">${esc(a.meta)}${a.fase?' · '+esc(a.fase):''}</span>
+    <span class="d">${kind==='late'?`${daysLate(a)}d de atraso<br>`:''}${fmt(dOf(a))}${a.original_due&&a.due&&a.due!==a.original_due?` → ${fmt(a.due)}`:''}</span></div>`;
+  document.getElementById('attn').innerHTML = `
+    <div class="attn-col late"><h3>⚠ Atrasadas <span class="count">${late.length}</span></h3>
+      <div class="attn-list">${late.length?late.map(a=>row(a,'late')).join(''):'<div class="attn-empty">Nenhuma atividade atrasada.</div>'}</div></div>
+    <div class="attn-col warn"><h3>● Próximos passos <span class="count">${PROXIMOS_PASSOS.length}</span></h3>
+      <div class="attn-list">${PROXIMOS_PASSOS.length?PROXIMOS_PASSOS.map(x=>`<div class="attn-item"><span class="t">${esc(x.n)} ${partyChip(x.party)}</span>
+        <span class="c">${[x.marco, x.quem?'👤 '+x.quem:''].filter(Boolean).map(esc).join(' · ')}</span><span class="d">${x.prazo?fmt(toMs(x.prazo)):''}</span></div>`).join(''):'<div class="attn-empty">Nenhum próximo passo registrado.</div>'}</div></div>
+`;
+}
+
+/* ---------- Base da proposta ---------- */
+function renderReunioes(){
+  document.getElementById('reunioes').innerHTML = REUNIOES.map(r=>`
+    <article class="mtg">
+      <div class="mtg-h" role="button" tabindex="0" aria-expanded="false" title="Clique para ver o que foi acordado"><div class="mtg-d"><b>${new Date(toMs(r.data)).toLocaleDateString('pt-BR',{day:'2-digit'})}</b><span>${new Date(toMs(r.data)).toLocaleDateString('pt-BR',{month:'short'}).replace('.','')}</span></div>
+        <div><h3>${esc(r.titulo)}</h3><div class="mtg-p">${r.participantes.map(([n,p])=>`<span class="mtg-who ${PARTY[p]?PARTY[p].cls:''}">${esc(n)}</span>`).join('')}${r.duracao?`<span class="mtg-dur">⏱ ${esc(r.duracao)}</span>`:''}</div>
+          <div class="mtg-sum">${r.pontos.length} pontos acordados · ${r.pendencias.length} pendências</div></div>
+        <svg class="mtg-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></div>
+      <div class="mtg-body"><div class="mtg-b">
+        <div><h4>Pontos combinados</h4><ul>${r.pontos.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></div>
+        <div><h4>Pendências</h4><ul class="pend">${r.pendencias.map(([t,o,m])=>`<li><span>${esc(t)}</span><small>👤 ${esc(o)}${m?` · <a href="#" data-goto="${m.replace('M','')}">${m}</a>`:''}</small></li>`).join('')}</ul></div>
+      </div>
+      ${r.obs?`<div class="mtg-obs">ⓘ ${esc(r.obs)}</div>`:''}</div>
+    </article>`).join('');
+  document.querySelectorAll('#reunioes .mtg-h').forEach(h=>{
+    const tg=()=>{ const a=h.parentElement; a.classList.toggle('open'); h.setAttribute('aria-expanded', a.classList.contains('open')); };
+    h.onclick=tg; h.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); tg(); } };
+  });
+  document.querySelectorAll('#reunioes [data-goto]').forEach(a=>a.onclick=e=>{e.preventDefault(); goMeta(Number(a.dataset.goto));});
+}
+function renderProposta(){
+  document.getElementById('propSub').textContent = PROPOSTA.ref + '.';
+  document.getElementById('scope').innerHTML = PROPOSTA.escopo.map(([v,l])=>`<div><b>${esc(v)}</b><span>${esc(l)}</span></div>`).join('');
+  if(document.getElementById('track')) document.getElementById('track').innerHTML = PROPOSTA.fases.map((f,i)=>{
+    const ms = MAIN.filter(m=>(m.fasesProposta||[]).includes(i));
+    return `<div class="step${ms.length?' has':''}"><div class="no">${i}</div><h4>${esc(f.n)}</h4><p>${esc(f.a)}</p>
+      <div class="gate"><i></i><span>${esc(f.gate)}</span></div>
+      ${ms.length?`<div class="links">${ms.map(m=>`<span data-m="${m.num}" title="${esc(m.short)}">M${m.num}</span>`).join('')}</div>`:''}</div>`;
+  }).join('');
+  if(false) document.querySelectorAll('#track .links span').forEach(s=>s.onclick=()=>goMeta(Number(s.dataset.m)));
+  const box=(t,list,p)=>`<div class="box"><h4>${partyChip(p)} ${t}</h4><ul>${list.map(([n,r])=>`<li><b>${esc(n)}</b> · ${esc(r)}</li>`).join('')}</ul></div>`;
+  document.getElementById('contacts').innerHTML = box('Contatos Binário Cloud',PROPOSTA.contatos.binario,'binario') + box('Contatos Algar',PROPOSTA.contatos.algar,'algar');
+}
+function goMeta(n){
+  openMetas.add(n); setView('projeto');
+  setTimeout(()=>document.querySelector(`.meta[data-m="${n}"]`)?.scrollIntoView({behavior:'smooth',block:'start'}),60);
+}
+
+/* ---------- Visão: Marcos ---------- */
+const q = () => document.getElementById('q').value.trim().toLowerCase();
+const hit = (s,t) => !t || String(s||'').toLowerCase().includes(t);
+
+function renderChips(){
+  const defs=[['all','Todos'],['backlog','Não iniciado'],['in progress','Em andamento'],['in review','Em revisão'],['blocked','Bloqueado'],['shipped','Concluído']];
+  document.getElementById('chips').innerHTML = defs.map(([k,l])=>{
+    const n = k==='all'?MAIN.length:MAIN.filter(m=>m.status===k).length;
+    if(k!=='all' && !n) return '';
+    return `<button class="chip${statusFilter===k?' active':''}" data-k="${k}">${l}<span class="n">${n}</span></button>`;
+  }).join('');
+  document.querySelectorAll('#chips .chip').forEach(c=>c.onclick=()=>{statusFilter=c.dataset.k; renderProjeto();});
+  const lv=allLeaves(MAIN);
+  document.getElementById('partyChips').innerHTML = [['all','Todos os responsáveis'],...Object.entries(PARTY).map(([k,v])=>[k,v.label])].map(([k,l])=>{
+    const n = k==='all'?lv.length:lv.filter(x=>x.party===k).length;
+    return `<button class="chip pc${partyFilter===k?' active':''}${partyFilter===k&&PARTY[k]?' '+PARTY[k].cls:''}" data-p="${k}">${l}<span class="n">${n}</span></button>`;
+  }).join('');
+  document.querySelectorAll('#partyChips .chip').forEach(c=>c.onclick=()=>{partyFilter=c.dataset.p; renderProjeto();});
+}
+
+const isoDay = ms => { if(!ms) return ''; const d=new Date(ms); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); };
+function itemEditHtml(a){
+  const s=dueState(a), done=isDone(a), changed=!!EDITS[a.key];
+  const cls = done?'done':a.status==='blocked'?'blocked':s==='late'?'late':s==='warn'?'warn':'';
+  return `<div class="ativ edit ${cls}${changed?' changed':''}" data-k="${a.key}">
+    <button class="ck" data-act="toggle" title="${done?'Reabrir':'Marcar como concluída'}"></button>
+    <span class="an">${esc(a.n)}${(a.fase||a.assignee)?`<small>${[a.fase, a.assignee?'👤 '+a.assignee:''].filter(Boolean).map(esc).join(' · ')}</small>`:''}${changed?'<small class="ed-flag">alterada</small>':''}</span>
+    <span class="ed-group">
+      <label>Início<input type="date" data-f="start" value="${isoDay(a.start)}"></label>
+      <label>Prazo<input type="date" data-f="due" value="${isoDay(a.due)}"></label>
+      <label>Responsável<select data-f="party">${Object.entries(PARTY).map(([k,v])=>`<option value="${k}"${k===a.party?' selected':''}>${v.label}</option>`).join('')}</select></label>
+      <label>Status<select data-f="status" class="ed-status ${st(a.status).cls}">${Object.entries(STATUS).map(([k,v])=>`<option value="${k}"${k===a.status?' selected':''}>${v.label}</option>`).join('')}</select></label>
+      ${changed?`<button class="ed-undo" data-act="undo" title="Voltar ao original">↺</button>`:'<span style="width:32px"></span>'}
+    </span>
+    <label class="ed-obs">Comentário<textarea data-f="obs" rows="1" maxlength="500" placeholder="Escreva um comentário sobre esta atividade (opcional)">${esc(a.obs||'')}</textarea></label></div>`;
+}
+function itemHtml(a){
+  if(EDIT_MODE) return itemEditHtml(a);
+  const s=dueState(a), done=isDone(a);
+  const cls = done?'done':a.status==='blocked'?'blocked':s==='late'?'late':s==='warn'?'warn':'';
+  const orig=a.original_due??a.due, moved=a.original_due&&a.due&&a.due!==a.original_due;
+  const tag = done?badge('shipped'):a.status==='blocked'?'<span class="pill block">Bloqueada</span>':s==='late'?`<span class="pill late">${daysLate(a)}d atraso</span>`:s==='warn'?'<span class="pill warn">Esta semana</span>':badge(a.status);
+  return `<div class="ativ ${cls}"><span class="ck"></span><span class="an">${esc(a.n)}${(a.fase||a.assignee||a.origem)?`<small>${[a.fase, a.assignee?'👤 '+a.assignee:'', a.origem?'🗒 '+a.origem:''].filter(Boolean).map(esc).join(' · ')}</small>`:''}${a.obs?`<span class="obs">💬 ${esc(a.obs)}</span>`:''}</span>
+    <span class="dt">${a.start?fmt(a.start)+' → ':''}${orig?(moved?`<s>${fmt(orig)}</s> <span class="new" title="Prazo replanejado">→ ${fmt(a.due)}</span>`:fmt(orig)):''}</span>
+    ${partyChip(a.party)}${tag}${cuLink(a.id)}</div>`;
+}
+
+function renderProjeto(){
+  renderChips();
+  const t=q(), el=document.getElementById('metas');
+  const list = MAIN.filter(m=>statusFilter==='all'||m.status===statusFilter).map(m=>{
+    const metaHit = !t || hit(m.name,t)||hit(m.assignee,t)||(m.tags||[]).some(x=>hit(x,t));
+    const items = leaves(m).filter(a=>(partyFilter==='all'||a.party===partyFilter) && (metaHit||hit(a.n,t)||hit(a.fase,t)||hit(a.obs,t)||hit(PARTY[a.party]?.label,t)));
+    return (items.length || (metaHit && partyFilter==='all')) ? {m, items} : null;
+  }).filter(Boolean);
+
+  el.innerHTML = list.length ? list.map(({m,items})=>{
+    const p=Math.round(metaProg(m)*100), lv=leaves(m);
+    const nl=lv.filter(a=>dueState(a)==='late').length, nw=lv.filter(a=>dueState(a)==='warn').length, done=lv.filter(isDone).length;
+    const cP = k => lv.filter(a=>a.party===k).length;
+    const open = t || partyFilter!=='all' || openMetas.has(m.num);
+    const cls = isDone(m)?'is-done':nl?'is-late':nw?'is-warn':'';
+    return `<article class="meta ${cls}${open?' open':''}${m.internal?' internal':''}" data-m="${m.num}">
+      <div class="meta-head">
+        <div class="mnum"><small>MARCO</small>${String(m.num).padStart(2,'0')}</div>
+        <div class="mname"><div class="t">${esc(m.short)}${m.internal?' <span class="pill-int">🔒 Interno · só Binário</span>':''}</div>
+          <div class="s">${m.assignee?`<span>👤 ${esc(m.assignee)}</span><span class="sep">•</span>`:''}<span>📅 ${fmt(m.start)} → ${fmt(m.due)}</span>
+          ${nl?`<span class="pill late">⚠ ${nl} atrasada${nl>1?'s':''}</span>`:''}${nw?`<span class="pill warn">● ${nw} esta semana</span>`:''}</div></div>
+        ${badge(m.status)}
+        <div class="prog"><div class="track"><div class="fill" style="width:${p}%"></div></div><div class="pct">${p}%</div></div>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="meta-body">
+        ${m.detail?`<p class="meta-desc">${esc(m.detail)}</p>`:''}
+        <div class="owner-line">
+          ${m.entregavel?`<span class="deliv">◆ Entregável da proposta: ${esc(m.entregavel)}</span>`:''}
+          ${m.note?`<span class="note">${esc(m.note)}</span>`:''}
+        </div>
+        <div class="mini-kpis"><span><b>${lv.length}</b>atividades</span><span style="color:var(--ok)"><b>${done}</b>concluídas</span>
+          ${cP('binario')?`<span><b>${cP('binario')}</b>Binário</span>`:''}${cP('algar')?`<span><b>${cP('algar')}</b>Algar</span>`:''}${cP('ambos')?`<span><b>${cP('ambos')}</b>conjuntas</span>`:''}
+          ${nl?`<span style="color:var(--late)"><b>${nl}</b>atrasadas</span>`:''}</div>
+        <div class="checklist">${items.length?items.map(itemHtml).join(''):'<div class="no-items">Nenhuma atividade para esse filtro.</div>'}</div>
+      </div></article>`;
+  }).join('') : '<div class="empty">Nenhum marco encontrado para esse filtro.</div>';
+
+  el.querySelectorAll('.meta-head').forEach(h=>h.onclick=()=>{
+    const art=h.parentElement, n=Number(art.dataset.m);
+    art.classList.toggle('open'); art.classList.contains('open')?openMetas.add(n):openMetas.delete(n);
+  });
+  renderSide(t);
+  renderEditBar();
+}
+
+function renderSide(t){
+  const list = SIDE.filter(m=>!t||hit(m.name,t)||hit(m.assignee,t));
+  document.getElementById('secSide').classList.toggle('hidden', !list.length);
+  document.getElementById('side').innerHTML = list.map(m=>{
+    const s=dueState(m);
+    return `<div class="side ${isDone(m)?'is-done':s==='late'||m.status==='blocked'?'is-late':s==='warn'?'is-warn':''}">
+      <div class="t">${esc(m.short)}</div>
+      <div class="f"><span>${m.assignee?'👤 '+esc(m.assignee):'Sem responsável'}</span>${badge(m.status)}</div>
+      <div class="f"><span>📅 Prazo ${fmt(m.due)}</span>${s==='late'?`<span class="pill late">${daysLate(m)}d atraso</span>`:s==='warn'?'<span class="pill warn">esta semana</span>':''}</div>
+    </div>`;}).join('');
+}
+
+/* ---------- Visão: Cronograma ---------- */
+function renderGantt(){
+  const t=q(), rows=[];
+  [...MAIN, ...SIDE.filter(m=>m.due)].forEach(m=>{
+    const metaHit=hit(m.name,t)||hit(m.assignee,t);
+    const kids=leaves(m).filter(f=>f.due && (partyFilter==='all'||f.party===partyFilter) && (metaHit||hit(f.n,t)||hit(PARTY[f.party]?.label,t)));
+    if(!metaHit && !kids.length) return;
+    rows.push({p:true, num:m.num, name:(m.num===999?'':`M${m.num} · `)+m.short, who:m.assignee, start:m.start||m.due, due:m.due, status:m.status, prog:metaProg(m), item:m});
+    if(m.num!==999) kids.forEach(f=>rows.push({p:false, num:m.num, name:f.n, who:PARTY[f.party]?.label||f.owner, party:f.party, start:f.start||(f.due-5*DAY), due:f.due, status:f.status, prog:peso(f), item:f}));
+  });
+  const g=document.getElementById('gantt');
+  if(!rows.length){ g.innerHTML='<div class="empty" style="border:none">Nenhum item do cronograma encontrado.</div>'; return; }
+
+  const min=Math.min(...rows.map(r=>r.start), TODAY)-4*DAY, max=Math.max(...rows.map(r=>r.due), TODAY)+4*DAY;
+  const span=max-min, pxDay = ganttScale==='week'?30 : ganttScale==='month'?10 : null;
+  const width = pxDay ? Math.round(span/DAY*pxDay)+'px' : '100%';
+  const X = ms => ((ms-min)/span*100).toFixed(3)+'%';
+  const ticks=[]; const c=new Date(min); c.setDate(1); c.setHours(0,0,0,0);
+  while(c.getTime()<max){ if(c.getTime()>=min) ticks.push(c.getTime()); c.setMonth(c.getMonth()+1); }
+  const weekTicks=[]; { let w=sow(min)+7*DAY; while(w<max){ weekTicks.push(w); w+=7*DAY; } }
+
+  let lateN=0;
+  const left = rows.map(r=>`<div class="g-row ${r.p?'p':'c'}" ${r.p&&r.num!==999?`data-m="${r.num}"`:''}><span class="n">${esc(r.name)}</span><span class="a">${esc(r.who||'—')} · ${fmt(r.start)} → ${fmt(r.due)}</span></div>`).join('');
+  const right = rows.map(r=>{
+    const s=dueState(r.item); if(s==='late') lateN++;
+    const col = r.p ? st(r.status).color==='#7b8b99' ? '#28bea5' : st(r.status).color : (isDone(r.item)?'#1fa48e':PARTY[r.party]?.color||st(r.status).color);
+    const over = s==='late' ? `<div class="g-over" style="left:${X(r.due)};width:calc(${X(TODAY)} - ${X(r.due)})" title="${daysLate(r.item)} dia(s) além do prazo"></div>` : '';
+    if(r.num===999) return `<div class="g-rr p"><div class="g-ms${s==='late'?' late':''}" style="left:${X(r.due)};background:${col}" title="${esc(r.name)} · prazo ${fmtY(r.due)}"></div>${over}</div>`;
+    return `<div class="g-rr ${r.p?'p':''}"><div class="g-bar${s==='late'?' late':''}" style="left:${X(r.start)};width:calc(${X(r.due+DAY*0.85)} - ${X(r.start)});background:${col}" title="${esc(r.name)} · ${esc(r.who||'')} · ${st(r.status).label} · ${fmtY(r.start)} → ${fmtY(r.due)}">
+      <div class="done" style="width:${Math.round(r.prog*100)}%"></div><span>${r.p?Math.round(r.prog*100)+'%':(PARTY[r.party]?.label||'')}</span></div>${over}</div>`;
+  }).join('');
+
+  g.innerHTML = `<div class="g-legend">
+      <span><i style="background:#28bea5"></i>Marco</span>
+      ${Object.values(PARTY).map(p=>`<span><i style="background:${p.color}"></i>${p.label}</span>`).join('')}
+      <span><i style="background:#1fa48e"></i>Concluída</span>
+      <span><i style="background:repeating-linear-gradient(135deg,var(--late) 0 3px,transparent 3px 6px);border:1px solid var(--late)"></i>Dias além do prazo (${lateN})</span>
+      <span class="sp">${[['fit','Ajustar'],['month','Mês'],['week','Semana']].map(([k,l])=>`<button data-s="${k}" class="${ganttScale===k?'active':''}">${l}</button>`).join('')}</span>
+    </div>
+    <div class="g-body">
+      <div class="g-left"><div class="g-h">Marco / atividade</div>${left}</div>
+      <div class="g-scroll"><div class="g-right" style="width:${width};min-width:100%">
+        <div class="g-h">${ticks.map(m=>`<div class="g-tick" style="left:${X(m)}">${new Date(m).toLocaleDateString('pt-BR',{month:'short',year:'2-digit'}).replace('.','')}</div>`).join('')}</div>
+        ${weekTicks.map(w=>`<div class="g-grid" style="left:${X(w)}"></div>`).join('')}
+        ${right}
+        <div class="g-today" style="left:${X(Date.now())}"><b>Hoje</b></div>
+      </div></div>
+    </div>`;
+  g.querySelectorAll('.sp button').forEach(b=>b.onclick=()=>{ganttScale=b.dataset.s; renderGantt();});
+  g.querySelectorAll('.g-row[data-m]').forEach(r=>r.onclick=()=>goMeta(Number(r.dataset.m)));
+}
+
+/* ---------- Visão: Responsáveis ---------- */
+function renderPeople(){
+  const t=q(), lv=allLeaves(VISIBLE);
+  const cards = Object.entries(PARTY).map(([k,p])=>{
+    const items=lv.filter(a=>a.party===k && (hit(p.label,t)||hit(a.n,t)||hit(a.meta,t)));
+    if(!items.length) return '';
+    const done=items.filter(isDone).length, late=items.filter(a=>dueState(a)==='late').length;
+    const warn=items.filter(a=>dueState(a)==='warn').length, open=items.length-done;
+    const w=x=>(x/items.length*100)+'%';
+    const marcos=[...new Set(items.map(a=>'M'+a.metaNum+' '+a.meta))];
+    const prox=items.filter(a=>!isDone(a)).sort((a,b)=>a.due-b.due)[0];
+    return `<div class="person"><div class="top"><div class="avatar" style="background:${p.color}">${k==='ambos'?'B+A':p.label[0]}</div>
+      <div><div class="nm">${p.label}</div><div class="rl">${items.length} atividade(s) · ${marcos.length} marco(s)</div></div></div>
+      <div class="stack"><i style="width:${w(done)};background:var(--ok)"></i><i style="width:${w(open-late-warn)};background:var(--prog)"></i><i style="width:${w(warn)};background:var(--warn)"></i><i style="width:${w(late)};background:var(--late)"></i></div>
+      <div class="nums"><div><b style="color:var(--ok)">${done}</b><small>concluídas</small></div><div><b style="color:var(--prog)">${open}</b><small>abertas</small></div>
+      <div><b style="color:var(--warn)">${warn}</b><small>na semana</small></div><div><b style="color:var(--late)">${late}</b><small>atrasadas</small></div></div>
+      <div style="margin-top:12px;font-size:12px;color:var(--text-2);line-height:1.6">${marcos.map(esc).join('<br>')}</div>
+      ${prox?`<div style="margin-top:10px;font-size:12px;color:var(--text-3)">Próxima: <b style="color:var(--text)">${esc(prox.n)}</b> · ${fmt(prox.due)}</div>`:''}</div>`;
+  }).join('');
+  document.getElementById('people').innerHTML = cards || '<div class="empty">Nenhum responsável encontrado.</div>';
+}
+
+/* ---------- Navegação ---------- */
+function setView(v){
+  view=v;
+  document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.v===v));
+  ['projeto','gantt','pessoas'].forEach(x=>document.getElementById('view-'+x).classList.toggle('hidden',x!==v));
+  ({projeto:renderProjeto, gantt:renderGantt, pessoas:renderPeople})[v]();
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>setView(b.dataset.v));
+document.getElementById('q').addEventListener('input',()=>setView(view));
+
+/* ---------- Tema / impressão ---------- */
+const THEME_KEY='algar_painel_tema';
+function applyTheme(t){ document.documentElement.dataset.theme=t; try{localStorage.setItem(THEME_KEY,t);}catch(e){} }
+let savedTheme=null; try{savedTheme=localStorage.getItem(THEME_KEY);}catch(e){}
+applyTheme(savedTheme || 'light');
+document.getElementById('btnTheme').onclick=()=>applyTheme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+document.getElementById('btnPrint').onclick=()=>{ document.querySelectorAll('.meta').forEach(e=>e.classList.add('open')); window.print(); };
+
+/* ---------- Sincronização ---------- */
+const syncTxt = new Date(LAST_SYNC_UTC).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
+document.getElementById('syncTxt').textContent='Atualizado em '+syncTxt;
+document.getElementById('footGen').textContent=(PROJECT.scheduleDraft?'⚠ Datas estimadas, a validar no kickoff (12/10 é feriado e não tem atividades) · ':'')+'Atualizado em '+syncTxt+' · '+PROJECT.sponsor;
+
+/* ---------- Login ----------
+   Continua sendo uma barreira leve (o arquivo é estático), mas agora:
+   senhas não ficam em texto no código, a sessão expira ao fechar o
+   navegador e há botão "Sair". */
+// SHA-256 em JavaScript puro: funciona em http://, file:// e pré-visualizações,
+// onde o navegador às vezes bloqueia crypto.subtle.
+function sha256Hex(str){
+  const bytes=[...new TextEncoder().encode(str)];
+  const K=[],H=[];let n=2,c=0;
+  const frac=x=>((x-Math.floor(x))*4294967296)>>>0;
+  while(c<64){let p=true;for(let i=2;i*i<=n;i++)if(n%i===0){p=false;break;}
+    if(p){if(c<8)H[c]=frac(Math.pow(n,1/2));K[c++]=frac(Math.pow(n,1/3));}n++;}
+  const l=bytes.length*8; bytes.push(0x80); while(bytes.length%64!==56) bytes.push(0);
+  for(let i=7;i>=0;i--) bytes.push(i>3?0:(l>>>(i*8))&255);
+  const r=(x,k)=>(x>>>k)|(x<<(32-k)), w=new Array(64);
+  for(let j=0;j<bytes.length;j+=64){
+    for(let i=0;i<16;i++) w[i]=(bytes[j+4*i]<<24)|(bytes[j+4*i+1]<<16)|(bytes[j+4*i+2]<<8)|bytes[j+4*i+3];
+    for(let i=16;i<64;i++){const a=w[i-15],b=w[i-2];
+      w[i]=(w[i-16]+(r(a,7)^r(a,18)^(a>>>3))+w[i-7]+(r(b,17)^r(b,19)^(b>>>10)))|0;}
+    let [a,b,cc,d,e,f,g,h]=H;
+    for(let i=0;i<64;i++){
+      const t1=(h+(r(e,6)^r(e,11)^r(e,25))+((e&f)^(~e&g))+K[i]+w[i])|0;
+      const t2=((r(a,2)^r(a,13)^r(a,22))+((a&b)^(a&cc)^(b&cc)))|0;
+      h=g;g=f;f=e;e=(d+t1)|0;d=cc;cc=b;b=a;a=(t1+t2)|0;}
+    H[0]=(H[0]+a)|0;H[1]=(H[1]+b)|0;H[2]=(H[2]+cc)|0;H[3]=(H[3]+d)|0;
+    H[4]=(H[4]+e)|0;H[5]=(H[5]+f)|0;H[6]=(H[6]+g)|0;H[7]=(H[7]+h)|0;}
+  return H.map(x=>(x>>>0).toString(16).padStart(8,'0')).join('');
+}
+async function hashCred(u,p){ return sha256Hex(String(u).trim().toLowerCase()+':'+String(p)); }
+const SESSION_KEY='algar_painel_sessao';
+function getSess(){ try{return sessionStorage.getItem(SESSION_KEY);}catch(e){return null;} }
+function setSess(v){ try{ v?sessionStorage.setItem(SESSION_KEY,v):sessionStorage.removeItem(SESSION_KEY);}catch(e){} }
+if(getSess() || !LOGIN_ATIVO) document.getElementById('login').classList.add('hidden');
+if(!LOGIN_ATIVO) document.getElementById('btnLogout').classList.add('hidden');
+document.getElementById('loginForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const u=document.getElementById('lu').value, p=document.getElementById('lp').value.trim();
+  let ok=null;
+  try{ const h=await hashCred(u,p); ok=CREDENCIAIS.find(c=>c.usuario===u.trim().toLowerCase()&&c.hash===h); }catch(err){}
+  if(ok){ setSess(JSON.stringify({nome:ok.nome, editor:!!ok.editor})); location.reload(); }
+  else { const er=document.getElementById('lerr'); er.classList.remove('show'); void er.offsetWidth; er.classList.add('show'); document.getElementById('lp').value=''; }
+});
+document.getElementById('btnLogout').onclick=()=>{ setSess(null); location.reload(); };
+
+/* ---------- Inicialização ---------- */
+/* ---------- Modo edição ---------- */
+function sessInfo(){
+  if(!LOGIN_ATIVO) return {nome:'Binário Cloud', editor:true};
+  const v=getSess(); if(!v) return null;
+  try{ const o=JSON.parse(v); if(o && typeof o==='object') return o; }catch(e){}
+  const c=CREDENCIAIS.find(c=>c.nome===v);           // sessão gravada por versão anterior do painel
+  return {nome:v, editor:!!(c&&c.editor)};
+}
+function updateEditorUI(){
+  const s=sessInfo();
+  document.getElementById('btnEdit').classList.toggle('hidden', !LOGIN_ATIVO && !(s&&s.editor));
+  if(!(s&&s.editor) && EDIT_MODE){ EDIT_MODE=false; rerenderAll(); }
+}
+function rerenderAll(){ document.getElementById('btnEdit').classList.toggle('on',EDIT_MODE); renderHeader(); renderAttn(); setView(view); renderFootGen(); }
+function setEdit(key, field, value){
+  let o=null; forEachItem(x=>{ if(x.key===key) o=x._orig; });
+  if(!o) return;
+  const e = EDITS[key] || {};
+  if(field==='obs') value=String(value).trim();
+  const origVal = (field==='start'||field==='due') ? isoDay(o[field]) : (o[field]||'');
+  if(value===origVal || (value==='' && field!=='obs')) delete e[field]; else e[field]=value;
+  if(Object.keys(e).length) EDITS[key]=e; else delete EDITS[key];
+  saveEdits(); applyEdits(); rerenderAll();
+}
+function renderEditBar(){
+  const bar=document.getElementById('editbar');
+  bar.classList.toggle('hidden', !EDIT_MODE);
+  if(!EDIT_MODE) return;
+  const n=editCount();
+  bar.innerHTML = `<div class="eb-t"><b>✎ Modo edição</b><span>Mude status, datas, responsáveis e comentários direto nas atividades. O status de cada marco é calculado sozinho.<br><span class="eb-w">Peso no %: Não iniciado 0 · Planejamento 10 · Em andamento 50 · Em revisão/teste 75 · Concluído 100 · Bloqueada 0</span> ${n?`<b>${n}</b> atividade(s) alterada(s), salvas neste navegador.`:'Nenhuma alteração ainda.'}</span></div>
+    <div class="eb-a"><button class="eb-btn primary" id="ebDownload" title="Sem os itens internos da Binário">⬇ Baixar para enviar à Algar</button>
+      <button class="eb-btn" id="ebDownloadInt" title="Com os itens internos">⬇ Baixar versão interna</button>
+      ${n?'<button class="eb-btn" id="ebReset">Desfazer tudo</button>':''}
+      <button class="eb-btn" id="ebDone">Concluir edição</button></div>`;
+  document.getElementById('ebDownload').onclick=()=>downloadUpdated(false);
+  document.getElementById('ebDownloadInt').onclick=()=>downloadUpdated(true);
+  document.getElementById('ebDone').onclick=()=>{ EDIT_MODE=false; rerenderAll(); };
+  const r=document.getElementById('ebReset'); if(r) r.onclick=()=>{ if(confirm('Desfazer todas as alterações e voltar às datas e status originais?')){ EDITS={}; saveEdits(); applyEdits(); rerenderAll(); } };
+}
+function downloadUpdated(withInternal){
+  const A='/*EDITS'+'_START*/', B='/*EDITS'+'_END*/';
+  const i=PAGE_SOURCE.indexOf(A), j=PAGE_SOURCE.indexOf(B, i);
+  if(i<0||j<0){ alert('Não foi possível gerar o arquivo.'); return; }
+  let html = PAGE_SOURCE.slice(0,i+A.length) + JSON.stringify(EDITS) + PAGE_SOURCE.slice(j);
+  if(!withInternal){ const C='/*INTERNAL'+'_START*/', D='/*INTERNAL'+'_END*/', p=html.indexOf(C), q=html.indexOf(D,p);
+    if(p>=0&&q>=0){ html = html.slice(0,p).replace(/,\s*$/,'\n') + html.slice(q+D.length); } }
+  const d=new Date(), name=`Painel_Algar${withInternal?'_INTERNO':''}_${String(d.getDate()).padStart(2,'0')}-${String(d.getMonth()+1).padStart(2,'0')}-${d.getFullYear()}.html`;
+  const url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));
+  const a=document.createElement('a'); a.href=url; a.download=name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+}
+function renderFootGen(){
+  const ed = EDITS._updated ? new Date(EDITS._updated).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}) : null;
+  document.getElementById('syncTxt').textContent = 'Atualizado em ' + (ed && editCount() ? ed : syncTxt);
+  document.getElementById('footGen').textContent=(PROJECT.scheduleDraft?'⚠ Datas estimadas, a validar no kickoff (12/10 é feriado e não tem atividades) · ':'')+'Atualizado em '+(ed&&editCount()?ed:syncTxt)+' · '+PROJECT.sponsor;
+}
+document.getElementById('btnEdit').onclick=()=>{
+  const sx=sessInfo();
+  if(!(sx&&sx.editor)){ if(confirm('A edição é liberada só para o usuário "binario".\n\nDeseja sair e entrar com ele agora?')){ setSess(null); location.reload(); } return; }
+  EDIT_MODE=!EDIT_MODE; if(EDIT_MODE){ setView('projeto'); } rerenderAll();
+  if(EDIT_MODE) document.getElementById('editbar').scrollIntoView({behavior:'smooth',block:'center'}); };
+document.getElementById('metas').addEventListener('change', e=>{
+  const row=e.target.closest('.ativ.edit'); if(!row||!e.target.dataset.f) return;
+  setEdit(row.dataset.k, e.target.dataset.f, e.target.value);
+});
+document.getElementById('metas').addEventListener('click', e=>{
+  const b=e.target.closest('[data-act]'); if(!b) return;
+  const row=b.closest('.ativ.edit'); if(!row) return;
+  const key=row.dataset.k;
+  if(b.dataset.act==='undo'){ delete EDITS[key]; saveEdits(); applyEdits(); rerenderAll(); }
+  if(b.dataset.act==='toggle'){ let cur=null; forEachItem(x=>{ if(x.key===key) cur=x.status; }); setEdit(key,'status', cur==='shipped'?'backlog':'shipped'); }
+});
+
+renderHeader(); renderAttn(); renderReunioes(); renderProposta(); setView('projeto'); renderFootGen(); updateEditorUI();
+</script>
+
+</body>
+</html>

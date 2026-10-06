@@ -370,6 +370,15 @@ footer a{color:var(--brand-700);font-weight:700}
 .mtg ul.pend li span{color:var(--text);font-weight:700}
 .mtg ul.pend small{color:var(--text-3);font-size:11.5px;font-weight:700}
 .mtg ul.pend a{color:var(--brand-700);font-weight:900}
+.mtg-dec{margin-top:14px;background:var(--brand-50);border:1px solid var(--brand-100);border-radius:12px;padding:12px 14px}
+.mtg-dec ol{margin:0;padding-left:20px;font-size:13px;color:var(--text);line-height:1.5}
+.mtg-dec li{margin-bottom:6px}.mtg-dec li span{font-weight:700}
+.mtg-dec small,.mtg-risk small{display:block;font-size:11.5px;color:var(--text-3);font-weight:700}
+.mtg-risk{margin-top:14px}
+.mtg-risk ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mtg-risk li{background:var(--late-bg);border-radius:10px;padding:8px 10px;font-size:12.5px}
+.mtg-risk li span{color:var(--text);font-weight:700}
+@media (max-width:800px){ .mtg-risk ul{grid-template-columns:1fr} }
 .mtg-obs{margin-top:12px;font-size:12px;color:var(--text-3);border-top:1px dashed var(--line);padding-top:10px}
 @media (max-width:800px){ .mtg-b{grid-template-columns:1fr} }
 
@@ -612,7 +621,7 @@ const PROJECT = {
   sourceUrl: 'https://app.clickup.com/',
   scheduleDraft: true   // datas estimadas; troque para false quando o cronograma for aprovado no kickoff
 };
-const LAST_SYNC_UTC = "2026-10-05T20:45:00Z";
+const LAST_SYNC_UTC = "2026-10-06T18:30:00Z";
 
 // editor:true → pode entrar no modo de edição. Hash SHA-256 de "usuario:senha". Para gerar: no console → await hashCred('usuario','senha')
 // Tela de login. false = suspensa: o painel abre direto com o acesso "binario"
@@ -668,6 +677,47 @@ const PROPOSTA = {
 const PROXIMOS_PASSOS = [];
 
 const REUNIOES = [
+ { data:'2026-10-05', titulo:'Billing OpenStack · POC Binário: status, integrações e preparação para produção', duracao:'16h às 17h',
+   participantes:[['Emerson Alexandre de Paulo','algar'],['Flavio Roberto Janones de Sousa','algar'],['Julis Rimet Laini Oliveira','algar'],['Daniel Prado Pereira Lima','algar'],['Wagner Bento Felix','binario'],['Tiago Oliveira','binario'],['Cassio Nascimento dos Santos','binario']],
+   decisoes:[
+     ['Substituir a nomenclatura "Billing" por "Consumo" nas interfaces e URLs voltadas ao cliente (menus, URLs, DNS e certificados).','Emerson / Janones'],
+     ['Usar o Portal B2B como origem da autenticação e do redirecionamento para o console do cliente, sem referência ao Odin.','Algar / Binário'],
+     ['Disponibilizar inicialmente ao cliente só a visão de consumo (sob demanda ou pós-pago); a nota fiscal continua no ambiente corporativo da Algar.','Algar / Binário'],
+     ['Priorizar o SSO em relação ao ajuste das casas decimais.','Janones / Julis'],
+     ['Realizar o kickoff em 07/10/2026, às 15h.','Participantes']
+   ],
+   pontos:[
+     'Minuta contratual em avaliação pelo Jurídico, ProdOps e Produtos da Algar, com destaque para a proposta de bilateralidade da cláusula de multa.',
+     'SSO via OpenID Connect com Keycloak/Keystone para autenticação e geração de token; a solução da Binário não armazena login e senha do cliente.',
+     'Coleta nas novas regiões (Canonical OpenStack): conectividade com APIs, acesso ao MariaDB e regras de rede; possibilidade de começar por Fortaleza ou Porto Alegre enquanto o staging de São Paulo é restabelecido.',
+     'O motor de cálculo usa hoje 3 casas decimais; passar para 6 exige mudanças no banco e na interface, com estimativa de esforço pendente.',
+     'A Mesa de TI acompanha a coleta diária e permite coleta retroativa, mas não há aviso por e-mail nem abertura de chamado quando a coleta falha.',
+     'A infraestrutura foi dimensionada para POC e precisa de requisitos definitivos (máquinas, CPU, memória, disco) para produção.',
+     'Centralizar os valores de SKUs e flavors em API da Binário, para uso em relatórios, Snowflake e outros sistemas.',
+     'Atenção ao marco de 21/10/2026 para o ciclo de faturamento.'
+   ],
+   riscos:[
+     ['Integração com o MariaDB do Canonical pode não seguir o procedimento do Red Hat, atrasando a coleta nas novas regiões.','Validar em ambiente funcional e obter orientação técnica para o modelo Canonical.'],
+     ['Falhas de coleta sem aviso imediato à sustentação.','Alertas por e-mail ou abertura automática de chamado via API do Jira (Marco 7).'],
+     ['Concorrência entre SSO, casas decimais, novas regiões e infraestrutura pode exceder a capacidade, afetando o marco de 21/10.','Consolidar prioridades e capacidade no cronograma (Wagner).'],
+     ['Infraestrutura de POC insuficiente para produção.','Formalizar requisitos mínimos e redimensionar antes da consolidação.'],
+     ['Certificados, DNS e liberações dependem de outras equipes.','Definir os domínios e acionar as áreas com antecedência.']
+   ],
+   pendencias:[
+     ['Devolver à Binário a minuta contratual consolidada · 06/10','Emerson / Julis / Produtos','M0'],
+     ['Compartilhar a visão executiva do cronograma dos próximos 30 dias · 06/10','Wagner','M0'],
+     ['Realizar o kickoff · 07/10 às 15h','Wagner / equipes Algar e Binário','M0'],
+     ['Apresentar estimativa de esforço para ampliar de 3 para 6 casas decimais · 08/10','Tiago / Binário','M6'],
+     ['Concluir a configuração de OpenID Connect, Keycloak e Keystone · a definir','Daniel / Luiz / Binário','M1'],
+     ['Formalizar os nomes definitivos dos domínios do portal de consumo e da calculadora · a definir','Emerson / Janones','M6'],
+     ['Validar conectividade com APIs e MariaDB do Canonical OpenStack · a definir','Daniel / Engenharia / Binário','M6'],
+     ['Definir o ambiente inicial da coleta Canonical (staging SP, Fortaleza ou Porto Alegre) · a definir','Engenharia / Binário','M6'],
+     ['Definir os requisitos definitivos da infraestrutura produtiva · a definir','Binário / Engenharia Algar','M6'],
+     ['Avaliar integração de alertas com o Jira ou canal equivalente · a definir','Binário / Operação Algar','M7'],
+     ['Compartilhar a gravação e a ata da reunião · 06/10','Emerson','']
+   ],
+   obs:'Registro conforme a ata enviada pela Algar (facilitador: Emerson Alexandre de Paulo).'
+ },
  { data:'2026-10-02', titulo:'Reunião Técnica Algar x Binário', duracao:'55 min',
    participantes:[['Wagner Bento Felix','binario'],['Joab de Araújo Silva','binario'],['Emerson Alexandre de Paulo','algar'],['Daniel Prado Pereira Lima','algar'],['Julis Rimet Laini Oliveira','algar'],['Glauberson Vilar de Oliveira','algar']],
    pontos:[
@@ -713,18 +763,20 @@ const METAS = [
    name:'Marco 0 — Kickoff do planejamento Algar', short:'Kickoff',
    assignee:'Wagner Bento Felix', tags:['Governança'],
    entregavel:'Plano de projeto e governança',
-   detail:'Reunião de abertura com Binário Cloud e Algar para validar os marcos, as datas estimadas, os responsáveis de cada atividade e a cadência de acompanhamento.',
+   detail:'Kickoff confirmado para 07/10/2026, às 15h (ata de 05/10). Reunião de abertura com Binário Cloud e Algar para validar os marcos, as datas estimadas, os responsáveis de cada atividade e a cadência de acompanhamento.',
    fases:[
-    {n:'Realizar a reunião de kickoff', party:'ambos', status:'backlog', start:'2026-10-07', due:'2026-10-07', id:''},
+    {n:'Realizar a reunião de kickoff (07/10 às 15h)', party:'ambos', assignee:'Wagner + equipes Algar e Binário', status:'backlog', start:'2026-10-07', due:'2026-10-07', id:''},
     {n:'Validar marcos, responsáveis e datas estimadas', party:'ambos', status:'backlog', start:'2026-10-07', due:'2026-10-07', id:''},
     {n:'Definir pontos focais e cadência de acompanhamento', party:'ambos', status:'backlog', start:'2026-10-07', due:'2026-10-07', id:''},
-    {n:'Publicar este painel e liberar usuários para a Algar acompanhar o projeto', party:'binario', assignee:'Wagner Bento Felix', status:'in progress', start:'2026-10-02', due:'2026-10-07', id:'', origem:'Reunião 02/10'}
+    {n:'Publicar este painel e liberar usuários para a Algar acompanhar o projeto', party:'binario', assignee:'Wagner Bento Felix', status:'in progress', start:'2026-10-02', due:'2026-10-07', id:'', origem:'Reunião 02/10'},
+    {n:'Compartilhar a visão executiva do cronograma dos próximos 30 dias', party:'binario', assignee:'Wagner Bento Felix', status:'in progress', start:'2026-10-05', due:'2026-10-06', id:'', origem:'Ata 05/10'},
+    {n:'Devolver à Binário a minuta contratual consolidada (Jurídico, ProdOps e Produtos)', party:'algar', assignee:'Emerson / Julis / Produtos', status:'in progress', start:'2026-10-05', due:'2026-10-06', id:'', origem:'Ata 05/10'}
    ]},
  { num:1, id:'', status:'backlog', start:'2026-10-07', due:'2026-10-30',
    name:'Marco 1 — SSO no Portal B2B (Azure AD + Keystone)', short:'SSO no Portal B2B',
    assignee:'Wagner Bento Felix', tags:['Portal B2B','Identidade'],
    entregavel:'Portal e APIs habilitados',
-   detail:'Login único no Portal B2B com Microsoft Entra ID (Azure), federado no Keystone do OpenStack, cobrindo dev, hml e prod. Atende ao controle "Identidade e acesso" da proposta (item 6.2).',
+   detail:'Login único a partir do Portal B2B, que é a origem da autenticação e do redirecionamento para o console (sem referência ao Odin). Usa OpenID Connect com Keycloak/Keystone para gerar o token, sem armazenar login e senha do cliente na solução da Binário. Prioridade sobre o ajuste das casas decimais (ata de 05/10). Atende ao controle "Identidade e acesso" da proposta (item 6.2).',
    fases:[
     {n:'Levantar como o portal autentica hoje', party:'ambos', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:''},
     {n:'Confirmar a versão do OpenStack e se a federação no Keystone já está habilitada', party:'binario', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:''},
@@ -741,13 +793,14 @@ const METAS = [
     {n:'Criar os usuários do Mesa de TI automaticamente via Blazon (até lá, a Binário cria sob demanda)', party:'ambos', status:'backlog', start:'2026-10-19', due:'2026-10-26', id:'', origem:'Reunião 02/10 · pedido do Julis'},
     {n:'Configurar o Identity Hub como provedor de identidade no Keystone de produção (São Paulo e Uberlândia)', party:'ambos', status:'backlog', start:'2026-10-13', due:'2026-10-23', id:'', origem:'Reunião 02/10'},
     {n:'Consolidar a federação do Keystone nos templates do director (hoje feita à mão no stage)', party:'algar', assignee:'Glauberson Vilar de Oliveira', status:'backlog', start:'2026-10-13', due:'2026-10-21', id:'', origem:'Reunião 02/10'},
-    {n:'Liberar o acesso ao Mesa de TI e criar os usuários solicitados', party:'binario', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:'', origem:'Reunião 02/10'}
+    {n:'Liberar o acesso ao Mesa de TI e criar os usuários solicitados', party:'binario', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:'', origem:'Reunião 02/10'},
+    {n:'Concluir a configuração de OpenID Connect, Keycloak e Keystone e trocar o acesso de sandbox pelo fluxo produtivo', party:'ambos', assignee:'Daniel / Luiz / Binário', status:'in progress', start:'2026-10-05', due:'2026-10-21', id:'', origem:'Ata 05/10 · prazo a definir'}
    ]},
  { num:2, id:'', status:'backlog', start:'2026-10-08', due:'2026-10-30',
    name:'Marco 2 — Redirect do BCP API para o Portal B2B', short:'Redirect do BCP API para o Portal B2B',
    assignee:'Time Algar', tags:['Portal B2B','Integração','billing.cloudalgar.com.br'],
    entregavel:'Portal e APIs habilitados',
-   detail:'Fluxo combinado na reunião de 02/10: o cliente entra na área logada do Portal B2B, onde vê todos os produtos da Algar, inclusive o Cloud Plus. Quem tem perfil administrador ou financeiro vê um botão que o redireciona para o painel de custos da Binário (billing.cloudalgar.com.br), com o contexto assinado na URL. O Mesa de TI é a visão de administração interna e não é o destino do cliente.',
+   detail:'Na ata de 05/10 ficou decidido: o console mostra ao cliente só a visão de consumo (sob demanda ou pós-pago), sem nota fiscal, que continua no ambiente corporativo da Algar; e o nome "Billing" passa a ser "Consumo" nas telas e URLs. Fluxo combinado na reunião de 02/10: o cliente entra na área logada do Portal B2B, onde vê todos os produtos da Algar, inclusive o Cloud Plus. Quem tem perfil administrador ou financeiro vê um botão que o redireciona para o painel de custos da Binário (billing.cloudalgar.com.br), com o contexto assinado na URL. O Mesa de TI é a visão de administração interna e não é o destino do cliente.',
    fases:[
     {n:'Definir o formato da URL e como o contexto vai assinado', party:'algar', status:'backlog', start:'2026-10-08', due:'2026-10-14', id:''},
     {n:'Criar no backend o endpoint que recebe e valida', party:'algar', status:'backlog', start:'2026-10-15', due:'2026-10-21', id:''},
@@ -764,7 +817,7 @@ const METAS = [
    assignee:'Time Algar', tags:['Catálogo','API'],
    entregavel:'Catálogo e regras iniciais',
    note:'Execução do time Algar. A atuação da Binário é só enviar o link (endpoints da API, que já existe no pacote).',
-   detail:'A Algar quer um lugar único para consultar o valor de SKUs e flavors, e esse lugar será a Binário. API que expõe SKUs e a ligação com os flavors do Nova no formato que o time consumidor espera. Conecta-se ao catálogo de produtos e SKUs do BC Billing (item 4.2 da proposta).',
+   detail:'A Algar quer um lugar único para consultar o valor de SKUs e flavors, e esse lugar será a Binário, consumido por relatórios, Snowflake e outros sistemas (ata de 05/10). API que expõe SKUs e a ligação com os flavors do Nova no formato que o time consumidor espera. Conecta-se ao catálogo de produtos e SKUs do BC Billing (item 4.2 da proposta).',
    fases:[
     {n:'Enviar o link para o time Algar (endpoints da API de SKUs e flavors, já existente no pacote)', party:'binario', assignee:'Guilherme (Binário)', status:'backlog', start:'2026-10-07', due:'2026-10-07', id:'', origem:'Reunião 02/10'},
     {n:'Entender com o time consumidor o formato esperado e se precisa de preço ou só de especificação', party:'algar', status:'backlog', start:'2026-10-08', due:'2026-10-09', id:''},
@@ -773,7 +826,8 @@ const METAS = [
     {n:'Definir a autenticação da API', party:'algar', status:'backlog', start:'2026-10-16', due:'2026-10-20', id:''},
     {n:'Implementar o endpoint com a transformação para o formato deles', party:'algar', status:'backlog', start:'2026-10-21', due:'2026-10-27', id:''},
     {n:'Fazer os testes, a documentação e o deploy', party:'algar', status:'backlog', start:'2026-10-27', due:'2026-10-29', id:''},
-    {n:'Homologar com o time consumidor', party:'algar', status:'backlog', start:'2026-10-29', due:'2026-10-30', id:''}
+    {n:'Homologar com o time consumidor', party:'algar', status:'backlog', start:'2026-10-29', due:'2026-10-30', id:''},
+    {n:'Detalhar as solicitações da API de SKUs e flavors para centralização de custos (relatórios, Snowflake)', party:'ambos', assignee:'Tiago / Guilherme', status:'in progress', start:'2026-10-05', due:'2026-10-14', id:'', origem:'Ata 05/10 · prazo a definir'}
    ]},
  { num:4, id:'', status:'backlog', start:'2026-10-08', due:'2026-10-30',
    name:'Marco 4 — Relatório de utilização de VMs para o Daniel', short:'Relatório de utilização de VMs',
@@ -796,14 +850,20 @@ const METAS = [
    detail:'Frentes que saíram da reunião de 02/10: levar as VMs da POC para produção, definir domínios e certificado, liberar firewall e começar a coleta no Nordeste e no Sul (Canonical). Sem coleta nas novas regiões não há faturamento.',
    fases:[
     {n:'Enviar as diretrizes de dimensionamento do ambiente produtivo (CPU, memória, disco, redundância) para o Glauberson', party:'binario', assignee:'Joab de Araújo Silva', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:'', origem:'Reunião 02/10'},
-    {n:'Definir os domínios do painel de consumo e da calculadora (com UX/Gabriel)', party:'algar', assignee:'Julis Rimet Laini Oliveira', status:'backlog', start:'2026-10-07', due:'2026-10-14', id:'', origem:'Reunião 02/10'},
+    {n:'Formalizar os nomes definitivos dos domínios do portal de consumo e da calculadora (nome "Consumo", não "Billing")', party:'algar', assignee:'Emerson / Janones', status:'backlog', start:'2026-10-07', due:'2026-10-14', id:'', origem:'Reunião 02/10'},
     {n:'Começar a coleta nas novas regiões Nordeste e Sul (Canonical)', party:'binario', status:'backlog', start:'2026-10-07', due:'2026-10-23', id:'', origem:'Reunião 02/10'},
     {n:'Definir a cobrança por roteador/projeto e por banda (avaliar aditivo contratual com Produtos)', party:'algar', assignee:'Julis Rimet Laini Oliveira', status:'backlog', start:'2026-10-07', due:'2026-10-16', id:'', origem:'Reunião 02/10'},
     {n:'Desabilitar o menu da calculadora da Binário na V1 ou apontá-lo para o endereço interno (VPN)', party:'ambos', status:'backlog', start:'2026-10-13', due:'2026-10-16', id:'', origem:'Reunião 02/10'},
     {n:'Ajustar as VMs da POC para produção (nomes, rede, recursos e isolamento dos serviços)', party:'algar', assignee:'Glauberson Vilar de Oliveira', status:'backlog', start:'2026-10-13', due:'2026-10-23', id:'', origem:'Reunião 02/10'},
     {n:'Gerar a chave privada e o CSR e emitir um único certificado para os dois domínios', party:'ambos', assignee:'Joab + Glauberson', status:'backlog', start:'2026-10-15', due:'2026-10-21', id:'', origem:'Reunião 02/10'},
     {n:'Criar o seletor de região no painel de consumo (só as regiões do contrato)', party:'binario', assignee:'Joab de Araújo Silva', status:'backlog', start:'2026-10-19', due:'2026-10-26', id:'', origem:'Reunião 02/10'},
-    {n:'Liberar firewall e acesso externo conforme domínio e local de hospedagem', party:'algar', status:'backlog', start:'2026-10-21', due:'2026-10-28', id:'', origem:'Reunião 02/10'}
+    {n:'Liberar firewall e acesso externo conforme domínio e local de hospedagem', party:'algar', status:'backlog', start:'2026-10-21', due:'2026-10-28', id:'', origem:'Reunião 02/10'},
+    {n:'Estimar o esforço para ampliar de 3 para 6 casas decimais (banco e interface)', party:'binario', assignee:'Tiago Oliveira', status:'in progress', start:'2026-10-05', due:'2026-10-08', id:'', origem:'Ata 05/10'},
+    {n:'Validar a conectividade com as APIs e o MariaDB do Canonical OpenStack', party:'ambos', assignee:'Daniel / Engenharia / Binário', status:'backlog', start:'2026-10-07', due:'2026-10-16', id:'', origem:'Ata 05/10 · prazo a definir'},
+    {n:'Definir o ambiente inicial da coleta Canonical: staging SP, Fortaleza ou Porto Alegre', party:'ambos', assignee:'Engenharia / Binário', status:'backlog', start:'2026-10-07', due:'2026-10-09', id:'', origem:'Ata 05/10 · pendente de validação'},
+    {n:'Restabelecer o staging de São Paulo após redeploy e emissão de certificados', party:'algar', assignee:'Engenharia / O2 / Canonical', status:'in progress', start:'2026-10-05', due:'2026-10-16', id:'', origem:'Ata 05/10 · prazo a definir'},
+    {n:'Definir os requisitos definitivos da infraestrutura produtiva (máquinas, CPU, memória, disco)', party:'ambos', assignee:'Binário / Engenharia Algar', status:'backlog', start:'2026-10-07', due:'2026-10-14', id:'', origem:'Ata 05/10 · prazo a definir'},
+    {n:'Repassar informações e requisitos da solução para a operação', party:'algar', assignee:'Julis Rimet Laini Oliveira', status:'in progress', start:'2026-10-05', due:'2026-10-16', id:'', origem:'Ata 05/10 · prazo a definir'}
    ]},
  { num:7, id:'', status:'backlog', start:'2026-10-13', due:'2026-10-30',
    name:'Marco 7 — Alarmística da coleta com abertura de chamado no ITSM (Jira)', short:'Alarmística da coleta + chamado no Jira',
@@ -817,7 +877,8 @@ const METAS = [
     {n:'Configurar o monitoramento da coleta por região (Uberlândia, São Paulo, Nordeste e Sul)', party:'binario', status:'backlog', start:'2026-10-19', due:'2026-10-23', id:'', origem:'Definido em 05/10'},
     {n:'Configurar o alarme e a integração que abre o chamado no Jira automaticamente', party:'binario', status:'backlog', start:'2026-10-21', due:'2026-10-26', id:'', origem:'Definido em 05/10'},
     {n:'Testar simulando uma parada da coleta (alarme disparado e chamado aberto no Jira)', party:'ambos', status:'backlog', start:'2026-10-27', due:'2026-10-28', id:'', origem:'Definido em 05/10'},
-    {n:'Documentar o fluxo de atendimento: quem recebe o chamado e o prazo por severidade (SLA da proposta)', party:'ambos', status:'backlog', start:'2026-10-29', due:'2026-10-30', id:'', origem:'Definido em 05/10'}
+    {n:'Documentar o fluxo de atendimento: quem recebe o chamado e o prazo por severidade (SLA da proposta)', party:'ambos', status:'backlog', start:'2026-10-29', due:'2026-10-30', id:'', origem:'Definido em 05/10'},
+    {n:'Avaliar a integração dos alertas com o Jira ou canal operacional equivalente (e-mail)', party:'ambos', assignee:'Binário / Operação Algar', status:'backlog', start:'2026-10-07', due:'2026-10-14', id:'', origem:'Ata 05/10 · prazo a definir'}
    ]}
 
 ];
@@ -1000,12 +1061,13 @@ function renderReunioes(){
     <article class="mtg">
       <div class="mtg-h" role="button" tabindex="0" aria-expanded="false" title="Clique para ver o que foi acordado"><div class="mtg-d"><b>${new Date(toMs(r.data)).toLocaleDateString('pt-BR',{day:'2-digit'})}</b><span>${new Date(toMs(r.data)).toLocaleDateString('pt-BR',{month:'short'}).replace('.','')}</span></div>
         <div><h3>${esc(r.titulo)}</h3><div class="mtg-p">${r.participantes.map(([n,p])=>`<span class="mtg-who ${PARTY[p]?PARTY[p].cls:''}">${esc(n)}</span>`).join('')}${r.duracao?`<span class="mtg-dur">⏱ ${esc(r.duracao)}</span>`:''}</div>
-          <div class="mtg-sum">${r.pontos.length} pontos acordados · ${r.pendencias.length} pendências</div></div>
+          <div class="mtg-sum">${[r.decisoes?r.decisoes.length+' decisões':'', r.pontos.length+' pontos', r.pendencias.length+' pendências', r.riscos?r.riscos.length+' riscos':''].filter(Boolean).join(' · ')}</div></div>
         <svg class="mtg-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></div>
-      <div class="mtg-body"><div class="mtg-b">
+      <div class="mtg-body">${r.decisoes?`<div class="mtg-dec"><h4>Decisões tomadas</h4><ol>${r.decisoes.map(([t,q])=>`<li><span>${esc(t)}</span>${q?`<small>${esc(q)}</small>`:''}</li>`).join('')}</ol></div>`:''}<div class="mtg-b">
         <div><h4>Pontos combinados</h4><ul>${r.pontos.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></div>
         <div><h4>Pendências</h4><ul class="pend">${r.pendencias.map(([t,o,m])=>`<li><span>${esc(t)}</span><small>👤 ${esc(o)}${m?` · <a href="#" data-goto="${m.replace('M','')}">${m}</a>`:''}</small></li>`).join('')}</ul></div>
       </div>
+      ${r.riscos?`<div class="mtg-risk"><h4>Riscos identificados</h4><ul>${r.riscos.map(([t,mit])=>`<li><span>⚠ ${esc(t)}</span><small>Mitigação: ${esc(mit)}</small></li>`).join('')}</ul></div>`:''}
       ${r.obs?`<div class="mtg-obs">ⓘ ${esc(r.obs)}</div>`:''}</div>
     </article>`).join('');
   document.querySelectorAll('#reunioes .mtg-h').forEach(h=>{

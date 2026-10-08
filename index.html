@@ -631,6 +631,9 @@ footer a{color:var(--brand-700);font-weight:700}
       <button class="icon-btn pdf-btn" id="btnPrint" title="Salvar o painel em PDF (o cronograma vai na última página)">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M12 12v6"/><path d="M9 15l3 3 3-3"/></svg><span class="lbl">Salvar PDF</span>
       </button>
+      <button class="icon-btn pdf-btn" id="btnXml" title="Salvar o cronograma em XML para abrir no Microsoft Project (depois é só salvar como .mpp)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M10 13l-2 2 2 2"/><path d="M14 13l2 2-2 2"/></svg><span class="lbl">Salvar XML</span>
+      </button>
       <button class="icon-btn" id="btnLogout" title="Sair">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg><span class="lbl">Sair</span>
       </button>
@@ -738,14 +741,13 @@ const PROJECT = {
 const LAST_SYNC_UTC = "2026-10-08T13:45:00Z";
 
 // editor:true → pode entrar no modo de edição. Hash SHA-256 de "usuario:senha". Para gerar: no console → await hashCred('usuario','senha')
-// Tela de login. false = suspensa: o painel abre direto com o acesso "binario"
-//   (pode editar; na versão interna também vê os itens internos).
-const LOGIN_ATIVO = false;
+// Tela de login. true = pede usuário e senha (único acesso: Binario / Binario@2026; o usuário não diferencia maiúsculas).
+//   false = suspensa: o painel abre direto com o acesso "binario".
+const LOGIN_ATIVO = true;
 // true = versão só para leitura: sem botão Editar e sem aplicar edições guardadas no navegador.
 const SOMENTE_LEITURA = false;
 
 const CREDENCIAIS = [
-  { usuario:'algar',   hash:'f84c258169b1d87ace70a3300507374de821fcb4329ed1677d09159e19a077d2', nome:'Acesso Algar' },
   { usuario:'binario', hash:'3522f338cf05866513fa0cbaa23d9bace7f5288e683cba83e36d499171f073eb', nome:'Binário Cloud', editor:true }
 ];
 
@@ -1329,6 +1331,92 @@ document.getElementById('btnPrint').onclick=()=>{
   window.addEventListener('afterprint',done);
   setTimeout(()=>window.print(), 80);
 };
+
+/* ---------- Exportar para o Microsoft Project (XML / MSPDI) ----------
+   Usa os dados que estão na tela (incluindo edições). No Project: Arquivo → Abrir → escolher o .xml → Salvar como .mpp. */
+function exportarMSProject(){
+  const FER = new Set(['2026-10-12','2026-11-02','2026-11-15','2026-11-20']);
+  const PESO_P = {'backlog':0,'in planning':10,'in progress':50,'in review':75,'in test':75,'blocked':0,'waiting':25,'shipped':100};
+  const PTXT = {binario:'Binário', algar:'Algar', ambos:'Binário + Algar'};
+  const PRES = {binario:[1], algar:[2], ambos:[1,2]};
+  const esc = t => String(t??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  const ymd = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  const util = d => d.getDay()%6!==0 && !FER.has(ymd(d));
+  const dia = ms => { const d=new Date(ms); d.setHours(12,0,0,0); return d; };
+  const fwd = d => { d=new Date(d); while(!util(d)) d.setDate(d.getDate()+1); return d; };
+  const back = d => { d=new Date(d); while(!util(d)) d.setDate(d.getDate()-1); return d; };
+  const nUteis = (a,b) => { let n=0; for(let x=new Date(a); x<=b; x.setDate(x.getDate()+1)) n+=util(x); return Math.max(n,1); };
+  const I = d => ymd(d)+'T08:00:00', F = d => ymd(d)+'T17:00:00', DUR = n => `PT${n*8}H0M0S`;
+  const tarefas=[], atribs=[]; let uid=0, pIni=null, pFim=null;
+  MAIN.forEach((m,mi)=>{
+    const lv = leaves(m); if(!lv.length) return;
+    const it = lv.map(f=>{
+      const semData = !f.due;
+      const due = f.due || m.due || m._orig?.due, st = f.start || (f.due ? f.due : (m.start || due));
+      let a=fwd(dia(st)), b=back(dia(due)); if(b<a) b=new Date(a);
+      return {f,a,b,semData};
+    });
+    const ini = new Date(Math.min(...it.map(x=>x.a))), fim = new Date(Math.max(...it.map(x=>x.b)));
+    if(!pIni||ini<pIni) pIni=ini; if(!pFim||fim>pFim) pFim=fim;
+    const pct = Math.round(it.reduce((s,x)=>s+(PESO_P[x.f.status]||0),0)/it.length);
+    let nota = m.detail||''; if(m.entregavel) nota += '\nEntregável da proposta: '+m.entregavel;
+    const out = String(mi+1);
+    tarefas.push({uid:++uid, nome:m.name, nivel:1, outline:out, resumo:true, a:ini, b:fim, pct, nota});
+    it.forEach((x,k)=>{
+      const f=x.f, n=[`Responsável: ${PTXT[f.party]||f.party||''}`+(f.owner?` · ${f.owner}`:''), `Status no painel: ${STATUS[f.status]?.label||f.status}`];
+      n.push(f.origem?`Origem: ${f.origem}`:'Origem: atividade definida no planejamento');
+      if(f.fase) n.push(f.fase);
+      if(x.semData) n.push('Sem datas no ClickUp: usadas as datas do marco');
+      if(f.obs) n.push('Comentário: '+f.obs);
+      if(f.id) n.push('ClickUp: https://app.clickup.com/t/'+f.id);
+      const t={uid:++uid, nome:f.n, nivel:2, outline:`${out}.${k+1}`, resumo:false, a:x.a, b:x.b, pct:PESO_P[f.status]||0, nota:n.join('\n'),
+        t1:PTXT[f.party]||'', t2:f.owner||'', t3:STATUS[f.status]?.label||''};
+      tarefas.push(t); (PRES[f.party]||[]).forEach(r=>atribs.push([t.uid,r,x.a,x.b]));
+    });
+  });
+  const agora = new Date(), hoje = ymd(agora)+'T'+agora.toTimeString().slice(0,8);
+  const X=[]; const w=t=>X.push(t);
+  w('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>');
+  w('<Project xmlns="http://schemas.microsoft.com/project">');
+  w('<SaveVersion>14</SaveVersion><Name>Projeto Algar - BCAPI BC Billing</Name><Title>Projeto Algar · BCAPI | BC Billing</Title>');
+  w(`<Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author><CreationDate>${hoje}</CreationDate><LastSaved>${hoje}</LastSaved>`);
+  w(`<ScheduleFromStart>1</ScheduleFromStart><StartDate>${I(pIni)}</StartDate><FinishDate>${F(pFim)}</FinishDate>`);
+  w('<CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>');
+  w('<MinutesPerDay>480</MinutesPerDay><MinutesPerWeek>2400</MinutesPerWeek><DaysPerMonth>20</DaysPerMonth>');
+  w('<DurationFormat>7</DurationFormat><WorkFormat>2</WorkFormat><NewTaskStartDate>0</NewTaskStartDate>');
+  w('<CurrencySymbol>R$</CurrencySymbol><CurrencyCode>BRL</CurrencyCode><WeekStartDay>1</WeekStartDay>');
+  const EA=[['188743731','Text1','Responsável (empresa)'],['188743734','Text2','Responsável (pessoa)'],['188743737','Text3','Status no painel']];
+  w('<ExtendedAttributes>'+EA.map(e=>`<ExtendedAttribute><FieldID>${e[0]}</FieldID><FieldName>${e[1]}</FieldName><Alias>${esc(e[2])}</Alias></ExtendedAttribute>`).join('')+'</ExtendedAttributes>');
+  w('<Calendars><Calendar><UID>1</UID><Name>Padrão Brasil</Name><IsBaseCalendar>1</IsBaseCalendar><WeekDays>');
+  for(let d=1; d<=7; d++) w(d===1||d===7 ? `<WeekDay><DayType>${d}</DayType><DayWorking>0</DayWorking></WeekDay>` :
+    `<WeekDay><DayType>${d}</DayType><DayWorking>1</DayWorking><WorkingTimes><WorkingTime><FromTime>08:00:00</FromTime><ToTime>12:00:00</ToTime></WorkingTime><WorkingTime><FromTime>13:00:00</FromTime><ToTime>17:00:00</ToTime></WorkingTime></WorkingTimes></WeekDay>`);
+  [...FER].sort().forEach(f=>w(`<WeekDay><DayType>0</DayType><DayWorking>0</DayWorking><TimePeriod><FromDate>${f}T00:00:00</FromDate><ToDate>${f}T23:59:00</ToDate></TimePeriod></WeekDay>`));
+  w('</WeekDays></Calendar></Calendars><Tasks>');
+  w(`<Task><UID>0</UID><ID>0</ID><Name>Projeto Algar · BCAPI | BC Billing</Name><OutlineLevel>0</OutlineLevel><OutlineNumber>0</OutlineNumber><Summary>1</Summary><Start>${I(pIni)}</Start><Finish>${F(pFim)}</Finish></Task>`);
+  tarefas.forEach((t,i)=>{
+    let x=`<Task><UID>${t.uid}</UID><ID>${i+1}</ID><Name>${esc(t.nome)}</Name><Type>1</Type><OutlineNumber>${t.outline}</OutlineNumber><OutlineLevel>${t.nivel}</OutlineLevel>`+
+      `<Start>${I(t.a)}</Start><Finish>${F(t.b)}</Finish><Duration>${DUR(nUteis(t.a,t.b))}</Duration><DurationFormat>7</DurationFormat>`+
+      `<Summary>${t.resumo?1:0}</Summary><Milestone>0</Milestone><Manual>0</Manual><PercentComplete>${t.pct}</PercentComplete>`;
+    if(!t.resumo){
+      x+=`<ConstraintType>4</ConstraintType><ConstraintDate>${I(t.a)}</ConstraintDate>`;
+      if(t.pct>0) x+=`<ActualStart>${I(t.a)}</ActualStart>`;
+      if(t.pct===100) x+=`<ActualFinish>${F(t.b)}</ActualFinish>`;
+      [['188743731',t.t1],['188743734',t.t2],['188743737',t.t3]].forEach(([id,v])=>{ if(v) x+=`<ExtendedAttribute><FieldID>${id}</FieldID><Value>${esc(v)}</Value></ExtendedAttribute>`; });
+    }
+    w(x+`<Notes>${esc(t.nota)}</Notes></Task>`);
+  });
+  w('</Tasks><Resources><Resource><UID>0</UID><ID>0</ID><Name>Não atribuído</Name><Type>1</Type></Resource>');
+  w('<Resource><UID>1</UID><ID>1</ID><Name>Binário Cloud</Name><Type>1</Type><MaxUnits>1</MaxUnits><CalendarUID>1</CalendarUID></Resource>');
+  w('<Resource><UID>2</UID><ID>2</ID><Name>Algar</Name><Type>1</Type><MaxUnits>1</MaxUnits><CalendarUID>1</CalendarUID></Resource></Resources><Assignments>');
+  atribs.forEach(([t,r,a,b],k)=>w(`<Assignment><UID>${k+1}</UID><TaskUID>${t}</TaskUID><ResourceUID>${r}</ResourceUID><Units>1</Units><Start>${I(a)}</Start><Finish>${F(b)}</Finish><Work>${DUR(nUteis(a,b))}</Work></Assignment>`));
+  w('</Assignments></Project>');
+  const d=new Date(), nome='Projeto_Algar_BCAPI_'+String(d.getDate()).padStart(2,'0')+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+d.getFullYear()+'.xml';
+  const url=URL.createObjectURL(new Blob([X.join('\n')],{type:'application/xml'}));
+  const a=document.createElement('a'); a.href=url; a.download=nome; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+  return {tarefas:tarefas.length, nome};
+}
+document.getElementById('btnXml').onclick=()=>exportarMSProject();
 
 /* ---------- Sincronização ---------- */
 const syncTxt = new Date(LAST_SYNC_UTC).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});

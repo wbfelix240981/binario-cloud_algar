@@ -984,8 +984,8 @@ function dueState(item){
   const d = item.original_due ?? item.due;
   if(!d) return null;
   const day = sod(d);
-  if(day < TODAY) return 'late';
-  if(day <= WEEK_END) return 'warn';
+  if(day < TODAY) return 'late';      // vermelho só a partir do dia seguinte ao vencimento
+  if(day === TODAY) return 'warn';    // amarelo no próprio dia do vencimento
   return null;
 }
 const daysLate = item => Math.round((TODAY - sod(item.original_due ?? item.due))/DAY);
@@ -1139,7 +1139,7 @@ function itemHtml(a){
   const s=dueState(a), done=isDone(a);
   const cls = done?'done':a.status==='blocked'?'blocked':s==='late'?'late':s==='warn'?'warn':'';
   const orig=a.original_due??a.due, moved=a.original_due&&a.due&&a.due!==a.original_due;
-  const tag = done?badge('shipped'):a.status==='blocked'?'<span class="pill block">Bloqueada</span>':s==='late'?`<span class="pill late">${daysLate(a)}d atraso</span>`:s==='warn'?'<span class="pill warn">Esta semana</span>':badge(a.status);
+  const tag = done?badge('shipped'):a.status==='blocked'?'<span class="pill block">Bloqueada</span>':s==='late'?`<span class="pill late">${daysLate(a)}d atraso</span>`:s==='warn'?'<span class="pill warn">Vence hoje</span>':badge(a.status);
   return `<div class="ativ ${cls}"><span class="ck"></span><span class="an">${esc(a.n)}${(a.fase||a.assignee||a.origem)?`<small>${[a.fase, a.assignee?'👤 '+a.assignee:'', a.origem?'🗒 '+a.origem:''].filter(Boolean).map(esc).join(' · ')}</small>`:''}${a.obs?`<span class="obs">💬 ${esc(a.obs)}</span>`:''}</span>
     <span class="dt">${a.start?fmt(a.start)+' → ':''}${orig?(moved?`<s>${fmt(orig)}</s> <span class="new" title="Prazo replanejado">→ ${fmt(a.due)}</span>`:fmt(orig)):''}</span>
     ${partyChip(a.party)}${tag}${cuLink(a.id)}</div>`;
@@ -1174,7 +1174,7 @@ function renderProjeto(){
         <div class="mnum"><small>MARCO</small>${String(m.num).padStart(2,'0')}</div>
         <div class="mname"><div class="t">${esc(m.short)}${m.internal?' <span class="pill-int">🔒 Interno · só Binário</span>':''}</div>
           <div class="s">${m.assignee?`<span>👤 ${esc(m.assignee)}</span><span class="sep">•</span>`:''}<span>📅 ${fmt(m.start)} → ${fmt(m.due)}</span>
-          ${nl?`<span class="pill late">⚠ ${nl} atrasada${nl>1?'s':''}</span>`:''}${nw?`<span class="pill warn">● ${nw} esta semana</span>`:''}${(()=>{const nb=lv.filter(a=>a.status==='blocked').length; return nb?`<span class="pill block">⛔ ${nb} bloqueada${nb>1?'s':''}</span>`:'';})()}</div></div>
+          ${nl?`<span class="pill late">⚠ ${nl} atrasada${nl>1?'s':''}</span>`:''}${nw?`<span class="pill warn">● ${nw} vence${nw>1?'m':''} hoje</span>`:''}${(()=>{const nb=lv.filter(a=>a.status==='blocked').length; return nb?`<span class="pill block">⛔ ${nb} bloqueada${nb>1?'s':''}</span>`:'';})()}</div></div>
         ${badge(m.status)}
         <div class="prog"><div class="track"><div class="fill" style="width:${p}%"></div></div><div class="pct">${p}%</div></div>
         <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
@@ -1208,7 +1208,7 @@ function renderSide(t){
     return `<div class="side ${isDone(m)?'is-done':s==='late'||m.status==='blocked'?'is-late':s==='warn'?'is-warn':''}">
       <div class="t">${esc(m.short)}</div>
       <div class="f"><span>${m.assignee?'👤 '+esc(m.assignee):'Sem responsável'}</span>${badge(m.status)}</div>
-      <div class="f"><span>📅 Prazo ${fmt(m.due)}</span>${s==='late'?`<span class="pill late">${daysLate(m)}d atraso</span>`:s==='warn'?'<span class="pill warn">esta semana</span>':''}</div>
+      <div class="f"><span>📅 Prazo ${fmt(m.due)}</span>${s==='late'?`<span class="pill late">${daysLate(m)}d atraso</span>`:s==='warn'?'<span class="pill warn">vence hoje</span>':''}</div>
     </div>`;}).join('');
 }
 
@@ -1279,7 +1279,7 @@ function renderPeople(){
       <div><div class="nm">${p.label}</div><div class="rl">${items.length} atividade(s) · ${marcos.length} marco(s)</div></div></div>
       <div class="stack"><i style="width:${w(done)};background:var(--ok)"></i><i style="width:${w(open-late-warn)};background:var(--prog)"></i><i style="width:${w(warn)};background:var(--warn)"></i><i style="width:${w(late)};background:var(--late)"></i></div>
       <div class="nums"><div><b style="color:var(--ok)">${done}</b><small>concluídas</small></div><div><b style="color:var(--prog)">${open}</b><small>abertas</small></div>
-      <div><b style="color:var(--warn)">${warn}</b><small>na semana</small></div><div><b style="color:var(--late)">${late}</b><small>atrasadas</small></div></div>
+      <div><b style="color:var(--warn)">${warn}</b><small>vencem hoje</small></div><div><b style="color:var(--late)">${late}</b><small>atrasadas</small></div></div>
       <div style="margin-top:12px;font-size:12px;color:var(--text-2);line-height:1.6">${marcos.map(esc).join('<br>')}</div>
       ${prox?`<div style="margin-top:10px;font-size:12px;color:var(--text-3)">Próxima: <b style="color:var(--text)">${esc(prox.n)}</b> · ${fmt(prox.due)}</div>`:''}</div>`;
   }).join('');

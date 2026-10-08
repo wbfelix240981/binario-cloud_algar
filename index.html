@@ -98,7 +98,14 @@ button{font-family:inherit}
 .sec-head p{margin:4px 0 0 16px;color:var(--text-3);font-size:13px}
 
 /* ---------- Atenção agora ---------- */
-.attn{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.attn{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.attn-col h3{cursor:pointer;user-select:none}
+.attn-col h3 .ah-r{display:flex;align-items:center;gap:8px}
+.attn-col h3 .chev{transition:transform .2s;opacity:.8}
+.attn-col.open h3 .chev{transform:rotate(180deg)}
+.attn-col:not(.open) h3{border-bottom:none}
+.attn-col:not(.open) .attn-list{display:none}
+@media print{ .attn-col .attn-list{display:block!important} .attn-col h3 .chev{display:none} }
 .attn-col{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
 .attn-col h3{margin:0;padding:14px 18px;font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
 .attn-col.late h3{color:var(--late);background:var(--late-bg)}
@@ -668,7 +675,7 @@ footer a{color:var(--brand-700);font-weight:700}
 
   <!-- Atenção agora -->
   <section class="sec" id="secAttn">
-    <div class="sec-head"><div><h2>Atenção agora</h2><p>Atividades vencidas e os próximos passos definidos para o projeto.</p></div></div>
+    <div class="sec-head"><div><h2>Atenção agora</h2><p>Próximos passos definidos e atividades vencidas. Clique no quadro para ver os itens.</p></div></div>
     <div class="attn" id="attn"></div>
   </section>
 
@@ -1038,12 +1045,13 @@ function renderHeader(){
     k('k-late'+(late?' alert':''), late, 'Atividades atrasadas', null,null,'attn');
   document.querySelectorAll('.kpi').forEach(el=>el.onclick=()=>{
     const a=el.dataset.act;
-    if(a==='attn') document.getElementById('secAttn').scrollIntoView({behavior:'smooth'});
+    if(a==='attn'){ ATTN_OPEN.add('prox'); ATTN_OPEN.add('late'); renderAttn(); document.getElementById('secAttn').scrollIntoView({behavior:'smooth'}); }
     else if(a){ setView('projeto'); statusFilter=a; renderProjeto(); document.getElementById('tabs').scrollIntoView({behavior:'smooth',block:'center'}); }
   });
 }
 
 /* ---------- Atenção agora ---------- */
+const ATTN_OPEN = new Set();   // quadros "Próximos passos" e "Atrasadas" começam minimizados
 function renderAttn(){
   const items = [...allLeaves(VISIBLE), ...SIDE.map(m=>({...m, n:m.short, meta:'Frente paralela', fase:'', owner:m.assignee}))];
   const dOf = a => a.original_due ?? a.due;
@@ -1052,13 +1060,16 @@ function renderAttn(){
   const row = (a,kind)=>`<div class="attn-item"><span class="t">${esc(a.n)} ${partyChip(a.party)}${a.status==='blocked'?' <span class="pill block">bloqueada</span>':''}</span>
     <span class="c">${esc(a.meta)}${a.fase?' · '+esc(a.fase):''}</span>
     <span class="d">${kind==='late'?`${daysLate(a)}d de atraso<br>`:''}${fmt(dOf(a))}${a.original_due&&a.due&&a.due!==a.original_due?` → ${fmt(a.due)}`:''}</span></div>`;
-  document.getElementById('attn').innerHTML = `
-    <div class="attn-col late"><h3>⚠ Atrasadas <span class="count">${late.length}</span></h3>
-      <div class="attn-list">${late.length?late.map(a=>row(a,'late')).join(''):'<div class="attn-empty">Nenhuma atividade atrasada.</div>'}</div></div>
-    <div class="attn-col warn"><h3>● Próximos passos <span class="count">${PROXIMOS_PASSOS.length}</span></h3>
-      <div class="attn-list">${PROXIMOS_PASSOS.length?PROXIMOS_PASSOS.map(x=>`<div class="attn-item"><span class="t">${esc(x.n)} ${partyChip(x.party)}</span>
-        <span class="c">${[x.marco, x.quem?'👤 '+x.quem:''].filter(Boolean).map(esc).join(' · ')}</span><span class="d">${x.prazo?fmt(toMs(x.prazo)):''}</span></div>`).join(''):'<div class="attn-empty">Nenhum próximo passo registrado.</div>'}</div></div>
-`;
+  const chev='<svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>';
+  const col=(id,cls,titulo,n,corpo)=>`<div class="attn-col ${cls}${ATTN_OPEN.has(id)?' open':''}" data-attn="${id}">
+      <h3 title="Clique para ${ATTN_OPEN.has(id)?'minimizar':'expandir'}">${titulo}<span class="ah-r"><span class="count">${n}</span>${chev}</span></h3>
+      <div class="attn-list">${corpo}</div></div>`;
+  document.getElementById('attn').innerHTML =
+    col('prox','warn','● Próximos passos',PROXIMOS_PASSOS.length, PROXIMOS_PASSOS.length?PROXIMOS_PASSOS.map(x=>`<div class="attn-item"><span class="t">${esc(x.n)} ${partyChip(x.party)}</span>
+        <span class="c">${[x.marco, x.quem?'👤 '+x.quem:''].filter(Boolean).map(esc).join(' · ')}</span><span class="d">${x.prazo?fmt(toMs(x.prazo)):''}</span></div>`).join(''):'<div class="attn-empty">Nenhum próximo passo registrado.</div>') +
+    col('late','late','⚠ Atrasadas',late.length, late.length?late.map(a=>row(a,'late')).join(''):'<div class="attn-empty">Nenhuma atividade atrasada.</div>');
+  document.querySelectorAll('#attn .attn-col h3').forEach(h=>h.onclick=()=>{
+    const id=h.parentElement.dataset.attn; ATTN_OPEN.has(id)?ATTN_OPEN.delete(id):ATTN_OPEN.add(id); renderAttn(); });
 }
 
 /* ---------- Base da proposta ---------- */

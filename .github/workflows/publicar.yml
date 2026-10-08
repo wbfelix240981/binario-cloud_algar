@@ -1,0 +1,16 @@
+name: Publicar painel no GitHub Pages
+# Toda alteração no branch main é copiada para o gh-pages, que é o que o site publica.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: git push --force origin HEAD:gh-pages

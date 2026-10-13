@@ -1,0 +1,48 @@
+name: Sincronizar com o ClickUp
+
+on:
+  schedule:
+    # A cada 30 minutos (o GitHub pode atrasar execuções agendadas em repositórios com pouco tráfego).
+    - cron: '7,37 * * * *'
+  workflow_dispatch: {}   # permite rodar à mão na aba Actions
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-clickup
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Buscar o ClickUp e remontar o painel
+        env:
+          CLICKUP_TOKEN: ${{ secrets.CLICKUP_TOKEN }}
+        run: python3 automation/sync_clickup.py
+
+      - name: Commit e publicação (se algo mudou)
+        run: |
+          git config user.name "ClickUp Sync Bot"
+          git config user.email "actions@github.com"
+          git add index.html leitura.html projeto-ms-project.xml
+          if git diff --cached --quiet; then
+            echo "Nada para publicar."
+          else
+            git commit -m "Sincronização automática com o ClickUp ($(TZ=America/Sao_Paulo date '+%d/%m/%Y %H:%M'))"
+            git pull --rebase origin main
+            git push origin HEAD:main
+            # push feito pelo bot não dispara outros workflows: publica no GitHub Pages aqui mesmo
+            git push --force origin HEAD:gh-pages
+          fi

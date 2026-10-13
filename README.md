@@ -18,7 +18,14 @@ painel do Escritório de Projetos (ponderado por status, só tarefas principais)
 - Modo edição: muda status, datas, responsável e comentários; o botão
   "Baixar para enviar à Algar" gera um novo `index.html` já atualizado.
 
-## Como atualizar
+## Atualização automática
+O workflow `.github/workflows/sync-clickup.yml` roda a cada 30 minutos (e à mão na aba Actions):
+lê a lista "Algar - Telecom" do ClickUp, remonta `index.html`, `leitura.html` e `projeto-ms-project.xml`
+com `automation/sync_clickup.py` e publica só se algo mudou (GitHub Pages e Cloudflare Pages).
+Precisa do secret **CLICKUP_TOKEN** (Settings → Secrets and variables → Actions), o mesmo token pessoal
+do ClickUp usado no repositório do Escritório de Projetos.
+
+## Como atualizar à mão
 1. Abra o painel, clique em **Editar** e faça as mudanças.
 2. Clique em **Baixar para enviar à Algar**.
 3. Substitua o `index.html` deste repositório pelo arquivo baixado e faça o commit.

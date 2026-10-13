@@ -1043,10 +1043,6 @@ function renderHeader(){
   const lv=allLeaves(MAIN);
   const cntP = p => lv.filter(x=>x.party===p).length;
   document.getElementById('heroMeta').innerHTML =
-    `<span>Kickoff <b>${fmtY((lv.find(x=>/kickoff/i.test(x.n))||MAIN.find(m=>m.num===0)||{}).due||ini)}</b></span><span>Término ${PROJECT.scheduleDraft?'estimado':'previsto'} <b>${fmtY(fim)}</b></span>`+
-    `<span>Tempo decorrido <b>${total>0?Math.round(decorrido/total*100):0}%</b></span>`+
-    `<span title="Atividades com prazo até hoje ÷ total de atividades">Previsto até hoje <b>${lv.length?Math.round(lv.filter(x=>x.due&&sod(x.due)<=TODAY).length/lv.length*100):0}%</b></span>`+
-    `<span title="Atividades concluídas no ClickUp ÷ total de atividades">Real <b>${lv.filter(isDone).length} de ${lv.length} concluídas</b></span>`+
     `<span>Atividades <b>${cntP('binario')} Binário · ${cntP('algar')} Algar · ${cntP('ambos')} conjuntas${cntP('nd')?' · '+cntP('nd')+' a definir':''}</b></span>`;
   document.getElementById('tbSub').textContent = '· Planejamento Algar';
 

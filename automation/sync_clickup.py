@@ -145,13 +145,14 @@ def main():
     s = s[:a] + cab + corpo + s[e:]
     agora = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:00Z')
     s = re.sub(r'const LAST_SYNC_UTC = "[^"]*";', f'const LAST_SYNC_UTC = "{agora}";', s, count=1)
-    open(INDEX, "w", encoding="utf-8").write(s)
     ro = s.replace("const SOMENTE_LEITURA = false;", "const SOMENTE_LEITURA = true;", 1).replace(
         "<title>Planejamento Algar · BCAPI | BC Billing</title>", "<title>Planejamento Algar · BCAPI | BC Billing (somente leitura)</title>", 1)
-    open(LEITURA, "w", encoding="utf-8").write(ro)
     with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False, encoding="utf-8") as f:
         json.dump(metas, f, ensure_ascii=False); tmp = f.name
     subprocess.run([sys.executable, os.path.join(ROOT, "automation", "mspdi.py"), tmp, XML], check=True)
+    # só grava os HTML depois que o XML deu certo (se algo falhar, nada fica pela metade)
+    open(INDEX, "w", encoding="utf-8").write(s)
+    open(LEITURA, "w", encoding="utf-8").write(ro)
     lv = [f for m in metas for f in m["fases"] if not f.get("oculto")]
     print(f"Painel atualizado: {len(metas)} marcos, {len(lv)} atividades, {sum(f['status']=='shipped' for f in lv)} concluídas.")
 

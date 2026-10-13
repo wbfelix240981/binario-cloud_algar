@@ -42,6 +42,9 @@ proj_ini = proj_fim = None
 for mi, m in enumerate(metas, start=1):
     if m.get('internal') or m['num'] == 999: continue
     fases = [dict(f) for f in m['fases'] if not f.get('oculto')]
+    if not fases:   # marco sem atividades: entra como tarefa única com as datas do próprio marco
+        if not m.get('due'): continue
+        fases = [{'n': m['name'], 'party': 'nd', 'status': m.get('status', 'backlog'), 'start': m.get('start') or m['due'], 'due': m['due'], 'sem_data': False}]
     for f in fases:  # sem datas no ClickUp: usa as datas do marco (ou do projeto)
         if not f.get('due'): f['due'] = m.get('due') or '2026-10-30'; f['sem_data'] = True
         if not f.get('start'): f['start'] = m.get('start') or f['due']

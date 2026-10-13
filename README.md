@@ -4,7 +4,13 @@ Painel do projeto **BCAPI | BC Billing** da Algar (expansão do Cloud Plus), com
 definidos sobre a Proposta Técnica v4.1 e as frentes combinadas com o time da Algar.
 
 ## Conteúdo
-- `index.html` — o painel (arquivo único, sem dependências de build).
+- `index.html` — o painel editável (arquivo único, sem dependências de build).
+- `leitura.html` — o mesmo painel só para leitura (sem botão Editar).
+- `projeto-ms-project.xml` — cronograma para abrir no Microsoft Project (salvar como .mpp).
+
+Fonte dos dados: lista "Algar - Telecom" do ClickUp. Regra de responsável: atividade em nome do
+Wagner Felix = Algar (responsável real no comentário "Responsável: ..."); o % segue a régua do
+painel do Escritório de Projetos (ponderado por status, só tarefas principais).
 
 ## O que o painel mostra
 - Marcos e atividades por responsável (Binário, Algar ou conjunta), com status, prazos e comentários.

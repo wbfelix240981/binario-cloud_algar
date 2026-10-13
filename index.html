@@ -943,8 +943,10 @@ const PARTY = {
 };
 const ACTIVE = ['in planning','in progress','in test','in review'];
 // Quanto cada status vale no % de conclusão (ajuste se quiser outra régua).
-// Métrica real: só conta o que está concluído (fechado no ClickUp). % = atividades concluídas ÷ total de atividades.
-const STATUS_PESO = {'waiting':0, 'backlog':0, 'in planning':0, 'in progress':0, 'in review':0, 'in test':0, 'blocked':0, 'shipped':1};
+// Mesma régua do painel do Escritório de Projetos: concluída 100%, em revisão/teste 75%, em andamento 50%, aguardando retorno 25%,
+// planejamento 10%, aberta/bloqueada 0. Só as tarefas principais entram no % (subtarefas não contam).
+const STATUS_PESO = {'waiting':0.25, 'backlog':0, 'in planning':0.1, 'in progress':0.5, 'in review':0.75, 'in test':0.75, 'blocked':0, 'shipped':1};
+const principais = l => { const p=l.filter(x=>!x.subde); return p.length?p:l; };
 const peso = x => STATUS_PESO[x.status] ?? 0;
 const DAY = 86400000;
 
@@ -1031,7 +1033,7 @@ function dueState(item){
 const daysLate = item => Math.round((TODAY - sod(item.original_due ?? item.due))/DAY);
 const isDone = x => x.status==='shipped';
 function metaProg(m){
-  const l=leaves(m);
+  const l=principais(leaves(m));
   if(!l.length) return isDone(m)?1:0;
   return l.reduce((t,x)=>t+peso(x),0)/l.length;
 }
@@ -1053,7 +1055,8 @@ function renderHeader(){
     `<span>Atividades <b>${cntP('binario')} Binário · ${cntP('algar')} Algar · ${cntP('ambos')} conjuntas${cntP('nd')?' · '+cntP('nd')+' a definir':''}</b></span>`;
   document.getElementById('tbSub').textContent = '· Planejamento Algar';
 
-  const pct = lv.length ? Math.round(lv.reduce((t,x)=>t+peso(x),0)/lv.length*100) : 0;
+  const lp = principais(lv);
+  const pct = lp.length ? Math.round(lp.reduce((t,x)=>t+peso(x),0)/lp.length*100) : 0;
   const C=2*Math.PI*50, fg=document.getElementById('ringFg');
   fg.style.strokeDasharray=C; fg.style.strokeDashoffset=C;
   requestAnimationFrame(()=>requestAnimationFrame(()=>fg.style.strokeDashoffset=C*(1-pct/100)));
@@ -1063,13 +1066,13 @@ function renderHeader(){
   const all = allLeaves(VISIBLE);
   const late = all.filter(a=>dueState(a)==='late').length;
   const prox = all.filter(a=>!isDone(a) && dueState(a)!=='late' && (a.original_due??a.due) && sod(a.original_due??a.due)<=TODAY+14*DAY).length;
-  const doneL = lv.filter(isDone).length;
+  const lvP = principais(lv), doneL = lvP.filter(isDone).length;
   const k = (cls,v,l,barPct,col,act)=>`<div class="kpi ${cls}" data-act="${act||''}"><div class="v">${v}</div><div class="l">${l}</div>${barPct!=null?`<div class="bar"><i style="width:${barPct}%;background:${col}"></i></div>`:''}</div>`;
   document.getElementById('kpis').innerHTML =
     k('', MAIN.length, 'Marcos (com o kickoff)', null,null,'all') +
     k('k-ok', doneM, 'Marcos concluídos', MAIN.length?doneM/MAIN.length*100:0,'var(--ok)','shipped') +
     k('k-prog', andamento, 'Marcos em andamento', MAIN.length?andamento/MAIN.length*100:0,'var(--prog)','in progress') +
-    k('k-idle', `${doneL}<small style="font-size:15px;color:var(--text-3)">/${lv.length}</small>`, 'Atividades entregues', lv.length?doneL/lv.length*100:0,'var(--brand)','') +
+    k('k-idle', `${doneL}<small style="font-size:15px;color:var(--text-3)">/${lvP.length}</small>`, 'Tarefas entregues', lvP.length?doneL/lvP.length*100:0,'var(--brand)','') +
     k('k-warn', PROXIMOS_PASSOS.length, 'Próximos passos', null,null,'attn') +
     k('k-late'+(late?' alert':''), late, 'Atividades atrasadas', null,null,'attn');
   document.querySelectorAll('.kpi').forEach(el=>el.onclick=()=>{
@@ -1376,7 +1379,7 @@ document.getElementById('btnPrint').onclick=()=>{
    Usa os dados que estão na tela (incluindo edições). No Project: Arquivo → Abrir → escolher o .xml → Salvar como .mpp. */
 function exportarMSProject(){
   const FER = new Set(['2026-10-12','2026-11-02','2026-11-15','2026-11-20']);
-  const PESO_P = {'shipped':100};
+  const PESO_P = {'backlog':0,'in planning':10,'in progress':50,'in review':75,'in test':75,'blocked':0,'waiting':25,'shipped':100};
   const PTXT = {binario:'Binário', algar:'Algar', ambos:'Binário + Algar', nd:'A definir'};
   const PRES = {binario:[1], algar:[2], ambos:[1,2]};
   const esc = t => String(t??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -1539,7 +1542,7 @@ function renderEditBar(){
   bar.classList.toggle('hidden', !EDIT_MODE);
   if(!EDIT_MODE) return;
   const n=editCount();
-  bar.innerHTML = `<div class="eb-t"><b>✎ Modo edição</b><span>Mude status, datas, responsáveis e comentários direto nas atividades. O status de cada marco é calculado sozinho.<br><span class="eb-w">% real: só as atividades concluídas contam (concluídas ÷ total).</span> ${n?`<b>${n}</b> atividade(s) alterada(s), salvas neste navegador.`:'Nenhuma alteração ainda.'}</span></div>
+  bar.innerHTML = `<div class="eb-t"><b>✎ Modo edição</b><span>Mude status, datas, responsáveis e comentários direto nas atividades. O status de cada marco é calculado sozinho.<br><span class="eb-w">% igual ao painel do Escritório de Projetos: Concluída 100 · Em revisão/teste 75 · Em andamento 50 · Aguardando retorno 25 · Planejamento 10 · Aberta/Bloqueada 0 · só tarefas principais (sem subtarefas).</span> ${n?`<b>${n}</b> atividade(s) alterada(s), salvas neste navegador.`:'Nenhuma alteração ainda.'}</span></div>
     <div class="eb-a"><button class="eb-btn primary" id="ebDownload" title="Sem os itens internos da Binário">⬇ Baixar para enviar à Algar</button>
       <button class="eb-btn" id="ebDownloadInt" title="Com os itens internos">⬇ Baixar versão interna</button>
       ${n?'<button class="eb-btn" id="ebReset">Desfazer tudo</button>':''}

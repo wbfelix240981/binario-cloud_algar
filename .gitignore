@@ -1,2 +1,4 @@
 .DS_Store
 *_INTERNO_*.html
+__pycache__/
+*.pyc

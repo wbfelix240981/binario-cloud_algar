@@ -1,6 +1,0 @@
-{
-  // Publica o painel como site estático no Cloudflare (Workers com assets).
-  "name": "binario-cloud-algar",
-  "compatibility_date": "2026-10-01",
-  "assets": { "directory": "." }
-}

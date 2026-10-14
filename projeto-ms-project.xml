@@ -4,9 +4,9 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-10-14T08:38:29</CreationDate><LastSaved>2026-10-14T08:38:29</LastSaved>
+<CreationDate>2026-10-14T12:51:36</CreationDate><LastSaved>2026-10-14T12:51:36</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
-<StartDate>2026-09-29T08:00:00</StartDate><FinishDate>2026-10-30T17:00:00</FinishDate>
+<StartDate>2026-10-02T08:00:00</StartDate><FinishDate>2026-10-30T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
 <MinutesPerDay>480</MinutesPerDay><MinutesPerWeek>2400</MinutesPerWeek><DaysPerMonth>20</DaysPerMonth>
 <DurationFormat>7</DurationFormat><WorkFormat>2</WorkFormat><NewTaskStartDate>0</NewTaskStartDate>
@@ -30,7 +30,7 @@
 <WeekDay><DayType>0</DayType><DayWorking>0</DayWorking><TimePeriod><FromDate>2026-11-20T00:00:00</FromDate><ToDate>2026-11-20T23:59:00</ToDate></TimePeriod></WeekDay>
 </WeekDays></Calendar></Calendars>
 <Tasks>
-<Task><UID>0</UID><ID>0</ID><Name>Projeto Algar · BCAPI | BC Billing</Name><OutlineLevel>0</OutlineLevel><OutlineNumber>0</OutlineNumber><Summary>1</Summary><Start>2026-09-29T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish></Task>
+<Task><UID>0</UID><ID>0</ID><Name>Projeto Algar · BCAPI | BC Billing</Name><OutlineLevel>0</OutlineLevel><OutlineNumber>0</OutlineNumber><Summary>1</Summary><Start>2026-10-02T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish></Task>
 <Task>
 <UID>1</UID><ID>1</ID><Name>Marco 0 — Kickoff</Name><Type>1</Type>
 <OutlineNumber>1</OutlineNumber><OutlineLevel>1</OutlineLevel>
@@ -41,25 +41,8 @@
 <Notes></Notes>
 </Task>
 <Task>
-<UID>2</UID><ID>2</ID><Name>Devolução da minuta contratual para Binario</Name><Type>1</Type>
+<UID>2</UID><ID>2</ID><Name>Publicar painel e liberar usuarios para acompanhamento</Name><Type>1</Type>
 <OutlineNumber>1.1</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-06T08:00:00</Start><Finish>2026-10-09T17:00:00</Finish>
-<Duration>PT32H0M0S</Duration><DurationFormat>7</DurationFormat>
-<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-06T08:00:00</ConstraintDate>
-<ActualStart>2026-10-06T08:00:00</ActualStart>
-<ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário + Algar</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743734</FieldID><Value>Diogo Lerison / Emerson Alexandre, Julis Rimet e Flavio Janones</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
-<Notes>Responsável: Binário + Algar · Diogo Lerison / Emerson Alexandre, Julis Rimet e Flavio Janones
-Status no painel: Em andamento
-Origem: atividade definida no planejamento
-Comentário: Aguardando retorno Emerson / Julis / Produtos · Responsável: Emerson Alexandre, Julis Rimet e Flavio Janones</Notes>
-</Task>
-<Task>
-<UID>3</UID><ID>3</ID><Name>Publicar painel e liberar usuarios para acompanhamento</Name><Type>1</Type>
-<OutlineNumber>1.2</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-06T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
 <Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
@@ -67,6 +50,23 @@ Comentário: Aguardando retorno Emerson / Julis / Produtos · Responsável: Emer
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-06T08:00:00</ConstraintDate>
 <ActualStart>2026-10-06T08:00:00</ActualStart>
 <ActualFinish>2026-10-16T17:00:00</ActualFinish>
+<ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Diogo Lerison</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
+<Notes>Responsável: Binário · Diogo Lerison
+Status no painel: Concluído
+Origem: atividade definida no planejamento</Notes>
+</Task>
+<Task>
+<UID>3</UID><ID>3</ID><Name>Definir pontos focais e cadência de acompanhamento</Name><Type>1</Type>
+<OutlineNumber>1.2</OutlineNumber><OutlineLevel>2</OutlineLevel>
+<Start>2026-10-07T08:00:00</Start><Finish>2026-10-08T17:00:00</Finish>
+<Duration>PT16H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
+<PercentComplete>100</PercentComplete>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-07T08:00:00</ConstraintDate>
+<ActualStart>2026-10-07T08:00:00</ActualStart>
+<ActualFinish>2026-10-08T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Diogo Lerison</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
@@ -92,25 +92,8 @@ Status no painel: Concluído
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>5</UID><ID>5</ID><Name>Definir pontos focais e cadência de acompanhamento</Name><Type>1</Type>
+<UID>5</UID><ID>5</ID><Name>Validação de Marcos, responsáveis e datas</Name><Type>1</Type>
 <OutlineNumber>1.4</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-07T08:00:00</Start><Finish>2026-10-08T17:00:00</Finish>
-<Duration>PT16H0M0S</Duration><DurationFormat>7</DurationFormat>
-<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>100</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-07T08:00:00</ConstraintDate>
-<ActualStart>2026-10-07T08:00:00</ActualStart>
-<ActualFinish>2026-10-08T17:00:00</ActualFinish>
-<ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743734</FieldID><Value>Diogo Lerison</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
-<Notes>Responsável: Binário · Diogo Lerison
-Status no painel: Concluído
-Origem: atividade definida no planejamento</Notes>
-</Task>
-<Task>
-<UID>6</UID><ID>6</ID><Name>Validação de Marcos, responsáveis e datas</Name><Type>1</Type>
-<OutlineNumber>1.5</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
 <Duration>PT56H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
@@ -126,8 +109,8 @@ Status no painel: Concluído
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>7</UID><ID>7</ID><Name>Elaboração da TAP</Name><Type>1</Type>
-<OutlineNumber>1.6</OutlineNumber><OutlineLevel>2</OutlineLevel>
+<UID>6</UID><ID>6</ID><Name>Elaboração da TAP</Name><Type>1</Type>
+<OutlineNumber>1.5</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-08T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
 <Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
@@ -140,6 +123,24 @@ Origem: atividade definida no planejamento</Notes>
 <Notes>Responsável: Binário · Diogo Lerison
 Status no painel: Em andamento
 Origem: atividade definida no planejamento</Notes>
+</Task>
+<Task>
+<UID>7</UID><ID>7</ID><Name>Devolução da minuta contratual para Binario</Name><Type>1</Type>
+<OutlineNumber>1.6</OutlineNumber><OutlineLevel>2</OutlineLevel>
+<Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
+<Duration>PT8H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
+<PercentComplete>50</PercentComplete>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-16T08:00:00</ConstraintDate>
+<ActualStart>2026-10-16T08:00:00</ActualStart>
+<ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário + Algar</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Diogo Lerison / Emerson Alexandre, Julis Rimet e Flavio Janones</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
+<Notes>Responsável: Binário + Algar · Diogo Lerison / Emerson Alexandre, Julis Rimet e Flavio Janones
+Status no painel: Em andamento
+Origem: atividade definida no planejamento
+Sem datas no ClickUp: usadas as datas do marco
+Comentário: Aguardando retorno Emerson / Julis / Produtos · Responsável: Emerson Alexandre, Julis Rimet e Flavio Janones</Notes>
 </Task>
 <Task>
 <UID>8</UID><ID>8</ID><Name>Envio/Assinatura da TAP</Name><Type>1</Type>
@@ -160,8 +161,8 @@ Sem datas no ClickUp: usadas as datas do marco</Notes>
 <Task>
 <UID>9</UID><ID>9</ID><Name>Marco 1 — SSO no portal B2B</Name><Type>1</Type>
 <OutlineNumber>2</OutlineNumber><OutlineLevel>1</OutlineLevel>
-<Start>2026-09-29T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish>
-<Duration>PT184H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Start>2026-10-02T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish>
+<Duration>PT160H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>30</PercentComplete>
 <Notes></Notes>
@@ -203,12 +204,12 @@ Comentário: trusted_dashboard = · Responsável: Daniel Prado</Notes>
 <Task>
 <UID>12</UID><ID>12</ID><Name>Testar SSO no ambiente Sandbox</Name><Type>1</Type>
 <OutlineNumber>2.3</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-09-29T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
+<Start>2026-10-06T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish>
 <Duration>PT104H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>50</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-09-29T08:00:00</ConstraintDate>
-<ActualStart>2026-09-29T08:00:00</ActualStart>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-06T08:00:00</ConstraintDate>
+<ActualStart>2026-10-06T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Joab de Araújo Silva</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
@@ -219,12 +220,12 @@ Origem: atividade definida no planejamento</Notes>
 <Task>
 <UID>13</UID><ID>13</ID><Name>Configurar Identity Provider e o mapping no Keystone</Name><Type>1</Type>
 <OutlineNumber>2.4</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-09T08:00:00</Start><Finish>2026-10-09T17:00:00</Finish>
+<Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
 <Duration>PT8H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>50</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-09T08:00:00</ConstraintDate>
-<ActualStart>2026-10-09T08:00:00</ActualStart>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-16T08:00:00</ConstraintDate>
+<ActualStart>2026-10-16T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Daniel Prado</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
@@ -236,12 +237,12 @@ Comentário: ja realizado nas novas regiões Necessario ajuste em SP e Uberlandi
 <Task>
 <UID>14</UID><ID>14</ID><Name>Validar os cenários de MFA, token expirado e usuário removido do grupo</Name><Type>1</Type>
 <OutlineNumber>2.5</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-23T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish>
+<Start>2026-10-30T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish>
 <Duration>PT8H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>50</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-23T08:00:00</ConstraintDate>
-<ActualStart>2026-10-23T08:00:00</ActualStart>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-30T08:00:00</ConstraintDate>
+<ActualStart>2026-10-30T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Joab de Araújo Silva</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
@@ -298,24 +299,8 @@ Origem: atividade definida no planejamento
 Sem datas no ClickUp: usadas as datas do marco</Notes>
 </Task>
 <Task>
-<UID>18</UID><ID>18</ID><Name>Levantamento de autenticação</Name><Type>1</Type>
+<UID>18</UID><ID>18</ID><Name>Liberar Usuario</Name><Type>1</Type>
 <OutlineNumber>2.9</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-02T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish>
-<Duration>PT160H0M0S</Duration><DurationFormat>7</DurationFormat>
-<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>0</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-02T08:00:00</ConstraintDate>
-<ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743734</FieldID><Value>Algar (a definir)</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
-<Notes>Responsável: Algar · Algar (a definir)
-Status no painel: Não iniciado
-Origem: atividade definida no planejamento
-Sem datas no ClickUp: usadas as datas do marco</Notes>
-</Task>
-<Task>
-<UID>19</UID><ID>19</ID><Name>Liberar Usuario</Name><Type>1</Type>
-<OutlineNumber>2.10</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-02T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish>
 <Duration>PT160H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
@@ -327,7 +312,25 @@ Sem datas no ClickUp: usadas as datas do marco</Notes>
 <Notes>Responsável: Binário · Guilherme Lopes
 Status no painel: Não iniciado
 Origem: atividade definida no planejamento
-Sem datas no ClickUp: usadas as datas do marco</Notes>
+Sem datas no ClickUp: usadas as datas do marco
+Comentário: Liberar usuário de acordo com a forma que é feita a autenticação. informação levantada na tarefa anterior.</Notes>
+</Task>
+<Task>
+<UID>19</UID><ID>19</ID><Name>Levantamento de autenticação</Name><Type>1</Type>
+<OutlineNumber>2.10</OutlineNumber><OutlineLevel>2</OutlineLevel>
+<Start>2026-10-02T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish>
+<Duration>PT160H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
+<PercentComplete>0</PercentComplete>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-02T08:00:00</ConstraintDate>
+<ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Algar (a definir)</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<Notes>Responsável: Algar · Algar (a definir)
+Status no painel: Não iniciado
+Origem: atividade definida no planejamento
+Sem datas no ClickUp: usadas as datas do marco
+Comentário: Necessidade do cliente informar como é feita a autenticação, exemplo, na Binario atualmente é pelo Office 365.</Notes>
 </Task>
 <Task>
 <UID>20</UID><ID>20</ID><Name>Marco 2 — Redirect do BCP API para o Portal B2B</Name><Type>1</Type>
@@ -510,23 +513,8 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>32</UID><ID>32</ID><Name>Montar o contrato da API (OpenAPI) e validar com o consumidor</Name><Type>1</Type>
+<UID>32</UID><ID>32</ID><Name>Definir a autenticação da API</Name><Type>1</Type>
 <OutlineNumber>4.5</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-16T08:00:00</Start><Finish>2026-10-20T17:00:00</Finish>
-<Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
-<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>0</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-16T08:00:00</ConstraintDate>
-<ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Lopes</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
-<Notes>Responsável: Binário · Guilherme Lopes
-Status no painel: Não iniciado
-Origem: atividade definida no planejamento</Notes>
-</Task>
-<Task>
-<UID>33</UID><ID>33</ID><Name>Definir a autenticação da API</Name><Type>1</Type>
-<OutlineNumber>4.6</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-16T08:00:00</Start><Finish>2026-10-20T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
@@ -540,8 +528,8 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>34</UID><ID>34</ID><Name>Entendimento da demanda</Name><Type>1</Type>
-<OutlineNumber>4.7</OutlineNumber><OutlineLevel>2</OutlineLevel>
+<UID>33</UID><ID>33</ID><Name>Entendimento da demanda</Name><Type>1</Type>
+<OutlineNumber>4.6</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-16T08:00:00</Start><Finish>2026-10-20T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
@@ -551,6 +539,21 @@ Origem: atividade definida no planejamento</Notes>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Soares / Diogo Lerison</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Guilherme Soares / Diogo Lerison
+Status no painel: Não iniciado
+Origem: atividade definida no planejamento</Notes>
+</Task>
+<Task>
+<UID>34</UID><ID>34</ID><Name>Montar o contrato da API (OpenAPI) e validar com o consumidor</Name><Type>1</Type>
+<OutlineNumber>4.7</OutlineNumber><OutlineLevel>2</OutlineLevel>
+<Start>2026-10-16T08:00:00</Start><Finish>2026-10-20T17:00:00</Finish>
+<Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
+<PercentComplete>0</PercentComplete>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-16T08:00:00</ConstraintDate>
+<ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Lopes</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<Notes>Responsável: Binário · Guilherme Lopes
 Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
@@ -635,15 +638,15 @@ Origem: atividade definida no planejamento</Notes>
 <ActualStart>2026-10-07T08:00:00</ActualStart>
 <ActualFinish>2026-10-09T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Lopes / Joab de Araújo Silva / Guilherme Soares</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Joab de Araújo Silva / Guilherme Lopes / Guilherme Soares</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
-<Notes>Responsável: Binário · Guilherme Lopes / Joab de Araújo Silva / Guilherme Soares
+<Notes>Responsável: Binário · Joab de Araújo Silva / Guilherme Lopes / Guilherme Soares
 Status no painel: Concluído
 Origem: atividade definida no planejamento
 Comentário: (CPU, memória, disco, redundância) 3 de produção, servidor atual utilizado para POC será usado para teste IP privado para configuração do VIP Flavor 8-32 volume: 500Gb Possibilidade de alto uso de disco ser os logs do Gitlab</Notes>
 </Task>
 <Task>
-<UID>41</UID><ID>41</ID><Name>Definir o ambiente inicial da coleta Canonical: staging SP, Fortaleza ou Porto Alegre</Name><Type>1</Type>
+<UID>41</UID><ID>41</ID><Name>Definir a cobrança por roteador/projeto e por banda (avaliar aditivo contratual com Produtos)</Name><Type>1</Type>
 <OutlineNumber>5.3</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
 <Duration>PT56H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -658,7 +661,7 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>42</UID><ID>42</ID><Name>Definir a cobrança por roteador/projeto e por banda (avaliar aditivo contratual com Produtos)</Name><Type>1</Type>
+<UID>42</UID><ID>42</ID><Name>Definir o ambiente inicial da coleta Canonical: staging SP, Fortaleza ou Porto Alegre</Name><Type>1</Type>
 <OutlineNumber>5.4</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
 <Duration>PT56H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -673,7 +676,7 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>43</UID><ID>43</ID><Name>Começar coleta Fortaleza</Name><Type>1</Type>
+<UID>43</UID><ID>43</ID><Name>Começar coleta Porto Alegre</Name><Type>1</Type>
 <OutlineNumber>5.5</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-07T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish>
 <Duration>PT96H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -703,7 +706,7 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>45</UID><ID>45</ID><Name>Começar coleta Porto Alegre</Name><Type>1</Type>
+<UID>45</UID><ID>45</ID><Name>Começar coleta Fortaleza</Name><Type>1</Type>
 <OutlineNumber>5.7</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-07T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish>
 <Duration>PT96H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -861,27 +864,27 @@ Origem: atividade definida no planejamento</Notes>
 <Resource><UID>2</UID><ID>2</ID><Name>Algar</Name><Type>1</Type><MaxUnits>1</MaxUnits><CalendarUID>1</CalendarUID></Resource>
 </Resources>
 <Assignments>
-<Assignment><UID>1</UID><TaskUID>2</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-06T08:00:00</Start><Finish>2026-10-09T17:00:00</Finish><Work>PT32H0M0S</Work></Assignment>
-<Assignment><UID>2</UID><TaskUID>2</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-06T08:00:00</Start><Finish>2026-10-09T17:00:00</Finish><Work>PT32H0M0S</Work></Assignment>
-<Assignment><UID>3</UID><TaskUID>3</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-06T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT64H0M0S</Work></Assignment>
-<Assignment><UID>4</UID><TaskUID>4</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-08T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
-<Assignment><UID>5</UID><TaskUID>5</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-08T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
-<Assignment><UID>6</UID><TaskUID>6</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
-<Assignment><UID>7</UID><TaskUID>7</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-08T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
+<Assignment><UID>1</UID><TaskUID>2</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-06T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT64H0M0S</Work></Assignment>
+<Assignment><UID>2</UID><TaskUID>3</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-08T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
+<Assignment><UID>3</UID><TaskUID>4</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-08T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
+<Assignment><UID>4</UID><TaskUID>5</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
+<Assignment><UID>5</UID><TaskUID>6</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-08T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
+<Assignment><UID>6</UID><TaskUID>7</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
+<Assignment><UID>7</UID><TaskUID>7</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
 <Assignment><UID>8</UID><TaskUID>8</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-02T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT80H0M0S</Work></Assignment>
 <Assignment><UID>9</UID><TaskUID>8</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-02T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT80H0M0S</Work></Assignment>
 <Assignment><UID>10</UID><TaskUID>10</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-10-21T17:00:00</Finish><Work>PT96H0M0S</Work></Assignment>
 <Assignment><UID>11</UID><TaskUID>10</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-10-21T17:00:00</Finish><Work>PT96H0M0S</Work></Assignment>
 <Assignment><UID>12</UID><TaskUID>11</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
 <Assignment><UID>13</UID><TaskUID>11</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
-<Assignment><UID>14</UID><TaskUID>12</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-09-29T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT104H0M0S</Work></Assignment>
-<Assignment><UID>15</UID><TaskUID>13</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-09T08:00:00</Start><Finish>2026-10-09T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
-<Assignment><UID>16</UID><TaskUID>14</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-23T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
+<Assignment><UID>14</UID><TaskUID>12</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-06T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish><Work>PT104H0M0S</Work></Assignment>
+<Assignment><UID>15</UID><TaskUID>13</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
+<Assignment><UID>16</UID><TaskUID>14</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
 <Assignment><UID>17</UID><TaskUID>15</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-13T08:00:00</Start><Finish>2026-10-21T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
 <Assignment><UID>18</UID><TaskUID>16</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
 <Assignment><UID>19</UID><TaskUID>17</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-02T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish><Work>PT160H0M0S</Work></Assignment>
-<Assignment><UID>20</UID><TaskUID>18</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-02T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish><Work>PT160H0M0S</Work></Assignment>
-<Assignment><UID>21</UID><TaskUID>19</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-02T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish><Work>PT160H0M0S</Work></Assignment>
+<Assignment><UID>20</UID><TaskUID>18</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-02T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish><Work>PT160H0M0S</Work></Assignment>
+<Assignment><UID>21</UID><TaskUID>19</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-02T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish><Work>PT160H0M0S</Work></Assignment>
 <Assignment><UID>22</UID><TaskUID>21</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-09T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
 <Assignment><UID>23</UID><TaskUID>21</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-09T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
 <Assignment><UID>24</UID><TaskUID>22</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-14T17:00:00</Finish><Work>PT40H0M0S</Work></Assignment>

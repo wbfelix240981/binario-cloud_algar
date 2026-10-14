@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-10-14T12:51:36</CreationDate><LastSaved>2026-10-14T12:51:36</LastSaved>
+<CreationDate>2026-10-14T17:30:24</CreationDate><LastSaved>2026-10-14T17:30:24</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-02T08:00:00</StartDate><FinishDate>2026-10-30T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -608,7 +608,7 @@ Origem: atividade definida no planejamento</Notes>
 <Start>2026-10-05T08:00:00</Start><Finish>2026-10-28T17:00:00</Finish>
 <Duration>PT136H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>19</PercentComplete>
+<PercentComplete>21</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -617,15 +617,16 @@ Origem: atividade definida no planejamento</Notes>
 <Start>2026-10-05T08:00:00</Start><Finish>2026-10-15T17:00:00</Finish>
 <Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
+<PercentComplete>75</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-05T08:00:00</ConstraintDate>
 <ActualStart>2026-10-05T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Soares</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em revisão</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Guilherme Soares
-Status no painel: Em andamento
-Origem: atividade definida no planejamento</Notes>
+Status no painel: Em revisão
+Origem: atividade definida no planejamento
+Comentário: Deploy concluído: precisão de 6 casas decimais Os preços de SKU, os valores de consumo (on demand e mensal) e o total da fatura passaram a ser calculados e gravados com 6 casas decimais.</Notes>
 </Task>
 <Task>
 <UID>40</UID><ID>40</ID><Name>Enviar as diretrizes de dimensionamento</Name><Type>1</Type>

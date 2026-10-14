@@ -1,27 +1,33 @@
 name: Sincronizar com o ClickUp
 
+# Atualiza o painel a cada 30 min, das 06h às 22h (horário de Brasília).
+# O agendamento (schedule) do GitHub atrasa ou pula execuções em repositórios de pouco
+# tráfego. Por isso cada execução deixa a próxima já marcada (job "agendar-proxima"):
+# ela espera até o próximo horário e dispara este workflow de novo. O schedule abaixo
+# fica só como reserva, para reiniciar a corrente se ela parar.
 on:
   schedule:
-    # A cada 30 min, das 06h às 22h (horário de Brasília = UTC-3). O cron do GitHub é em UTC:
-    #   06:02 → 20:32  =  09:02 → 23:32 UTC
-    #   21:02 e 21:32  =  00:02 e 00:32 UTC
-    #   22:02          =  01:02 UTC
-    # Minuto 2/32 em vez de 0/30: no minuto cheio o GitHub costuma atrasar mais as execuções.
-    - cron: '2,32 9-23 * * *'
-    - cron: '2,32 0 * * *'
-    - cron: '2 1 * * *'
-  workflow_dispatch: {}   # permite rodar à mão na aba Actions
+    - cron: '2,32 9-23 * * *'   # 06:02–20:32 BRT
+    - cron: '2,32 0 * * *'      # 21:02–21:32 BRT
+    - cron: '2 1 * * *'         # 22:02 BRT
+  workflow_dispatch:
+    inputs:
+      pular_sync:
+        description: 'Uso interno (espera noturna): não sincronizar nesta execução'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
-
-concurrency:
-  group: sync-clickup
-  cancel-in-progress: false
+  actions: write
 
 jobs:
   sync:
+    if: ${{ github.event.inputs.pular_sync != 'true' }}
     runs-on: ubuntu-latest
+    concurrency:
+      group: sync-clickup
+      cancel-in-progress: false
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -39,7 +45,7 @@ jobs:
           CLICKUP_TOKEN: ${{ secrets.CLICKUP_TOKEN }}
         run: python3 automation/sync_clickup.py
 
-      - name: Commit e publicação (se algo mudou)
+      - name: Commit e publicação
         run: |
           git config user.name "ClickUp Sync Bot"
           git config user.email "actions@github.com"
@@ -51,11 +57,51 @@ jobs:
             if [ "${{ steps.sync.outputs.dados_mudaram }}" = "true" ]; then
               git commit -m "Sincronização automática com o ClickUp ($QUANDO)"
             else
-              # só a data/hora mudou: atualiza o GitHub Pages, mas não gasta build do Cloudflare (limite mensal)
+              # só a data/hora mudou: atualiza o GitHub Pages sem gastar build do Cloudflare (limite mensal)
               git commit -m "Data da última atualização ($QUANDO) [CF-Pages-Skip]"
             fi
             git pull --rebase origin main
             git push origin HEAD:main
             # push feito pelo bot não dispara outros workflows: publica no GitHub Pages aqui mesmo
             git push --force origin HEAD:gh-pages
+          fi
+
+  agendar-proxima:
+    needs: sync
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    # uma corrente só: se outra execução começar, esta espera é cancelada e a nova assume
+    concurrency:
+      group: sync-clickup-corrente
+      cancel-in-progress: true
+    steps:
+      - name: Esperar o próximo horário e disparar de novo
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          espera=$(python3 - <<'PY'
+          import datetime as dt
+          br = dt.timezone(dt.timedelta(hours=-3))
+          agora = dt.datetime.now(br)
+          # próximos horários: :02 e :32, das 06:02 às 22:02
+          slots = []
+          for d in range(0, 3):
+              dia = (agora + dt.timedelta(days=d)).date()
+              for h in range(6, 23):
+                  for m in (2, 32):
+                      if h == 22 and m == 32: continue
+                      slots.append(dt.datetime(dia.year, dia.month, dia.day, h, m, tzinfo=br))
+          prox = min(s for s in slots if s > agora + dt.timedelta(minutes=5))
+          print(int((prox - agora).total_seconds()))
+          PY
+          )
+          if [ "$espera" -gt 20000 ]; then
+            echo "Pausa da noite: espera parcial de 20000 s; a próxima execução não sincroniza e continua a espera."
+            sleep 20000
+            gh workflow run sync-clickup.yml -R "$GITHUB_REPOSITORY" --ref main -f pular_sync=true
+          else
+            echo "Próxima sincronização em $espera s."
+            sleep "$espera"
+            gh workflow run sync-clickup.yml -R "$GITHUB_REPOSITORY" --ref main -f pular_sync=false
           fi

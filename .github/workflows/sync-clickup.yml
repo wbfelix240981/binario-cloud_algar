@@ -2,9 +2,14 @@ name: Sincronizar com o ClickUp
 
 on:
   schedule:
-    # A cada 15 min, como o painel de metas: o GitHub atrasa/pula execuções agendadas em
-    # repositórios de pouco tráfego, então rodar com mais frequência garante ao menos ~1 por hora.
-    - cron: '*/15 * * * *'
+    # A cada 30 min, das 06h às 22h (horário de Brasília = UTC-3). O cron do GitHub é em UTC:
+    #   06:02 → 20:32  =  09:02 → 23:32 UTC
+    #   21:02 e 21:32  =  00:02 e 00:32 UTC
+    #   22:02          =  01:02 UTC
+    # Minuto 2/32 em vez de 0/30: no minuto cheio o GitHub costuma atrasar mais as execuções.
+    - cron: '2,32 9-23 * * *'
+    - cron: '2,32 0 * * *'
+    - cron: '2 1 * * *'
   workflow_dispatch: {}   # permite rodar à mão na aba Actions
 
 permissions:

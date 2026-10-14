@@ -745,9 +745,9 @@ const PROJECT = {
   description: '',
   sponsor: 'Binário Cloud · Escritório de Projetos',
   sourceUrl: 'https://app.clickup.com/3080406/v/l/li/901329196221',
-  scheduleDraft: true   // datas estimadas; troque para false quando o cronograma for aprovado no kickoff
+  scheduleDraft:false   // datas estimadas; troque para false quando o cronograma for aprovado no kickoff
 };
-const LAST_SYNC_UTC = "2026-10-13T23:52:00Z";
+const LAST_SYNC_UTC = "2026-10-14T11:38:00Z";
 
 // editor:true → pode entrar no modo de edição. Hash SHA-256 de "usuario:senha". Para gerar: no console → await hashCred('usuario','senha')
 // Tela de login. true = pede usuário e senha (único acesso: Binario / Binario@2026; o usuário não diferencia maiúsculas).
@@ -1053,7 +1053,8 @@ function renderHeader(){
   const lv=allLeaves(MAIN);
   const cntP = p => lv.filter(x=>x.party===p).length;
   document.getElementById('heroMeta').innerHTML =
-    `<span>Atividades <b>${cntP('binario')} Binário · ${cntP('algar')} Algar · ${cntP('ambos')} conjuntas${cntP('nd')?' · '+cntP('nd')+' a definir':''}</b></span>`;
+    `<span>Atividades <b>${cntP('binario')} Binário · ${cntP('algar')} Algar · ${cntP('ambos')} conjuntas${cntP('nd')?' · '+cntP('nd')+' a definir':''}</b></span>`+
+    `<span>🕒 Última atualização <b>${syncTxt}</b></span>`;
   document.getElementById('tbSub').textContent = '· Planejamento Algar';
 
   const lp = principais(lv);
@@ -1464,8 +1465,9 @@ function exportarMSProject(){
 document.getElementById('btnXml').onclick=()=>exportarMSProject();
 
 /* ---------- Sincronização ---------- */
-const syncTxt = new Date(LAST_SYNC_UTC).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'});
-document.getElementById('syncTxt').textContent='Atualizado em '+syncTxt;
+const _sd = new Date(LAST_SYNC_UTC), _o = {timeZone:'America/Sao_Paulo'};
+const syncTxt = _sd.toLocaleDateString('pt-BR',{..._o,day:'2-digit',month:'2-digit',year:'numeric'}) + ' às ' + _sd.toLocaleTimeString('pt-BR',{..._o,hour:'2-digit',minute:'2-digit'});
+document.getElementById('syncTxt').textContent='Última atualização: '+syncTxt;
 document.getElementById('footGen').textContent=(PROJECT.scheduleDraft?'⚠ Datas estimadas, a validar no kickoff (12/10 é feriado e não tem atividades) · ':'')+'Atualizado em '+syncTxt+' · '+PROJECT.sponsor;
 
 /* ---------- Login ----------
@@ -1567,7 +1569,7 @@ function downloadUpdated(withInternal){
 }
 function renderFootGen(){
   const ed = EDITS._updated ? new Date(EDITS._updated).toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}) : null;
-  document.getElementById('syncTxt').textContent = (ed && editCount()) ? 'Editado em ' + ed : 'ClickUp · ' + syncTxt;
+  document.getElementById('syncTxt').textContent = (ed && editCount()) ? 'Editado em ' + ed : 'Última atualização: ' + syncTxt;
   document.getElementById('footGen').textContent=(PROJECT.scheduleDraft?'⚠ Datas estimadas, a validar no kickoff (12/10 é feriado e não tem atividades) · ':'')+'Atualizado em '+(ed&&editCount()?ed:syncTxt)+' · '+PROJECT.sponsor;
 }
 document.getElementById('btnEdit').onclick=()=>{

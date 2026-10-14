@@ -11,7 +11,8 @@ O que faz:
        - Wagner + pessoas da Binário           -> Binário + Algar;
        - só pessoas da Binário (Diogo incluso)  -> Binário;
        - sem ninguém: subtarefa herda da tarefa-mãe; senão "A definir".
-  3. Se algo mudou: atualiza a data de sincronização, regrava index.html, leitura.html e projeto-ms-project.xml.
+  3. Sempre renova a data/hora da "Última atualização" (como no painel de metas e no Escritório de Projetos);
+     se as atividades mudaram, regrava também o bloco de dados e o XML do MS Project.
 """
 import json, os, re, sys, subprocess, tempfile, time, datetime as dt, urllib.request, urllib.error
 
@@ -137,12 +138,10 @@ def main():
     s = open(INDEX, encoding="utf-8").read()
     a = s.index('/* Fonte: ClickUp'); b = s.index('const METAS = [', a); e = s.index('\n];\n', b)
     corpo = 'const METAS = [\n' + ',\n'.join(' ' + json.dumps(m, ensure_ascii=False) for m in metas)
-    if s[b:e] == corpo:
-        print("Sem mudanças no ClickUp desde a última sincronização.")
-        return
+    mudou = s[b:e] != corpo
     cab = ('/* Fonte: ClickUp · lista "Algar - Telecom" (sincronização automática). Regra: atividade em nome do Wagner Felix = Algar; '
            'Diogo Lerison = Binário; responsável real no comentário "Responsável: ...". */\n')
-    s = s[:a] + cab + corpo + s[e:]
+    s = s[:a] + (cab + corpo if mudou else s[a:e]) + s[e:]
     agora = dt.datetime.now(dt.timezone.utc).strftime('%Y-%m-%dT%H:%M:00Z')
     s = re.sub(r'const LAST_SYNC_UTC = "[^"]*";', f'const LAST_SYNC_UTC = "{agora}";', s, count=1)
     ro = s.replace("const SOMENTE_LEITURA = false;", "const SOMENTE_LEITURA = true;", 1).replace(
@@ -154,6 +153,11 @@ def main():
     open(INDEX, "w", encoding="utf-8").write(s)
     open(LEITURA, "w", encoding="utf-8").write(ro)
     lv = [f for m in metas for f in m["fases"] if not f.get("oculto")]
+    out = os.environ.get("GITHUB_OUTPUT")
+    if out:
+        with open(out, "a") as fh: fh.write(f"dados_mudaram={'true' if mudou else 'false'}\n")
+    if not mudou:
+        print("Sem mudanças nas atividades; só a data/hora da última atualização foi renovada."); return
     print(f"Painel atualizado: {len(metas)} marcos, {len(lv)} atividades, {sum(f['status']=='shipped' for f in lv)} concluídas.")
 
 if __name__ == "__main__":

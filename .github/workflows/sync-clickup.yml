@@ -2,8 +2,9 @@ name: Sincronizar com o ClickUp
 
 on:
   schedule:
-    # A cada 30 minutos (o GitHub pode atrasar execuções agendadas em repositórios com pouco tráfego).
-    - cron: '7,37 * * * *'
+    # A cada 15 min, como o painel de metas: o GitHub atrasa/pula execuções agendadas em
+    # repositórios de pouco tráfego, então rodar com mais frequência garante ao menos ~1 por hora.
+    - cron: '*/15 * * * *'
   workflow_dispatch: {}   # permite rodar à mão na aba Actions
 
 permissions:
@@ -28,6 +29,7 @@ jobs:
           python-version: '3.11'
 
       - name: Buscar o ClickUp e remontar o painel
+        id: sync
         env:
           CLICKUP_TOKEN: ${{ secrets.CLICKUP_TOKEN }}
         run: python3 automation/sync_clickup.py
@@ -40,7 +42,13 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nada para publicar."
           else
-            git commit -m "Sincronização automática com o ClickUp ($(TZ=America/Sao_Paulo date '+%d/%m/%Y %H:%M'))"
+            QUANDO="$(TZ=America/Sao_Paulo date '+%d/%m/%Y %H:%M')"
+            if [ "${{ steps.sync.outputs.dados_mudaram }}" = "true" ]; then
+              git commit -m "Sincronização automática com o ClickUp ($QUANDO)"
+            else
+              # só a data/hora mudou: atualiza o GitHub Pages, mas não gasta build do Cloudflare (limite mensal)
+              git commit -m "Data da última atualização ($QUANDO) [CF-Pages-Skip]"
+            fi
             git pull --rebase origin main
             git push origin HEAD:main
             # push feito pelo bot não dispara outros workflows: publica no GitHub Pages aqui mesmo

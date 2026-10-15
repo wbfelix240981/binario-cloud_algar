@@ -49,7 +49,7 @@ jobs:
         run: |
           git config user.name "ClickUp Sync Bot"
           git config user.email "actions@github.com"
-          git add index.html leitura.html projeto-ms-project.xml
+          git add index.html leitura.html projeto-ms-project.xml last_sync.json
           if git diff --cached --quiet; then
             echo "Nada para publicar."
           else

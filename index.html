@@ -1465,8 +1465,22 @@ function exportarMSProject(){
 document.getElementById('btnXml').onclick=()=>exportarMSProject();
 
 /* ---------- Sincronização ---------- */
-const _sd = new Date(LAST_SYNC_UTC), _o = {timeZone:'America/Sao_Paulo'};
-const syncTxt = _sd.toLocaleDateString('pt-BR',{..._o,day:'2-digit',month:'2-digit',year:'numeric'}) + ' às ' + _sd.toLocaleTimeString('pt-BR',{..._o,hour:'2-digit',minute:'2-digit'});
+const _o = {timeZone:'America/Sao_Paulo'};
+const fmtSync = iso => { const d=new Date(iso); return d.toLocaleDateString('pt-BR',{..._o,day:'2-digit',month:'2-digit',year:'numeric'}) + ' às ' + d.toLocaleTimeString('pt-BR',{..._o,hour:'2-digit',minute:'2-digit'}); };
+let syncTxt = fmtSync(LAST_SYNC_UTC);
+// A sincronização roda a cada 30 min; quando só a hora muda, o Cloudflare não republica (limite de builds).
+// Por isso a página consulta a hora da última verificação direto no GitHub e mostra a mais recente.
+(function(){
+  try{
+    fetch('https://raw.githubusercontent.com/wbfelix240981/binario-cloud_algar/main/last_sync.json?t='+Date.now(),{cache:'no-store'})
+      .then(r=>r.ok?r.json():null).then(j=>{
+        if(!j||!j.utc||new Date(j.utc)<=new Date(LAST_SYNC_UTC)) return;
+        syncTxt = fmtSync(j.utc);
+        try{ renderHeader(); }catch(e){}
+        try{ renderFootGen(); }catch(e){ document.getElementById('syncTxt').textContent='Última atualização: '+syncTxt; }
+      }).catch(()=>{});
+  }catch(e){}
+})();
 document.getElementById('syncTxt').textContent='Última atualização: '+syncTxt;
 document.getElementById('footGen').textContent=(PROJECT.scheduleDraft?'⚠ Datas estimadas, a validar no kickoff (12/10 é feriado e não tem atividades) · ':'')+'Atualizado em '+syncTxt+' · '+PROJECT.sponsor;
 

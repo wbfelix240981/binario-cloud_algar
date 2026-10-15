@@ -152,6 +152,8 @@ def main():
     # só grava os HTML depois que o XML deu certo (se algo falhar, nada fica pela metade)
     open(INDEX, "w", encoding="utf-8").write(s)
     open(LEITURA, "w", encoding="utf-8").write(ro)
+    with open(os.path.join(ROOT, "last_sync.json"), "w", encoding="utf-8") as fh:
+        json.dump({"utc": agora}, fh)
     lv = [f for m in metas for f in m["fases"] if not f.get("oculto")]
     out = os.environ.get("GITHUB_OUTPUT")
     if out:

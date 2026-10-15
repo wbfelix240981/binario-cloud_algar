@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-10-15T19:02:24</CreationDate><LastSaved>2026-10-15T19:02:24</LastSaved>
+<CreationDate>2026-10-15T19:32:24</CreationDate><LastSaved>2026-10-15T19:32:24</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-02T08:00:00</StartDate><FinishDate>2026-10-30T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -34,8 +34,8 @@
 <Task>
 <UID>1</UID><ID>1</ID><Name>Marco 0 — Kickoff</Name><Type>1</Type>
 <OutlineNumber>1</OutlineNumber><OutlineLevel>1</OutlineLevel>
-<Start>2026-10-02T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
-<Duration>PT80H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Start>2026-10-06T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
+<Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>82</PercentComplete>
 <Notes></Notes>
@@ -126,8 +126,24 @@ Status no painel: Concluído
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>7</UID><ID>7</ID><Name>Devolução da minuta contratual para Binario</Name><Type>1</Type>
+<UID>7</UID><ID>7</ID><Name>Envio/Assinatura da TAP</Name><Type>1</Type>
 <OutlineNumber>1.6</OutlineNumber><OutlineLevel>2</OutlineLevel>
+<Start>2026-10-15T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
+<Duration>PT16H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
+<PercentComplete>25</PercentComplete>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-15T08:00:00</ConstraintDate>
+<ActualStart>2026-10-15T08:00:00</ActualStart>
+<ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário + Algar</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Diogo Lerison / Algar</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Aguardando retorno</Value></ExtendedAttribute>
+<Notes>Responsável: Binário + Algar · Diogo Lerison / Algar
+Status no painel: Aguardando retorno
+Origem: atividade definida no planejamento</Notes>
+</Task>
+<Task>
+<UID>8</UID><ID>8</ID><Name>Devolução da minuta contratual para Binario</Name><Type>1</Type>
+<OutlineNumber>1.7</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
 <Duration>PT8H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
@@ -140,25 +156,7 @@ Origem: atividade definida no planejamento</Notes>
 <Notes>Responsável: Binário + Algar · Diogo Lerison / Emerson Alexandre, Julis Rimet e Flavio Janones
 Status no painel: Em andamento
 Origem: atividade definida no planejamento
-Sem datas no ClickUp: usadas as datas do marco
 Comentário: Aguardando retorno Emerson / Julis / Produtos · Responsável: Emerson Alexandre, Julis Rimet e Flavio Janones</Notes>
-</Task>
-<Task>
-<UID>8</UID><ID>8</ID><Name>Envio/Assinatura da TAP</Name><Type>1</Type>
-<OutlineNumber>1.7</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-02T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
-<Duration>PT80H0M0S</Duration><DurationFormat>7</DurationFormat>
-<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>25</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-02T08:00:00</ConstraintDate>
-<ActualStart>2026-10-02T08:00:00</ActualStart>
-<ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário + Algar</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743734</FieldID><Value>Diogo Lerison / Algar</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Aguardando retorno</Value></ExtendedAttribute>
-<Notes>Responsável: Binário + Algar · Diogo Lerison / Algar
-Status no painel: Aguardando retorno
-Origem: atividade definida no planejamento
-Sem datas no ClickUp: usadas as datas do marco</Notes>
 </Task>
 <Task>
 <UID>9</UID><ID>9</ID><Name>Marco 1 — SSO no portal B2B</Name><Type>1</Type>
@@ -873,10 +871,10 @@ Origem: atividade definida no planejamento</Notes>
 <Assignment><UID>3</UID><TaskUID>4</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-08T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
 <Assignment><UID>4</UID><TaskUID>5</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
 <Assignment><UID>5</UID><TaskUID>6</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-08T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
-<Assignment><UID>6</UID><TaskUID>7</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
-<Assignment><UID>7</UID><TaskUID>7</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
-<Assignment><UID>8</UID><TaskUID>8</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-02T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT80H0M0S</Work></Assignment>
-<Assignment><UID>9</UID><TaskUID>8</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-02T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT80H0M0S</Work></Assignment>
+<Assignment><UID>6</UID><TaskUID>7</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-15T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
+<Assignment><UID>7</UID><TaskUID>7</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-15T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
+<Assignment><UID>8</UID><TaskUID>8</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
+<Assignment><UID>9</UID><TaskUID>8</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
 <Assignment><UID>10</UID><TaskUID>10</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-10-21T17:00:00</Finish><Work>PT96H0M0S</Work></Assignment>
 <Assignment><UID>11</UID><TaskUID>10</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-10-21T17:00:00</Finish><Work>PT96H0M0S</Work></Assignment>
 <Assignment><UID>12</UID><TaskUID>11</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>

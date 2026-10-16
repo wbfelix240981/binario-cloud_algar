@@ -242,9 +242,9 @@ button{font-family:inherit}
 .g-rr.p{background:var(--surface-2)}
 .g-tick{position:absolute;top:0;bottom:0;border-left:1px solid var(--line);font-size:10.5px;font-weight:800;color:var(--text-3);padding:0 6px;display:flex;align-items:center;text-transform:uppercase}
 .g-grid{position:absolute;top:44px;bottom:0;border-left:1px dashed var(--line);pointer-events:none}
-.g-bar{position:absolute;top:10px;height:20px;border-radius:7px;min-width:8px;display:flex;align-items:center;overflow:hidden;cursor:default}
+.g-bar{position:absolute;top:10px;height:20px;border-radius:7px;min-width:40px;display:flex;align-items:center;overflow:hidden;cursor:default}
 .g-bar .done{position:absolute;inset:0 auto 0 0;background:rgba(255,255,255,.28)}
-.g-bar span{position:relative;font-size:10.5px;font-weight:800;color:#fff;padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g-bar span{position:relative;font-size:10.5px;font-weight:800;color:#fff;padding:0 6px;white-space:nowrap;text-shadow:0 0 2px rgba(0,0,0,.35)}
 .g-bar.late{box-shadow:0 0 0 2px var(--late)}
 .g-over{position:absolute;top:14px;height:12px;border-radius:0 5px 5px 0;background:repeating-linear-gradient(135deg,var(--late) 0 4px,transparent 4px 8px);border:1px solid var(--late);border-left:none;opacity:.8}
 .g-ms{position:absolute;top:13px;width:14px;height:14px;transform:translateX(-50%) rotate(45deg);border-radius:3px;box-shadow:0 0 0 2px var(--surface)}
@@ -1307,8 +1307,8 @@ function renderGantt(){
     const col = r.p ? st(r.status).color==='#7b8b99' ? '#28bea5' : st(r.status).color : (isDone(r.item)?'#1fa48e':PARTY[r.party]?.color||st(r.status).color);
     const over = s==='late' ? `<div class="g-over" style="left:${X(r.due)};width:calc(${X(TODAY)} - ${X(r.due)})" title="${daysLate(r.item)} dia(s) além do prazo"></div>` : '';
     if(r.num===999) return `<div class="g-rr p"><div class="g-ms${s==='late'?' late':''}" style="left:${X(r.due)};background:${col}" title="${esc(r.name)} · prazo ${fmtY(r.due)}"></div>${over}</div>`;
-    return `<div class="g-rr ${r.p?'p':''}"><div class="g-bar${s==='late'?' late':''}" style="left:${X(r.start)};width:calc(${X(r.due+DAY*0.85)} - ${X(r.start)});background:${col}" title="${esc(r.name)} · ${esc(r.who||'')} · ${st(r.status).label} · ${fmtY(r.start)} → ${fmtY(r.due)}">
-      <div class="done" style="width:${Math.round(r.prog*100)}%"></div><span>${r.p?Math.round(r.prog*100)+'%':(PARTY[r.party]?.label||'')}</span></div>${over}</div>`;
+    return `<div class="g-rr ${r.p?'p':''}"><div class="g-bar${s==='late'?' late':''}" style="left:${X(r.start)};width:calc(${X(r.due+DAY*0.85)} - ${X(r.start)});background:${col}" title="${esc(r.name)} · ${esc(r.who||'')} · ${st(r.status).label} · ${Math.round(r.prog*100)}% · ${fmtY(r.start)} → ${fmtY(r.due)}">
+      <div class="done" style="width:${Math.round(r.prog*100)}%"></div><span>${Math.round(r.prog*100)}%</span></div>${over}</div>`;
   }).join('');
 
   g.innerHTML = `<div class="g-legend">

@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-10-19T19:32:23</CreationDate><LastSaved>2026-10-19T19:32:23</LastSaved>
+<CreationDate>2026-10-19T20:02:26</CreationDate><LastSaved>2026-10-19T20:02:26</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-02T08:00:00</StartDate><FinishDate>2026-10-30T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -34,8 +34,8 @@
 <Task>
 <UID>1</UID><ID>1</ID><Name>Marco 0 — Kickoff</Name><Type>1</Type>
 <OutlineNumber>1</OutlineNumber><OutlineLevel>1</OutlineLevel>
-<Start>2026-10-06T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
-<Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Start>2026-10-06T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish>
+<Duration>PT104H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>82</PercentComplete>
 <Notes></Notes>
@@ -128,8 +128,8 @@ Origem: atividade definida no planejamento</Notes>
 <Task>
 <UID>7</UID><ID>7</ID><Name>Envio/Assinatura da TAP</Name><Type>1</Type>
 <OutlineNumber>1.6</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-15T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish>
-<Duration>PT16H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Start>2026-10-15T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish>
+<Duration>PT56H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>25</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-15T08:00:00</ConstraintDate>
@@ -871,8 +871,8 @@ Origem: atividade definida no planejamento</Notes>
 <Assignment><UID>3</UID><TaskUID>4</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-08T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
 <Assignment><UID>4</UID><TaskUID>5</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
 <Assignment><UID>5</UID><TaskUID>6</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-08T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
-<Assignment><UID>6</UID><TaskUID>7</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-15T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
-<Assignment><UID>7</UID><TaskUID>7</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-15T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
+<Assignment><UID>6</UID><TaskUID>7</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-15T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
+<Assignment><UID>7</UID><TaskUID>7</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-15T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
 <Assignment><UID>8</UID><TaskUID>8</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
 <Assignment><UID>9</UID><TaskUID>8</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT8H0M0S</Work></Assignment>
 <Assignment><UID>10</UID><TaskUID>10</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-10-21T17:00:00</Finish><Work>PT96H0M0S</Work></Assignment>

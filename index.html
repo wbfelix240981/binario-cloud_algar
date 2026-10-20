@@ -808,6 +808,29 @@ const PROPOSTA = {
 const PROXIMOS_PASSOS = [];
 
 const REUNIOES = [
+ { data:'2026-10-19', titulo:'Acompanhamento técnico Algar x Binário', duracao:'tarde · cerca de 1h',
+   participantes:[['Diogo Lerison','binario'],['Joab de Araújo Silva','binario'],['Guilherme Soares','binario'],['Julis Rimet Laini Oliveira','algar'],['Emerson Alexandre de Paulo','algar'],['Daniel Prado Pereira Lima','algar'],['Glauberson Vilar de Oliveira','algar']],
+   decisoes:[
+     ['A comunicação do projeto segue por e-mail (além do grupo), com atualizações ao longo do dia; os retornos são tratados nas próximas reuniões.','Diogo / Glauberson / Daniel']
+   ],
+   pontos:[
+     'O Joab reforçou que a Binário precisa de um usuário de serviço com perfil administrativo nas novas clouds: Uberlândia e São Paulo já têm, falta na Canonical. Ele será usado pelo BCP e pela parte de billing, e já consta em uma das requisições.',
+     'O Daniel lembrou que também é preciso tratar a criação de usuário no banco de dados; segundo o Joab, criar o usuário não é problema, falta confirmar quais bancos precisam de acesso.',
+     'O Glauberson pediu os nomes dos links de produção para criar o DNS.',
+     'O Julis já cobrou a Mariana e vai assinar o termo de início do projeto (TAP) assim que tiver um tempo.',
+     'O dia 21/10 é uma data crítica para o Julis, por causa do retorno que ele precisa dar.',
+     'Conforme o Joab passar os dados das máquinas, o Diogo compartilha com o Daniel e o Glauberson.'
+   ],
+   pendencias:[
+     ['Criar o usuário de serviço administrativo na cloud Canonical (uso do BCP e do billing)','Algar · Daniel / Glauberson','M4'],
+     ['Levantar quais bancos de dados precisam de acesso e enviar a lista','Joab','M4'],
+     ['Compartilhar os dados das máquinas com o Daniel e o Glauberson','Diogo',''],
+     ['Enviar os nomes dos links de produção para a criação do DNS','Binário → Glauberson','M2'],
+     ['Assinar o termo de início do projeto (TAP)','Julis','M0'],
+     ['Gerar a ata da reunião e enviar na trilha','Diogo','']
+   ],
+   obs:'A transcrição registrou apenas a abertura e os últimos 15 minutos da reunião; os pontos acima refletem só esses trechos.'
+ },
  { data:'2026-10-15', titulo:'Follow-up do projeto Algar x Binário', duracao:'cerca de 25 min',
    participantes:[['Diogo Lerison','binario'],['Ari Montoya','binario'],['Guilherme','binario'],['Emerson Alexandre de Paulo','algar'],['Julis Rimet Laini Oliveira','algar'],['Flavio Roberto Janones de Sousa','algar']],
    decisoes:[
@@ -1134,7 +1157,7 @@ function renderReunioes(){
     <article class="mtg">
       <div class="mtg-h" role="button" tabindex="0" aria-expanded="false" title="Clique para ver o que foi acordado"><div class="mtg-d"><b>${new Date(toMs(r.data)).toLocaleDateString('pt-BR',{day:'2-digit'})}</b><span>${new Date(toMs(r.data)).toLocaleDateString('pt-BR',{month:'short'}).replace('.','')}</span></div>
         <div><h3>${esc(r.titulo)}</h3><div class="mtg-p">${r.participantes.map(([n,p])=>`<span class="mtg-who ${PARTY[p]?PARTY[p].cls:''}">${esc(n)}</span>`).join('')}${r.duracao?`<span class="mtg-dur">⏱ ${esc(r.duracao)}</span>`:''}</div>
-          <div class="mtg-sum">${[r.decisoes?r.decisoes.length+' decisões':'', r.pontos.length+' pontos', r.pendencias.length+' pendências', r.riscos?r.riscos.length+' riscos':''].filter(Boolean).join(' · ')}</div></div>
+          <div class="mtg-sum">${[r.decisoes?r.decisoes.length+(r.decisoes.length==1?' decisão':' decisões'):'', r.pontos.length+(r.pontos.length==1?' ponto':' pontos'), r.pendencias.length+(r.pendencias.length==1?' pendência':' pendências'), r.riscos?r.riscos.length+(r.riscos.length==1?' risco':' riscos'):''].filter(Boolean).join(' · ')}</div></div>
         <svg class="mtg-chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></div>
       <div class="mtg-body">${r.decisoes?`<div class="mtg-dec"><h4>Decisões tomadas</h4><ol>${r.decisoes.map(([t,q])=>`<li><span>${esc(t)}</span>${q?`<small>${esc(q)}</small>`:''}</li>`).join('')}</ol></div>`:''}<div class="mtg-b">
         <div><h4>Pontos combinados</h4><ul>${r.pontos.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></div>

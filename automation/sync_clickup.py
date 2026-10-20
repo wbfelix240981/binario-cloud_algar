@@ -86,7 +86,7 @@ def build_metas(cu):
     kids = lambda pid: sorted([t for t in T if t["parent"] == pid], key=lambda t: ((t["start"] or t["due"] or 9e15), (t["due"] or 9e15)))
     def resp_comment(t):
         for txt in [c["text"] for c in t["comments"]] + [t["desc"] or ""]:
-            m = re.search(r'Respons[áa]vel(?:\s+Algar)?\s*:?\s*([^\n]+)', txt, re.I)
+            m = re.search(r'Respons[áa]ve(?:l|is)(?:\s+Algar)?\s*:?\s*([^\n]+)', txt, re.I)
             if m and clean(m.group(1)): return clean(m.group(1))
         return None
     def classify(t, pinfo):

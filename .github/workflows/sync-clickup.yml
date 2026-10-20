@@ -60,8 +60,17 @@ jobs:
               # só a data/hora mudou: atualiza o GitHub Pages sem gastar build do Cloudflare (limite mensal)
               git commit -m "Data da última atualização ($QUANDO) [CF-Pages-Skip]"
             fi
-            git pull --rebase origin main
-            git push origin HEAD:main
+            # até 3 tentativas: se outra execução publicou ao mesmo tempo, os arquivos gerados
+            # entram em conflito; -X theirs mantém a versão recém-gerada (a mais nova)
+            PUBLICADO=nao
+            for TENTATIVA in 1 2 3; do
+              if git pull --rebase -X theirs origin main && git push origin HEAD:main; then
+                PUBLICADO=sim; break
+              fi
+              git rebase --abort 2>/dev/null || true
+              echo "Publicação recusada (tentativa $TENTATIVA); tentando de novo."; sleep 10
+            done
+            [ "$PUBLICADO" = sim ] || exit 1
             # push feito pelo bot não dispara outros workflows: publica no GitHub Pages aqui mesmo
             git push --force origin HEAD:gh-pages
           fi

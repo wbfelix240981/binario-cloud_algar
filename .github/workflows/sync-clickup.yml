@@ -72,7 +72,11 @@ jobs:
             done
             [ "$PUBLICADO" = sim ] || exit 1
             # push feito pelo bot não dispara outros workflows: publica no GitHub Pages aqui mesmo
-            git push --force origin HEAD:gh-pages
+            for TENTATIVA in 1 2 3; do
+              git push --force origin HEAD:gh-pages && break
+              echo "Envio ao gh-pages recusado (tentativa $TENTATIVA)"; sleep 15
+              [ "$TENTATIVA" = 3 ] && exit 1
+            done
           fi
 
   agendar-proxima:

@@ -367,6 +367,12 @@ footer a{color:var(--brand-700);font-weight:700}
 .mtg.open .mtg-chev{transform:rotate(180deg);color:var(--brand)}
 .mtg-body{display:none}
 .mtg.open .mtg-body{display:block}
+#secReunioes .sec-head{cursor:pointer;user-select:none}
+#secReunioes .sec-tog{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:var(--text-3)}
+#secReunioes .sec-tog svg{transition:transform .2s}
+#secReunioes.open .sec-tog svg{transform:rotate(180deg);color:var(--brand)}
+#secReunioes:not(.open) #reunioes{display:none}
+@media print{ #secReunioes #reunioes{display:block!important} #secReunioes .sec-tog{display:none} }
 @media print{ .mtg-body{display:block!important} }
 .mtg-d{flex:none;width:52px;height:56px;border-radius:12px;background:var(--navy);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
 .mtg-d b{font-size:22px;font-weight:900}.mtg-d span{font-size:11px;font-weight:800;text-transform:uppercase;color:var(--brand);margin-top:3px}
@@ -683,7 +689,7 @@ footer a{color:var(--brand-700);font-weight:700}
 
   <!-- Reuniões -->
   <section class="sec" id="secReunioes">
-    <div class="sec-head"><div><h2>Reuniões e decisões</h2><p>Clique na reunião para ver os pontos acordados e as pendências.</p></div></div>
+    <div class="sec-head" role="button" tabindex="0" aria-expanded="false" title="Clique para mostrar ou esconder as reuniões"><div><h2>Reuniões e decisões</h2><p>Clique aqui para ver as reuniões; depois, clique na reunião para ver os pontos acordados e as pendências.</p></div><div class="sec-tog"><span id="mtgResumo"></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg></div></div>
     <div id="reunioes"></div>
   </section>
 
@@ -1208,6 +1214,13 @@ function renderReunioes(){
     h.onclick=tg; h.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); tg(); } };
   });
   document.querySelectorAll('#reunioes [data-goto]').forEach(a=>a.onclick=e=>{e.preventDefault(); goMeta(Number(a.dataset.goto));});
+  const ult=REUNIOES.length?new Date(toMs(REUNIOES[0].data)).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}):'';
+  document.getElementById('mtgResumo').textContent = REUNIOES.length ? REUNIOES.length+(REUNIOES.length==1?' reunião':' reuniões')+' · última em '+ult : 'Nenhuma reunião registrada';
+  const sec=document.getElementById('secReunioes'), hd=sec.querySelector('.sec-head');
+  if(!hd.dataset.bound){ hd.dataset.bound='1';
+    const tg=()=>{ sec.classList.toggle('open'); hd.setAttribute('aria-expanded', sec.classList.contains('open')); };
+    hd.onclick=tg; hd.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); tg(); } };
+  }
 }
 function renderProposta(){
   document.getElementById('propSub').textContent = PROPOSTA.ref + '.';

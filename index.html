@@ -810,6 +810,41 @@ const PROPOSTA = {
 const PROXIMOS_PASSOS = [];
 
 const REUNIOES = [
+ { data:'2026-10-22', titulo:'Follow-up técnico e atualização de pendências', duracao:'',
+   participantes:[['Diogo Lerison','binario'],['Guilherme Soares','binario'],['Tiago Oliveira','binario'],['Julis Rimet Laini Oliveira','algar'],['Emerson Alexandre de Paulo','algar'],['Flavio Roberto Janones de Sousa','algar'],['Daniel Prado Pereira Lima','algar']],
+   decisoes:[
+     ['Marcela assume formalmente as solicitações do Luiz Gustavo (credencial de produção e JWT do Keycloak) enquanto ele não estiver disponível.','Julis / Algar'],
+     ['A renomeação dos hosts está liberada a partir de 22/10, após a execução do ciclo 21: os hosts antigos de produção passam para a nomenclatura HX (homologação).','Glauberson'],
+     ['O painel de atividades passa a ser o acompanhamento oficial, junto com a trilha de e-mail do projeto; será enviado por e-mail a todos os envolvidos.','Diogo']
+   ],
+   pontos:[
+     'Status geral: Fase 1 em andamento, com atividades em atraso e itens em risco para a entrega prevista em 28/10/2026. Os principais bloqueios são credenciais e acessos do fluxo produtivo e das novas regiões.',
+     'TAP assinada por todos os aprovadores (finalizado).',
+     'Ciclo 21 de billing executado: faturamento cerca de 95% concluído, restando ajustes em alguns SKUs/flavors e horas retroativas (em validação).',
+     'Provisionamento das 2 novas VMs de produção iniciado pelo Glauberson, mantendo a configuração acordada: 16 vCPU, 32 GB de RAM, 500 GB de disco, instalação limpa com LVM. O servidor bncldapppx03 (10.51.8.40) segue como referência.',
+     'Keycloak/SSO: credencial de produção e JWT continuam pendentes; o Julis acionou a Marcela e a expectativa é de retorno na segunda-feira.',
+     'OpenStack/Canonical: o usuário de serviço das novas regiões, pedido pelo Joab na quinta anterior, continua pendente; o Daniel vai verificar.',
+     'APIs de SKU e flavor: o Guilherme Soares reenviou a collection e a documentação; o Julis confirmou o recebimento e fará o import.',
+     'Mesa TI: a Algar usa o Blazon para provisionar acessos (responsável técnico Leandro Jaci Borba, liderança Cristina). Com a documentação de autenticação em mãos, a Binário implementa a autenticação e a tela de login (Tiago).',
+     'O painel já foi compartilhado com o Emerson. O Luiz Gustavo voltou de férias, mas não estava respondendo durante a reunião.',
+     'Próximo follow-up previsto para terça-feira.'
+   ],
+   pendencias:[
+     ['Reunir com a Cristina para priorizar o Blazon e obter a documentação de autenticação do Mesa TI (exemplo de request/response)','Julis · segunda-feira','M1'],
+     ['Obter a credencial de produção e o JWT do Keycloak com o Luiz Gustavo / Marcela','Julis / Algar · segunda-feira','M1'],
+     ['Confirmar o status do usuário de serviço OpenStack/Canonical solicitado pelo Joab','Daniel / Diogo · sexta-feira','M1'],
+     ['Concluir o provisionamento das 2 novas VMs de produção e liberar os acessos ao time da Binário','Glauberson / Diogo','M1'],
+     ['Renomear os hosts de homologação para a nomenclatura HX','Glauberson · a partir de 22/10','M1'],
+     ['Concluir os ajustes do ciclo 21: SKUs, flavors e horas retroativas','Julis / equipe Algar · imediato',''],
+     ['Importar e validar a collection/documentação de APIs de SKU e flavor','Julis · imediato','M3'],
+     ['Enviar o painel de atividades por e-mail aos demais envolvidos','Diogo · após a reunião','']
+   ],
+   riscos:[
+     ['Entrega prevista para 28/10/2026 em risco por causa dos acessos e credenciais pendentes (Keycloak, OpenStack/Canonical, VMs).','Cobrança diária dos desbloqueios com a Marcela, o Daniel e o Glauberson; acompanhamento pelo painel e pela trilha de e-mail.'],
+     ['Autenticação do Mesa TI depende da documentação do Blazon, ainda não recebida.','Reunião do Julis com a Cristina na segunda-feira para priorizar a demanda.']
+   ],
+   obs:'Registrado a partir da ata de 22/10/2026 (Billing OpenStack - Projeto Algar).'
+ },
  { data:'2026-10-19', titulo:'Acompanhamento técnico Algar x Binário', duracao:'tarde · cerca de 1h',
    participantes:[['Diogo Lerison','binario'],['Joab de Araújo Silva','binario'],['Guilherme Soares','binario'],['Julis Rimet Laini Oliveira','algar'],['Emerson Alexandre de Paulo','algar'],['Daniel Prado Pereira Lima','algar'],['Glauberson Vilar de Oliveira','algar']],
    decisoes:[

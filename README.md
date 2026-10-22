@@ -33,6 +33,24 @@ do ClickUp usado no repositório do Escritório de Projetos.
 
 > A versão interna (com itens só da Binário) **não** deve ser publicada aqui.
 
+## Usuários de acesso
+
+O painel e a página só leitura pedem login. As senhas não ficam neste repositório (ele é público): no código existe só o hash SHA-256 de `usuario:senha`, no bloco `CREDENCIAIS` de `index.html` e `leitura.html`.
+
+| Usuário | Nome exibido | Perfil |
+|---|---|---|
+| binario | Binário Cloud | Editor |
+| dlerison | Diogo Lerison | Editor |
+| dlerison@binario.cloud | Diogo Lerison | Editor |
+| wagner | Wagner Felix | Editor |
+| ari | Ari Montoya | Somente leitura |
+| tiago | Tiago Oliveira | Somente leitura |
+| algar | Algar | Somente leitura (consulta) |
+
+- O usuário não diferencia maiúsculas de minúsculas; a senha diferencia.
+- Só editores veem o botão **Editar**, e só no painel completo (`index.html`).
+- Para criar um acesso: gere o hash no console do navegador com `await hashCred('usuario','senha')` e acrescente a linha em `CREDENCIAIS` nos dois arquivos.
+
 ## Publicação
 - GitHub Pages: https://wbfelix240981.github.io/binario-cloud_algar/
 - Cloudflare Pages: https://binario-cloud-algar.pages.dev

@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-10-22T23:25:34</CreationDate><LastSaved>2026-10-22T23:25:34</LastSaved>
+<CreationDate>2026-10-22T23:27:54</CreationDate><LastSaved>2026-10-22T23:27:54</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-02T08:00:00</StartDate><FinishDate>2026-10-30T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -193,9 +193,9 @@ Comentário: Habilitar autenticação SSO e substituir o acesso de sandbox pelo 
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-15T08:00:00</ConstraintDate>
 <ActualStart>2026-10-15T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743734</FieldID><Value>Algar (a definir)</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Luiz Gustavo</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Aguardando retorno</Value></ExtendedAttribute>
-<Notes>Responsável: Algar · Algar (a definir)
+<Notes>Responsável: Algar · Luiz Gustavo
 Status no painel: Aguardando retorno
 Origem: atividade definida no planejamento
 Comentário: Responsáveil: Luiz Gustavo</Notes>
@@ -210,9 +210,9 @@ Comentário: Responsáveil: Luiz Gustavo</Notes>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-16T08:00:00</ConstraintDate>
 <ActualStart>2026-10-16T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743734</FieldID><Value>Algar (a definir)</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Luiz Gustavo</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Aguardando retorno</Value></ExtendedAttribute>
-<Notes>Responsável: Algar · Algar (a definir)
+<Notes>Responsável: Algar · Luiz Gustavo
 Status no painel: Aguardando retorno
 Origem: atividade definida no planejamento
 Comentário: Responsáveil: Luiz Gustavo</Notes>

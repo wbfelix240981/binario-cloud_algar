@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-10-23T19:02:24</CreationDate><LastSaved>2026-10-23T19:02:24</LastSaved>
+<CreationDate>2026-10-23T19:32:23</CreationDate><LastSaved>2026-10-23T19:32:23</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-02T08:00:00</StartDate><FinishDate>2026-10-30T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -37,7 +37,7 @@
 <Start>2026-10-06T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish>
 <Duration>PT104H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>82</PercentComplete>
+<PercentComplete>93</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -131,14 +131,15 @@ Origem: atividade definida no planejamento</Notes>
 <Start>2026-10-15T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish>
 <Duration>PT56H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>25</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-15T08:00:00</ConstraintDate>
 <ActualStart>2026-10-15T08:00:00</ActualStart>
+<ActualFinish>2026-10-23T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário + Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Diogo Lerison / Algar</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Aguardando retorno</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Binário + Algar · Diogo Lerison / Algar
-Status no painel: Aguardando retorno
+Status no painel: Concluído
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
@@ -164,7 +165,7 @@ Comentário: Aguardando retorno Emerson / Julis / Produtos · Responsável: Emer
 <Start>2026-10-05T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish>
 <Duration>PT152H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>36</PercentComplete>
+<PercentComplete>42</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -324,14 +325,15 @@ Comentário: Responsável: Glauberson</Notes>
 <Start>2026-10-19T08:00:00</Start><Finish>2026-10-21T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-19T08:00:00</ConstraintDate>
 <ActualStart>2026-10-19T08:00:00</ActualStart>
+<ActualFinish>2026-10-21T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Glauberson</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Algar · Glauberson
-Status no painel: Em andamento
+Status no painel: Concluído
 Origem: atividade definida no planejamento
 Comentário: Responsável: Glauberson A configuração definida para cada uma das duas novas VMs é: 16 vCPU 32 GB de RAM 500 GB de disco LVM, mantendo espaço livre para expansão futura Instalação limpa, sem clone da POC</Notes>
 </Task>
@@ -341,14 +343,15 @@ Comentário: Responsável: Glauberson A configuração definida para cada uma da
 <Start>2026-10-22T08:00:00</Start><Finish>2026-10-26T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-22T08:00:00</ConstraintDate>
 <ActualStart>2026-10-22T08:00:00</ActualStart>
+<ActualFinish>2026-10-26T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Glauberson</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Algar · Glauberson
-Status no painel: Em andamento
+Status no painel: Concluído
 Origem: atividade definida no planejamento
 Comentário: Responsável: Glauberson</Notes>
 </Task>

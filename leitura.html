@@ -816,6 +816,42 @@ const PROPOSTA = {
 const PROXIMOS_PASSOS = [];
 
 const REUNIOES = [
+ { data:'2026-10-26', titulo:'Follow-up técnico, SSO e ambiente de produção', duracao:'',
+   participantes:[['Diogo Lerison','binario'],['Guilherme Soares','binario'],['Julis Rimet Laini Oliveira','algar'],['Emerson Alexandre de Paulo','algar'],['Daniel Prado Pereira Lima','algar'],['Flavio Roberto Janones de Sousa','algar']],
+   decisoes:[
+     ['Não executar a mudança do apontamento do OpenStack (Red Hat → Identity Hub) na última semana do mês, para reduzir o risco aos clientes; durante a transição, Red Hat e Identity Hub ficam em paralelo, com possibilidade de rollback.','Algar'],
+     ['A reunião Luiz Gustavo x Joab em 27/10 às 14h30 é o próximo marco para destravar Keycloak e o usuário de produção.','Diogo / Luiz Gustavo / Joab'],
+     ['O impacto do MFA (substituição do FreeOTP) para clientes, em especial os de usuário único, será tratado em reunião específica com Luiz Gustavo, Daniel e Janones.','Julis']
+   ],
+   pontos:[
+     'Ambiente de produção concluído: hosts renomeados, os dois servidores pendentes criados e validações finalizadas pelo Glauberson; o Daniel compartilhou as credenciais de produção.',
+     'Canonical/MySQL: o acesso via Keystone não é o bloqueio principal. O banco MySQL é gerenciado por Juju/Charms, então alterações manuais não persistem; antes de usar o usuário de banco, o endpoint precisa ser exposto remotamente de forma persistente. O Daniel abriu chamado com a Canonical.',
+     'A bilhetagem das novas regiões segue bloqueada até o retorno da Canonical (banco e endpoint).',
+     'Identity Hub com alta disponibilidade previsto para esta semana; depois dele começam os testes controlados de migração de usuários.',
+     'Hoje o OpenStack aponta para o autenticador Red Hat; a troca para o Identity Hub exige mudança (RDM) e reinício de serviços.',
+     'O FreeOTP será substituído pela solução de MFA adotada pela Algar.',
+     'O Daniel vai levantar, por script, a quantidade de usuários por projeto/cliente, para priorizar a comunicação e sanear a base (incluindo usuários internos da Algar sem necessidade).',
+     'API: o redirect de HTTP para HTTPS descartava o header Authorization; o Julis ajustou e as requisições em HTTPS passaram a funcionar. Faltam testes de estabilidade nos demais cenários.',
+     'Mesa TI / Blazon: o Julis ainda aguarda retorno da Vanessa para avançar com a documentação de autenticação.'
+   ],
+   pendencias:[
+     ['Reunião Luiz Gustavo x Joab para validar Keycloak, acessos e usuário de produção para testes','Diogo / Luiz Gustavo / Joab · 27/10 às 14h30','M1'],
+     ['Acompanhar o chamado com a Canonical sobre acesso persistente ao MySQL e exposição remota do endpoint','Daniel · assim que houver retorno','M4'],
+     ['Agendar ponto rápido sobre migração de usuários e MFA (impacto para clientes com usuário único)','Julis · próximo alinhamento','M1'],
+     ['Script de levantamento de usuários por projeto/cliente, separando usuários internos da Algar','Daniel · próximos dias','M1'],
+     ['Confirmar a disponibilidade do Identity Hub e iniciar testes controlados de migração','Julis / Luiz Gustavo / Daniel · após disponibilização','M1'],
+     ['Planejar a mudança do apontamento OpenStack de Red Hat para Identity Hub (RDM, reinício e rollback)','Algar · após testes, fora da última semana do mês','M1'],
+     ['Obter retorno da Vanessa e avançar na documentação de autenticação do Mesa TI via Blazon','Julis · o mais breve possível','M1'],
+     ['Validar a API de ponta a ponta em HTTPS e confirmar a estabilidade dos endpoints','Julis / Guilherme Soares · imediato',''],
+     ['Retomar a bilhetagem das novas regiões após o desbloqueio do banco/endpoint Canonical','Binário / Algar · após retorno da Canonical','M4']
+   ],
+   riscos:[
+     ['Bilhetagem das novas regiões depende do retorno da Canonical (terceiro) sobre o MySQL em Juju/Charms.','Daniel acompanha o chamado; cobrança no follow-up.'],
+     ['Mudança do autenticador (Red Hat → Identity Hub) e troca do MFA podem impactar clientes.','Ambientes em paralelo com rollback, mudança fora da última semana do mês e comunicação priorizada por volume de usuários.'],
+     ['Autenticação do Mesa TI parada sem retorno da Algar (Blazon).','Julis segue cobrando a Vanessa.']
+   ],
+   obs:'Registrado a partir da ata de 26/10/2026 (Billing OpenStack - Projeto Algar).'
+ },
  { data:'2026-10-22', titulo:'Follow-up técnico e atualização de pendências', duracao:'',
    participantes:[['Diogo Lerison','binario'],['Guilherme Soares','binario'],['Tiago Oliveira','binario'],['Julis Rimet Laini Oliveira','algar'],['Emerson Alexandre de Paulo','algar'],['Flavio Roberto Janones de Sousa','algar'],['Daniel Prado Pereira Lima','algar']],
    decisoes:[

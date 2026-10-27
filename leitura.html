@@ -816,6 +816,39 @@ const PROPOSTA = {
 const PROXIMOS_PASSOS = [];
 
 const REUNIOES = [
+ { data:'2026-10-27', titulo:'Alinhamento de credenciais e acessos Keycloak/SSO', duracao:'14h30',
+   participantes:[['Diogo Lerison','binario'],['Joab de Araújo Silva','binario'],['Luiz Gustavo de Franca Chaves','algar'],['Daniel Prado Pereira Lima','algar'],['Emerson Alexandre de Paulo','algar'],['Julis Rimet Laini Oliveira','algar']],
+   decisoes:[
+     ['Liberada a criação direta de projetos de teste no OpenStack de produção: o faturamento parte do Algar CRM e só considera projetos vinculados a clientes do CRM. Os projetos podem ser removidos depois das validações.','Julis / Daniel'],
+     ['O usuário de serviço (OpenStack, com permissões administrativas, no modelo de São Paulo e Uberlândia) é um requisito separado do usuário SSO de teste; o acesso de API pode ser liberado antes do acesso ao banco.','Joab / Daniel'],
+     ['O Mesa TI/Blazon segue em paralelo e não bloqueia as validações de produção; como alternativa temporária, os acessos administrativos podem ser cadastrados manualmente e revogados/integrados depois.','Julis'],
+     ['Os testes de SSO usam duas regiões (São Paulo e Uberlândia) antes de avançar para as demais.','Luiz Gustavo / Joab']
+   ],
+   pontos:[
+     'O client de produção do Keycloak já foi disponibilizado; os dados de produção seguem a mesma estrutura de homologação.',
+     'O usuário SSO de produção para teste de login será um usuário normal associado a projetos; o Luiz Gustavo cria/libera depois que os projetos de teste existirem no OpenStack.',
+     'O JWT mantém o mesmo formato de homologação, mudando só os projetos/roles de produção.',
+     'O Daniel iniciou durante a reunião as requisições de criação dos projetos de teste e vai avisar o Luiz Gustavo ao concluir; as credenciais serão distribuídas por e-mail.',
+     'BC Data API: continua precisando do acesso ao banco. Na Canonical isso exige expor o endpoint MySQL de forma suportada (Juju/Charms e Kubernetes); ajustes manuais, como no Red Hat/HAProxy, seriam sobrescritos. O chamado com a Canonical segue sem retorno.',
+     'O Julis já pediu agenda com a Vanessa; o analista responsável pelo Blazon está ciente da demanda.',
+     'Próximo alinhamento em 29/10 sobre a migração do Red Hat/IDM para o Identity Hub: como migrar, impactos para usuários e sequência de validação antes da troca definitiva do apontamento.'
+   ],
+   pendencias:[
+     ['Concluir a criação dos projetos de teste no OpenStack para validar o SSO em produção','Daniel · imediato','M1'],
+     ['Configurar/liberar o usuário SSO de produção e compartilhar as credenciais','Luiz Gustavo · após os projetos','M1'],
+     ['Validar login SSO, JWT, projetos e roles no ambiente produtivo','Joab · após as credenciais','M1'],
+     ['Gerar e compartilhar o usuário de serviço/OpenStack para o acesso de API','Daniel · imediato','M1'],
+     ['Cobrar o retorno da Canonical sobre a exposição persistente do endpoint MySQL (Juju/Charms)','Daniel · imediato','M4'],
+     ['Após a liberação do banco, validar conectividade e continuidade da BC Data API nas novas regiões','Joab / Guilherme · após Canonical','M4'],
+     ['Prosseguir com o alinhamento de autenticação do Mesa TI via Blazon','Julis · em paralelo','M1'],
+     ['Alinhamento sobre a migração Red Hat/IDM → Identity Hub','Julis / Algar · 29/10','M1']
+   ],
+   riscos:[
+     ['A BC Data API e a bilhetagem das novas regiões seguem bloqueadas pelo acesso ao MySQL da Canonical (terceiro, sem retorno).','Nova cobrança do Daniel no chamado; acesso de API liberado antes para não travar o SSO.'],
+     ['Projetos de teste criados direto no OpenStack de produção.','Confirmado que não entram no faturamento (origem no Algar CRM); remoção após as validações.']
+   ],
+   obs:'Registrado a partir da ata de 27/10/2026 (reunião Luiz Gustavo x Joab sobre credenciais e acessos Keycloak/SSO).'
+ },
  { data:'2026-10-26', titulo:'Follow-up técnico, SSO e ambiente de produção', duracao:'',
    participantes:[['Diogo Lerison','binario'],['Guilherme Soares','binario'],['Julis Rimet Laini Oliveira','algar'],['Emerson Alexandre de Paulo','algar'],['Daniel Prado Pereira Lima','algar'],['Flavio Roberto Janones de Sousa','algar']],
    decisoes:[

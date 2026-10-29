@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-10-29T18:02:23</CreationDate><LastSaved>2026-10-29T18:02:23</LastSaved>
+<CreationDate>2026-10-29T18:32:22</CreationDate><LastSaved>2026-10-29T18:32:22</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-02T08:00:00</StartDate><FinishDate>2026-10-30T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -165,7 +165,7 @@ Comentário: Aguardando retorno Emerson / Julis / Produtos · Responsável: Emer
 <Start>2026-10-05T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish>
 <Duration>PT152H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>42</PercentComplete>
+<PercentComplete>47</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -190,14 +190,15 @@ Comentário: Habilitar autenticação SSO e substituir o acesso de sandbox pelo 
 <Start>2026-10-15T08:00:00</Start><Finish>2026-10-22T17:00:00</Finish>
 <Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>25</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-15T08:00:00</ConstraintDate>
 <ActualStart>2026-10-15T08:00:00</ActualStart>
+<ActualFinish>2026-10-22T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Luiz Gustavo</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Aguardando retorno</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Algar · Luiz Gustavo
-Status no painel: Aguardando retorno
+Status no painel: Concluído
 Origem: atividade definida no planejamento
 Comentário: Responsáveil: Luiz Gustavo</Notes>
 </Task>
@@ -207,14 +208,15 @@ Comentário: Responsáveil: Luiz Gustavo</Notes>
 <Start>2026-10-16T08:00:00</Start><Finish>2026-10-20T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>25</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-16T08:00:00</ConstraintDate>
 <ActualStart>2026-10-16T08:00:00</ActualStart>
+<ActualFinish>2026-10-20T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Luiz Gustavo</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Aguardando retorno</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Algar · Luiz Gustavo
-Status no painel: Aguardando retorno
+Status no painel: Concluído
 Origem: atividade definida no planejamento
 Comentário: Responsáveil: Luiz Gustavo</Notes>
 </Task>
@@ -361,14 +363,13 @@ Comentário: Responsável: Glauberson</Notes>
 <Start>2026-10-22T08:00:00</Start><Finish>2026-10-30T17:00:00</Finish>
 <Duration>PT56H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
+<PercentComplete>0</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-22T08:00:00</ConstraintDate>
-<ActualStart>2026-10-22T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Lopes / Tiago Gomes de Oliveira</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Bloqueada</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Guilherme Lopes / Tiago Gomes de Oliveira
-Status no painel: Em andamento
+Status no painel: Bloqueada
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
@@ -377,14 +378,14 @@ Origem: atividade definida no planejamento</Notes>
 <Start>2026-10-22T08:00:00</Start><Finish>2026-10-26T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
+<PercentComplete>25</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-22T08:00:00</ConstraintDate>
 <ActualStart>2026-10-22T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Julis</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Aguardando retorno</Value></ExtendedAttribute>
 <Notes>Responsável: Algar · Julis
-Status no painel: Em andamento
+Status no painel: Aguardando retorno
 Origem: atividade definida no planejamento
 Comentário: Responsavel: Julis Autenticação é feita pelo Microsoft, Mas o usuario utiliza o Plataforma Blazon Necessário assinatura e documentação de autenticação. Julis vai verificar com o fornecedor segunda feira</Notes>
 </Task>
@@ -398,9 +399,9 @@ Comentário: Responsavel: Julis Autenticação é feita pelo Microsoft, Mas o us
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-22T08:00:00</ConstraintDate>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Lopes</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Bloqueada</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Guilherme Lopes
-Status no painel: Não iniciado
+Status no painel: Bloqueada
 Origem: atividade definida no planejamento
 Comentário: Liberar usuário de acordo com a forma que é feita a autenticação. informação levantada na tarefa anterior.</Notes>
 </Task>
@@ -414,9 +415,9 @@ Comentário: Liberar usuário de acordo com a forma que é feita a autenticaçã
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-22T08:00:00</ConstraintDate>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Algar (a definir)</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Bloqueada</Value></ExtendedAttribute>
 <Notes>Responsável: Algar · Algar (a definir)
-Status no painel: Não iniciado
+Status no painel: Bloqueada
 Origem: atividade definida no planejamento
 Comentário: Necessidade do cliente informar como é feita a autenticação, exemplo, na Binario atualmente é pelo Office 365. · Definido pelo cliente, autenticação é feita pelo Microsoft, Mas o usuario utiliza o Plataforma Blazon Necessário assinatura e documentação de autenticação. Julis vai verificar com o fornecedor segunda feira</Notes>
 </Task>

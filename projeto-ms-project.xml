@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-11-03T18:02:36</CreationDate><LastSaved>2026-11-03T18:02:36</LastSaved>
+<CreationDate>2026-11-03T18:32:38</CreationDate><LastSaved>2026-11-03T18:32:38</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-05T08:00:00</StartDate><FinishDate>2026-11-13T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -165,7 +165,7 @@ Comentário: Aguardando retorno Emerson / Julis / Produtos · Responsável: Emer
 <Start>2026-10-05T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish>
 <Duration>PT224H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>59</PercentComplete>
+<PercentComplete>62</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -400,14 +400,14 @@ Comentário: Responsável: Julis · Depende do retorno da Vanessa e do alinhamen
 <Start>2026-10-22T08:00:00</Start><Finish>2026-11-09T17:00:00</Finish>
 <Duration>PT96H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>10</PercentComplete>
+<PercentComplete>50</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-22T08:00:00</ConstraintDate>
 <ActualStart>2026-10-22T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Lopes</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Planejamento</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Guilherme Lopes
-Status no painel: Planejamento
+Status no painel: Em andamento
 Origem: atividade definida no planejamento
 Comentário: Executar após definição do fluxo de autenticação.</Notes>
 </Task>

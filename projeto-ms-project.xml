@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-11-03T17:32:37</CreationDate><LastSaved>2026-11-03T17:32:37</LastSaved>
+<CreationDate>2026-11-03T18:02:36</CreationDate><LastSaved>2026-11-03T18:02:36</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-05T08:00:00</StartDate><FinishDate>2026-11-13T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -165,7 +165,7 @@ Comentário: Aguardando retorno Emerson / Julis / Produtos · Responsável: Emer
 <Start>2026-10-05T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish>
 <Duration>PT224H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>56</PercentComplete>
+<PercentComplete>59</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -373,7 +373,8 @@ Comentário: Responsável: Glauberson</Notes>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Guilherme Lopes / Tiago Gomes de Oliveira
 Status no painel: Em andamento
-Origem: atividade definida no planejamento</Notes>
+Origem: atividade definida no planejamento
+Comentário: Para chegar no IDP existe os seguintes protocolos: Protocolo SAML2.0 - WSO2 Indentity Server 6.1.0 Protocoloc OIDC - WSO2 Indentity Server 6.1.0</Notes>
 </Task>
 <Task>
 <UID>22</UID><ID>22</ID><Name>Definir fluxo de autenticação do Mesa TI via Blazon</Name><Type>1</Type>
@@ -381,14 +382,15 @@ Origem: atividade definida no planejamento</Notes>
 <Start>2026-10-22T08:00:00</Start><Finish>2026-11-03T17:00:00</Finish>
 <Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-22T08:00:00</ConstraintDate>
 <ActualStart>2026-10-22T08:00:00</ActualStart>
+<ActualFinish>2026-11-03T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Julis</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Algar · Julis
-Status no painel: Em andamento
+Status no painel: Concluído
 Origem: atividade definida no planejamento
 Comentário: Responsável: Julis · Depende do retorno da Vanessa e do alinhamento técnico com o time Blazon. · Definido pelo cliente, autenticação é feita pelo Microsoft, Mas o usuario utiliza o Plataforma Blazon Necessário assinatura e documentação de autenticação. Julis vai verificar com o fornecedor segunda feira</Notes>
 </Task>

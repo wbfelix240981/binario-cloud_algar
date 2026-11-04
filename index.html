@@ -821,6 +821,49 @@ const PROPOSTA = {
 const PROXIMOS_PASSOS = [];
 
 const REUNIOES = [
+ { data:'2026-11-04', titulo:'Follow-up técnico e atualização de pendências', duracao:'15h29 às 16h08 · 39 min',
+   participantes:[['Diogo Lerison','binario'],['Joab de Araújo Silva','binario'],['Guilherme Soares','binario'],['Julis Rimet Laini Oliveira','algar'],['Emerson Alexandre de Paulo','algar'],['Flavio Roberto Janones de Sousa','algar'],['Daniel Prado Pereira Lima','algar'],['Glauberson Vilar de Oliveira','algar']],
+   decisoes:[
+     ['Mantido 13/11/2026 como prazo de referência para a página de consumo/redirect e para a consolidação do IDP/mapping pendente.','Algar / Binário'],
+     ['URL do redirect definida: consumo.cloudalgar.com.br.','Algar / Binário'],
+     ['Janela de 04–05/11 para subir a estrutura da página de consumo em produção.','Joab'],
+     ['Priorizada a inclusão do SKU de snapshot na coleta.','Guilherme Soares / Guilherme Lopes'],
+     ['Reunião técnica sobre Blazon/autenticação na semana de 09/11, conforme a agenda do Leandro Borba.','Diogo / Tiago']
+   ],
+   pontos:[
+     'Página de consumo: o Joab concluiu a validação da estrutura em staging; a subida para produção acontece a partir de 05/11.',
+     'Redirect/DNS: consumo.cloudalgar.com.br está registrado só internamente. Para funcionar de fora, é preciso publicar o DNS externo e criar um IP público com NAT para o VIP privado (Glauberson e Daniel).',
+     'Calculadora de consumo: avaliar integrá-la à própria página de consumo. Janones e Emerson avaliam pela ótica de negócio e experiência do usuário, depois de um acesso de teste à calculadora da aplicação Central.',
+     'Canonical/MySQL: o usuário de banco já foi criado, mas o acesso externo para a BC Data API segue pendente; último retorno da Canonical em 30/10.',
+     'Usuário de serviço: Fortaleza já entregue; Porto Alegre ainda pendente.',
+     'Endpoints Nordeste e Sul: dão "not found" pela raiz; o Horizon exige o caminho /openstack/horizon por causa do Traefik. O Daniel vai ver se uma atualização futura elimina isso.',
+     'IDP/SSO: falta consolidar o Identity Provider e o mapping de grupo/projeto/role em São Paulo e Uberlândia. A conclusão do OpenID Connect/Keycloak/Keystone depende da publicação externa do endereço de consumo.',
+     'Faturamento: ciclos de 01/11 e 03/11 com extração normal; a automação total depende de o time de faturamento configurar as guias dos novos componentes.',
+     'Blazon/Mesa TI: a documentação de dois protocolos de autenticação já está disponível para estudo; o Joab pode apoiar nos esclarecimentos técnicos.'
+   ],
+   pendencias:[
+     ['Subir a estrutura da página de consumo em produção','Joab · 04–05/11','M2'],
+     ['Publicar o DNS externo e disponibilizar IP público/NAT para o VIP de consumo.cloudalgar.com.br','Glauberson / Daniel · até 13/11','M2'],
+     ['Follow-up no chamado da Canonical para acesso externo ao MySQL','Daniel · imediato','M4'],
+     ['Criar e compartilhar o usuário de serviço de Porto Alegre','Daniel · próximo follow-up','M4'],
+     ['Validar os endpoints de Fortaleza e Porto Alegre com /openstack/horizon','Joab / Daniel · próximo follow-up','M4'],
+     ['Consolidar o IDP e o mapping de grupo/projeto/role em São Paulo e Uberlândia','Daniel / Algar · 13/11','M1'],
+     ['Alinhar com o Tiago um acesso de teste à calculadora','Diogo / Guilherme Soares · semana de 09/11',''],
+     ['Avaliar a calculadora pela ótica de negócio e UX','Emerson / Janones · após o acesso',''],
+     ['Agendar a reunião técnica sobre Blazon e autenticação (Leandro Borba; Tiago pela Binário)','Diogo · semana de 09/11','M1'],
+     ['Levantar o prazo para incluir snapshot na coleta e retornar a estimativa ao Diogo','Guilherme Soares / Guilherme Lopes · próximo follow-up','M3'],
+     ['Enviar a URL do BCP ao Emerson (credenciais já liberadas)','Diogo · 04/11',''],
+     ['Concluir a página de consumo / redirect','Algar / Binário · 13/11','M2']
+   ],
+   riscos:[
+     ['A publicação externa do DNS/IP público de consumo.cloudalgar.com.br é predecessora do redirect produtivo.','Glauberson e Daniel tratam rede, DNS externo e IP público até 13/11.'],
+     ['O acesso externo ao MySQL das novas regiões depende da Canonical e bloqueia a validação completa da BC Data API.','Novo follow-up do Daniel no chamado.'],
+     ['O usuário de serviço de Porto Alegre ainda não existe e é necessário antes das validações da região Sul.','Daniel cria e compartilha até o próximo follow-up.'],
+     ['A inclusão de snapshot e de outros SKUs depende de levantamento técnico e prazo de desenvolvimento.','Guilherme Soares e Guilherme Lopes retornam a estimativa.'],
+     ['O prazo de 13/11 depende da conclusão coordenada de rede/DNS, SSO/IDP e ajustes finais da aplicação.','Acompanhamento pelo painel e nos follow-ups.']
+   ],
+   obs:'Registrado a partir da ata de 04/11/2026 (Billing OpenStack - Projeto Algar).'
+ },
  { data:'2026-10-27', titulo:'Alinhamento de credenciais e acessos Keycloak/SSO', duracao:'14h30',
    participantes:[['Diogo Lerison','binario'],['Joab de Araújo Silva','binario'],['Luiz Gustavo de Franca Chaves','algar'],['Daniel Prado Pereira Lima','algar'],['Emerson Alexandre de Paulo','algar'],['Julis Rimet Laini Oliveira','algar']],
    decisoes:[

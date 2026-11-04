@@ -156,6 +156,7 @@ button{font-family:inherit}
 .meta.internal{border:1.5px dashed var(--navy)}
 .pill-f2{font-size:10.5px;font-weight:800;color:#6b4e00;background:#fff1c7;border:1px solid #f0d27a;padding:3px 9px;border-radius:999px;vertical-align:3px;margin-left:6px;white-space:nowrap}
 :root[data-theme="dark"] .pill-f2{color:#ffe08a;background:#3d3210;border-color:#6b5716}
+.g-nodate{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:11.5px;font-weight:700;color:var(--text-3);white-space:nowrap}
 .meta.fase2{border:1.5px dashed #e3c25a}
 .meta.fase2 .mnum{opacity:.6}
 .f2-out{font-size:11.5px;font-weight:800;color:var(--text-3);text-align:right;line-height:1.25;white-space:nowrap}
@@ -1491,20 +1492,24 @@ function renderGantt(){
   const g=document.getElementById('gantt');
   if(!rows.length){ g.innerHTML='<div class="empty" style="border:none">Nenhum item do cronograma encontrado.</div>'; return; }
 
-  const min=Math.min(...rows.map(r=>r.start), TODAY)-4*DAY, max=Math.max(...rows.map(r=>r.due), TODAY)+4*DAY;
+  // a escala considera só itens com data (marcos sem datas, como os da Fase 2, não podem esticar o cronograma até 1970)
+  const dated=rows.filter(r=>r.due);
+  const min=Math.min(...dated.map(r=>r.start||r.due), TODAY)-4*DAY, max=Math.max(...dated.map(r=>r.due), TODAY)+4*DAY;
   const span=max-min, pxDay = ganttScale==='week'?30 : ganttScale==='month'?10 : null;
   const width = pxDay ? Math.round(span/DAY*pxDay)+'px' : '100%';
   const X = ms => ((ms-min)/span*100).toFixed(3)+'%';
   const ticks=[]; const c=new Date(min); c.setDate(1); c.setHours(0,0,0,0);
   while(c.getTime()<max){ if(c.getTime()>=min) ticks.push(c.getTime()); c.setMonth(c.getMonth()+1); }
+  if(!ticks.length || ticks[0]-min>5*DAY) ticks.unshift(min);   // rótulo do mês inicial quando ele começa antes do cronograma
   const weekTicks=[]; { let w=sow(min)+7*DAY; while(w<max){ weekTicks.push(w); w+=7*DAY; } }
 
   let lateN=0;
-  const left = rows.map(r=>`<div class="g-row ${r.p?'p':'c'}" ${r.p&&r.num!==999?`data-m="${r.num}"`:''}><span class="n">${esc(r.name)}</span><span class="a">${esc(r.who||'—')} · ${fmt(r.start)} → ${fmt(r.due)}</span></div>`).join('');
+  const left = rows.map(r=>`<div class="g-row ${r.p?'p':'c'}" ${r.p&&r.num!==999?`data-m="${r.num}"`:''}><span class="n">${esc(r.name)}</span><span class="a">${esc(r.who||'—')} · ${r.due?`${fmt(r.start)} → ${fmt(r.due)}`:(r.p&&isFase2(r.item)?'datas a definir na Fase 2':'sem datas')}</span></div>`).join('');
   const right = rows.map(r=>{
     const s=dueState(r.item); if(s==='late') lateN++;
     const col = r.p ? st(r.status).color==='#7b8b99' ? '#28bea5' : st(r.status).color : (isDone(r.item)?'#1fa48e':PARTY[r.party]?.color||st(r.status).color);
     const over = s==='late' ? `<div class="g-over" style="left:${X(r.due)};width:calc(${X(TODAY)} - ${X(r.due)})" title="${daysLate(r.item)} dia(s) além do prazo"></div>` : '';
+    if(!r.due) return `<div class="g-rr ${r.p?'p':''}"><span class="g-nodate">${r.p&&isFase2(r.item)?'🗓 Marco previsto para a Fase 2 · datas a definir':'Sem datas definidas'}</span></div>`;
     if(r.num===999) return `<div class="g-rr p"><div class="g-ms${s==='late'?' late':''}" style="left:${X(r.due)};background:${col}" title="${esc(r.name)} · prazo ${fmtY(r.due)}"></div>${over}</div>`;
     return `<div class="g-rr ${r.p?'p':''}"><div class="g-bar${s==='late'?' late':''}" style="left:${X(r.start)};width:calc(${X(r.due+DAY*0.85)} - ${X(r.start)});background:${col}" title="${esc(r.name)} · ${esc(r.who||'')} · ${st(r.status).label} · ${Math.round(r.prog*100)}% · ${fmtY(r.start)} → ${fmtY(r.due)}">
       <div class="done" style="width:${Math.round(r.prog*100)}%"></div><span>${Math.round(r.prog*100)}%</span></div>${over}</div>`;

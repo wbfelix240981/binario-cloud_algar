@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-11-04T18:32:25</CreationDate><LastSaved>2026-11-04T18:32:25</LastSaved>
+<CreationDate>2026-11-04T19:02:24</CreationDate><LastSaved>2026-11-04T19:02:24</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-05T08:00:00</StartDate><FinishDate>2026-11-13T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -620,7 +620,7 @@ Comentário: Algar valida os retornos e confirma aceite funcional dos endpoints.
 <Start>2026-10-05T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish>
 <Duration>PT224H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>25</PercentComplete>
+<PercentComplete>32</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -904,13 +904,14 @@ Comentário: cloudplus.stg.sp.cloudalgar.com.br</Notes>
 <Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>0</PercentComplete>
+<PercentComplete>75</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-30T08:00:00</ConstraintDate>
+<ActualStart>2026-10-30T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Joab de Araújo Silva</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em revisão</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Joab de Araújo Silva
-Status no painel: Não iniciado
+Status no painel: Em revisão
 Origem: atividade definida no planejamento
 Comentário: cloudplus.sul.cloudalgar.com.br</Notes>
 </Task>
@@ -920,13 +921,14 @@ Comentário: cloudplus.sul.cloudalgar.com.br</Notes>
 <Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>0</PercentComplete>
+<PercentComplete>75</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-30T08:00:00</ConstraintDate>
+<ActualStart>2026-10-30T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Joab de Araújo Silva</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em revisão</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Joab de Araújo Silva
-Status no painel: Não iniciado
+Status no painel: Em revisão
 Origem: atividade definida no planejamento
 Comentário: cloudplus.ne.cloudalgar.com.br</Notes>
 </Task>

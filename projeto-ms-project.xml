@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-11-05T14:02:32</CreationDate><LastSaved>2026-11-05T14:02:32</LastSaved>
+<CreationDate>2026-11-05T14:32:26</CreationDate><LastSaved>2026-11-05T14:32:26</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-05T08:00:00</StartDate><FinishDate>2026-11-13T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -851,25 +851,8 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>52</UID><ID>52</ID><Name>Liberar acesso externo ao MySQL para a BC Data API</Name><Type>1</Type>
+<UID>52</UID><ID>52</ID><Name>Apresentar calculadora ao time do Portal</Name><Type>1</Type>
 <OutlineNumber>5.13</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-29T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
-<Duration>PT32H0M0S</Duration><DurationFormat>7</DurationFormat>
-<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-29T08:00:00</ConstraintDate>
-<ActualStart>2026-10-29T08:00:00</ActualStart>
-<ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743734</FieldID><Value>Daniel Lima</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
-<Notes>Responsável: Algar · Daniel Lima
-Status no painel: Em andamento
-Origem: atividade definida no planejamento
-Comentário: Responsãvel: Daniel Lima Disponibilizar conectividade externa ao banco MySQL gerenciado pela Canonical para permitir acesso da BC Data API. O usuário e as permissões nas tabelas já foram criados; permanece pendente a exposição do endpoint/rede.</Notes>
-</Task>
-<Task>
-<UID>53</UID><ID>53</ID><Name>Apresentar calculadora ao time do Portal</Name><Type>1</Type>
-<OutlineNumber>5.14</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-29T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish>
 <Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
@@ -883,10 +866,27 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
+<UID>53</UID><ID>53</ID><Name>Liberar acesso externo ao MySQL para a BC Data API</Name><Type>1</Type>
+<OutlineNumber>5.14</OutlineNumber><OutlineLevel>2</OutlineLevel>
+<Start>2026-10-29T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish>
+<Duration>PT80H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
+<PercentComplete>50</PercentComplete>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-10-29T08:00:00</ConstraintDate>
+<ActualStart>2026-10-29T08:00:00</ActualStart>
+<ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Daniel Lima</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
+<Notes>Responsável: Algar · Daniel Lima
+Status no painel: Em andamento
+Origem: atividade definida no planejamento
+Comentário: Responsãvel: Daniel Lima Disponibilizar conectividade externa ao banco MySQL gerenciado pela Canonical para permitir acesso da BC Data API. O usuário e as permissões nas tabelas já foram criados; permanece pendente a exposição do endpoint/rede.</Notes>
+</Task>
+<Task>
 <UID>54</UID><ID>54</ID><Name>Validar acessos e endpoints das regiões Canonical</Name><Type>1</Type>
 <OutlineNumber>5.15</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
-<Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Start>2026-10-30T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish>
+<Duration>PT72H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>50</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-30T08:00:00</ConstraintDate>
@@ -975,9 +975,9 @@ Comentário: cloudplus.ne.cloudalgar.com.br</Notes>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-11-04T08:00:00</ConstraintDate>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Soares</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Bloqueada</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Guilherme Soares
-Status no painel: Não iniciado
+Status no painel: Bloqueada
 Origem: atividade definida no planejamento
 Comentário: Testar autenticação, rota de rede, endpoint, porta e acesso às tabelas necessárias após a liberação da Canonical.</Notes>
 </Task>
@@ -1039,10 +1039,10 @@ Comentário: Testar autenticação, rota de rede, endpoint, porta e acesso às t
 <Assignment><UID>50</UID><TaskUID>49</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
 <Assignment><UID>51</UID><TaskUID>50</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
 <Assignment><UID>52</UID><TaskUID>51</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
-<Assignment><UID>53</UID><TaskUID>52</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT32H0M0S</Work></Assignment>
-<Assignment><UID>54</UID><TaskUID>53</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
-<Assignment><UID>55</UID><TaskUID>54</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
-<Assignment><UID>56</UID><TaskUID>54</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
+<Assignment><UID>53</UID><TaskUID>52</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
+<Assignment><UID>54</UID><TaskUID>53</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish><Work>PT80H0M0S</Work></Assignment>
+<Assignment><UID>55</UID><TaskUID>54</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish><Work>PT72H0M0S</Work></Assignment>
+<Assignment><UID>56</UID><TaskUID>54</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish><Work>PT72H0M0S</Work></Assignment>
 <Assignment><UID>57</UID><TaskUID>55</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
 <Assignment><UID>58</UID><TaskUID>56</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
 <Assignment><UID>59</UID><TaskUID>57</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>

@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-11-05T12:32:23</CreationDate><LastSaved>2026-11-05T12:32:23</LastSaved>
+<CreationDate>2026-11-05T13:02:23</CreationDate><LastSaved>2026-11-05T13:02:23</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-05T08:00:00</StartDate><FinishDate>2026-11-13T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -165,24 +165,25 @@ Comentário: Aguardando retorno Emerson / Julis / Produtos · Responsável: Emer
 <Start>2026-10-05T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish>
 <Duration>PT224H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>62</PercentComplete>
+<PercentComplete>70</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
 <UID>10</UID><ID>10</ID><Name>Concluir a configuração de OpenID Connect, Keycloak e Keystone e trocar o acesso de sandbox pelo fluxo produtivo</Name><Type>1</Type>
 <OutlineNumber>2.1</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-05T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
-<Duration>PT168H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Start>2026-10-05T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish>
+<Duration>PT184H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>0</PercentComplete>
+<PercentComplete>50</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-05T08:00:00</ConstraintDate>
+<ActualStart>2026-10-05T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário + Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Diogo Lerison / Daniel Prado e Luiz Gustavo</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Bloqueada</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
 <Notes>Responsável: Binário + Algar · Diogo Lerison / Daniel Prado e Luiz Gustavo
-Status no painel: Bloqueada
+Status no painel: Em andamento
 Origem: atividade definida no planejamento
-Comentário: Habilitar autenticação SSO e substituir o acesso de sandbox pelo fluxo produtivo. · Responsável: Daniel Prado e Luiz Gustavo</Notes>
+Comentário: Habilitar autenticação SSO e substituir o acesso de sandbox pelo fluxo produtivo. 04/11/26 - Publicação DNS público do endereço de redirect. · Responsável: Daniel Prado e Luiz Gustavo</Notes>
 </Task>
 <Task>
 <UID>11</UID><ID>11</ID><Name>Envio JWT</Name><Type>1</Type>
@@ -226,14 +227,15 @@ Comentário: Responsáveil: Luiz Gustavo</Notes>
 <Start>2026-10-22T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
 <Duration>PT72H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>25</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-22T08:00:00</ConstraintDate>
 <ActualStart>2026-10-22T08:00:00</ActualStart>
+<ActualFinish>2026-11-04T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Daniel ou Glauberson</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Aguardando retorno</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Algar · Daniel ou Glauberson
-Status no painel: Aguardando retorno
+Status no painel: Concluído
 Origem: atividade definida no planejamento
 Comentário: Responsáveis: Daniel ou Glauberson Fortaleza já avançou; manter aberto somente o que falta para Porto Alegre e demais regiões necessárias.</Notes>
 </Task>
@@ -258,8 +260,8 @@ Comentário: trusted_dashboard = · Responsável: Daniel Prado</Notes>
 <Task>
 <UID>15</UID><ID>15</ID><Name>Configurar Identity Provider e o mapping no Keystone</Name><Type>1</Type>
 <OutlineNumber>2.6</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-10-16T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
-<Duration>PT104H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Start>2026-10-16T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish>
+<Duration>PT144H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>50</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-16T08:00:00</ConstraintDate>
@@ -275,12 +277,12 @@ Comentário: ja realizado nas novas regiões Necessario ajuste em SP e Uberlandi
 <Task>
 <UID>16</UID><ID>16</ID><Name>Validar SSO em ambiente produtivo/região integrada</Name><Type>1</Type>
 <OutlineNumber>2.7</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-11-04T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish>
-<Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Start>2026-11-11T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish>
+<Duration>PT16H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>50</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-11-04T08:00:00</ConstraintDate>
-<ActualStart>2026-11-04T08:00:00</ActualStart>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-11-11T08:00:00</ConstraintDate>
+<ActualStart>2026-11-11T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Joab de Araújo Silva</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
@@ -292,19 +294,19 @@ Comentário: O sandbox já deixou de ser o foco. O teste deve validar login, JWT
 <Task>
 <UID>17</UID><ID>17</ID><Name>Validar cenários de segurança do SSO</Name><Type>1</Type>
 <OutlineNumber>2.8</OutlineNumber><OutlineLevel>2</OutlineLevel>
-<Start>2026-11-04T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish>
-<Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Start>2026-11-11T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish>
+<Duration>PT16H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
 <PercentComplete>50</PercentComplete>
-<ConstraintType>4</ConstraintType><ConstraintDate>2026-11-04T08:00:00</ConstraintDate>
-<ActualStart>2026-11-04T08:00:00</ActualStart>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-11-11T08:00:00</ConstraintDate>
+<ActualStart>2026-11-11T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Joab de Araújo Silva</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Joab de Araújo Silva
 Status no painel: Em andamento
 Origem: atividade definida no planejamento
-Comentário: estar MFA, expiração de token, remoção de usuário e perda de permissões.</Notes>
+Comentário: Testar MFA, expiração de token, remoção de usuário e perda de permissões.</Notes>
 </Task>
 <Task>
 <UID>18</UID><ID>18</ID><Name>Consolidar a federação do Keystone nos templates do director</Name><Type>1</Type>
@@ -963,16 +965,16 @@ Comentário: Testar autenticação, rota de rede, endpoint, porta e acesso às t
 <Assignment><UID>7</UID><TaskUID>7</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-15T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
 <Assignment><UID>8</UID><TaskUID>8</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT120H0M0S</Work></Assignment>
 <Assignment><UID>9</UID><TaskUID>8</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT120H0M0S</Work></Assignment>
-<Assignment><UID>10</UID><TaskUID>10</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT168H0M0S</Work></Assignment>
-<Assignment><UID>11</UID><TaskUID>10</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT168H0M0S</Work></Assignment>
+<Assignment><UID>10</UID><TaskUID>10</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT184H0M0S</Work></Assignment>
+<Assignment><UID>11</UID><TaskUID>10</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT184H0M0S</Work></Assignment>
 <Assignment><UID>12</UID><TaskUID>11</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-15T08:00:00</Start><Finish>2026-10-22T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
 <Assignment><UID>13</UID><TaskUID>12</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-10-20T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
 <Assignment><UID>14</UID><TaskUID>13</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT72H0M0S</Work></Assignment>
 <Assignment><UID>15</UID><TaskUID>14</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
 <Assignment><UID>16</UID><TaskUID>14</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-16T17:00:00</Finish><Work>PT56H0M0S</Work></Assignment>
-<Assignment><UID>17</UID><TaskUID>15</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT104H0M0S</Work></Assignment>
-<Assignment><UID>18</UID><TaskUID>16</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-11-04T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
-<Assignment><UID>19</UID><TaskUID>17</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-11-04T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
+<Assignment><UID>17</UID><TaskUID>15</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-16T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish><Work>PT144H0M0S</Work></Assignment>
+<Assignment><UID>18</UID><TaskUID>16</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-11-11T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
+<Assignment><UID>19</UID><TaskUID>17</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-11-11T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish><Work>PT16H0M0S</Work></Assignment>
 <Assignment><UID>20</UID><TaskUID>18</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-13T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish><Work>PT168H0M0S</Work></Assignment>
 <Assignment><UID>21</UID><TaskUID>19</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-19T08:00:00</Start><Finish>2026-10-21T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
 <Assignment><UID>22</UID><TaskUID>20</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-10-26T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>

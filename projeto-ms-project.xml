@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-11-05T13:32:25</CreationDate><LastSaved>2026-11-05T13:32:25</LastSaved>
+<CreationDate>2026-11-05T14:02:32</CreationDate><LastSaved>2026-11-05T14:02:32</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-05T08:00:00</StartDate><FinishDate>2026-11-13T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -528,7 +528,7 @@ Comentário: Responsável: Algar Deve ocorrer após a validação do SSO produti
 <Start>2026-10-07T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish>
 <Duration>PT192H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>36</PercentComplete>
+<PercentComplete>43</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -617,18 +617,19 @@ Origem: atividade definida no planejamento
 Comentário: Algar valida os retornos e confirma aceite funcional dos endpoints.</Notes>
 </Task>
 <Task>
-<UID>37</UID><ID>37</ID><Name>Coleta de SKU e recursos não mapeados</Name><Type>1</Type>
+<UID>37</UID><ID>37</ID><Name>Coleta de SKU/recursos não mapeados</Name><Type>1</Type>
 <OutlineNumber>4.6</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-11-04T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish>
 <Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>0</PercentComplete>
+<PercentComplete>50</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-11-04T08:00:00</ConstraintDate>
+<ActualStart>2026-11-04T08:00:00</ActualStart>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Lopes / Guilherme Soares</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Guilherme Lopes / Guilherme Soares
-Status no painel: Não iniciado
+Status no painel: Em andamento
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>

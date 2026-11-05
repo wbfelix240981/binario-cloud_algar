@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-11-05T13:02:23</CreationDate><LastSaved>2026-11-05T13:02:23</LastSaved>
+<CreationDate>2026-11-05T13:32:25</CreationDate><LastSaved>2026-11-05T13:32:25</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-05T08:00:00</StartDate><FinishDate>2026-11-13T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -528,7 +528,7 @@ Comentário: Responsável: Algar Deve ocorrer após a validação do SSO produti
 <Start>2026-10-07T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish>
 <Duration>PT192H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
+<PercentComplete>36</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -617,7 +617,37 @@ Origem: atividade definida no planejamento
 Comentário: Algar valida os retornos e confirma aceite funcional dos endpoints.</Notes>
 </Task>
 <Task>
-<UID>37</UID><ID>37</ID><Name>Marco 4 — Novas regiões / Coleta / Billing</Name><Type>1</Type>
+<UID>37</UID><ID>37</ID><Name>Coleta de SKU e recursos não mapeados</Name><Type>1</Type>
+<OutlineNumber>4.6</OutlineNumber><OutlineLevel>2</OutlineLevel>
+<Start>2026-11-04T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish>
+<Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
+<PercentComplete>0</PercentComplete>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-11-04T08:00:00</ConstraintDate>
+<ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Lopes / Guilherme Soares</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<Notes>Responsável: Binário · Guilherme Lopes / Guilherme Soares
+Status no painel: Não iniciado
+Origem: atividade definida no planejamento</Notes>
+</Task>
+<Task>
+<UID>38</UID><ID>38</ID><Name>Snapshot</Name><Type>1</Type>
+<OutlineNumber>4.7</OutlineNumber><OutlineLevel>2</OutlineLevel>
+<Start>2026-11-04T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish>
+<Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat>
+<Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
+<PercentComplete>0</PercentComplete>
+<ConstraintType>4</ConstraintType><ConstraintDate>2026-11-04T08:00:00</ConstraintDate>
+<ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Lopes / Guilherme Soares</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<Notes>Responsável: Binário · Guilherme Lopes / Guilherme Soares
+Status no painel: Não iniciado
+Origem: atividade definida no planejamento</Notes>
+</Task>
+<Task>
+<UID>39</UID><ID>39</ID><Name>Marco 4 — Novas regiões / Coleta / Billing</Name><Type>1</Type>
 <OutlineNumber>5</OutlineNumber><OutlineLevel>1</OutlineLevel>
 <Start>2026-10-05T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish>
 <Duration>PT224H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -626,7 +656,7 @@ Comentário: Algar valida os retornos e confirma aceite funcional dos endpoints.
 <Notes></Notes>
 </Task>
 <Task>
-<UID>38</UID><ID>38</ID><Name>Ajuste de casas decimais</Name><Type>1</Type>
+<UID>40</UID><ID>40</ID><Name>Ajuste de casas decimais</Name><Type>1</Type>
 <OutlineNumber>5.1</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-05T08:00:00</Start><Finish>2026-10-15T17:00:00</Finish>
 <Duration>PT64H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -644,7 +674,7 @@ Origem: atividade definida no planejamento
 Comentário: Deploy concluído: precisão de 6 casas decimais Os preços de SKU, os valores de consumo (on demand e mensal) e o total da fatura passaram a ser calculados e gravados com 6 casas decimais.</Notes>
 </Task>
 <Task>
-<UID>39</UID><ID>39</ID><Name>Enviar as diretrizes de dimensionamento</Name><Type>1</Type>
+<UID>41</UID><ID>41</ID><Name>Enviar as diretrizes de dimensionamento</Name><Type>1</Type>
 <OutlineNumber>5.2</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-07T08:00:00</Start><Finish>2026-10-09T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -662,7 +692,7 @@ Origem: atividade definida no planejamento
 Comentário: (CPU, memória, disco, redundância) 3 de produção, servidor atual utilizado para POC será usado para teste IP privado para configuração do VIP Flavor 8-32 volume: 500Gb Possibilidade de alto uso de disco ser os logs do Gitlab</Notes>
 </Task>
 <Task>
-<UID>40</UID><ID>40</ID><Name>Validar regras de cobrança das novas regiões</Name><Type>1</Type>
+<UID>42</UID><ID>42</ID><Name>Validar regras de cobrança das novas regiões</Name><Type>1</Type>
 <OutlineNumber>5.3</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-07T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish>
 <Duration>PT192H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -678,7 +708,7 @@ Origem: atividade definida no planejamento
 Comentário: Validar critérios de cobrança, sobreuso, roteador/projeto e banda para as novas regiões e identificar eventual necessidade de ajuste contratual.</Notes>
 </Task>
 <Task>
-<UID>41</UID><ID>41</ID><Name>Ajustar as VMs da POC para produção (nomes, rede, recursos e isolamento dos serviços)</Name><Type>1</Type>
+<UID>43</UID><ID>43</ID><Name>Ajustar as VMs da POC para produção (nomes, rede, recursos e isolamento dos serviços)</Name><Type>1</Type>
 <OutlineNumber>5.4</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-13T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish>
 <Duration>PT72H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -695,7 +725,7 @@ Status no painel: Concluído
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>42</UID><ID>42</ID><Name>Definir publicação e acesso da calculadora de consumo</Name><Type>1</Type>
+<UID>44</UID><ID>44</ID><Name>Definir publicação e acesso da calculadora de consumo</Name><Type>1</Type>
 <OutlineNumber>5.5</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-13T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish>
 <Duration>PT176H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -711,7 +741,7 @@ Origem: atividade definida no planejamento
 Comentário: Definir com o time do Portal como a calculadora será disponibilizada, considerando acesso interno, VPN ou integração com o Portal B2B.</Notes>
 </Task>
 <Task>
-<UID>43</UID><ID>43</ID><Name>Validar certificado e HTTPS do ambiente produtivo</Name><Type>1</Type>
+<UID>45</UID><ID>45</ID><Name>Validar certificado e HTTPS do ambiente produtivo</Name><Type>1</Type>
 <OutlineNumber>5.6</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-15T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish>
 <Duration>PT128H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -727,7 +757,7 @@ Origem: atividade definida no planejamento
 Comentário: Confirmar certificado, cadeia, domínio e acesso HTTPS do ambiente produtivo após a definição definitiva de VIP e DNS.</Notes>
 </Task>
 <Task>
-<UID>44</UID><ID>44</ID><Name>Criar o seletor de região no painel de consumo</Name><Type>1</Type>
+<UID>46</UID><ID>46</ID><Name>Criar o seletor de região no painel de consumo</Name><Type>1</Type>
 <OutlineNumber>5.7</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-19T08:00:00</Start><Finish>2026-10-26T17:00:00</Finish>
 <Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -744,7 +774,7 @@ Status no painel: Concluído
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>45</UID><ID>45</ID><Name>Liberar firewall e acesso externo conforme domínio e local de hospedagem</Name><Type>1</Type>
+<UID>47</UID><ID>47</ID><Name>Liberar firewall e acesso externo conforme domínio e local de hospedagem</Name><Type>1</Type>
 <OutlineNumber>5.8</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-21T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish>
 <Duration>PT96H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -760,7 +790,7 @@ Origem: atividade definida no planejamento
 Comentário: Confirmar regras de firewall, NAT, porta 443 e acessibilidade externa do endereço produtivo.</Notes>
 </Task>
 <Task>
-<UID>46</UID><ID>46</ID><Name>Começar coleta Porto Alegre</Name><Type>1</Type>
+<UID>48</UID><ID>48</ID><Name>Começar coleta Porto Alegre</Name><Type>1</Type>
 <OutlineNumber>5.9</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish>
 <Duration>PT128H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -775,7 +805,7 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>47</UID><ID>47</ID><Name>Deploy + Validação</Name><Type>1</Type>
+<UID>49</UID><ID>49</ID><Name>Deploy + Validação</Name><Type>1</Type>
 <OutlineNumber>5.10</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish>
 <Duration>PT128H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -790,7 +820,7 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>48</UID><ID>48</ID><Name>Começar coleta Fortaleza</Name><Type>1</Type>
+<UID>50</UID><ID>50</ID><Name>Começar coleta Fortaleza</Name><Type>1</Type>
 <OutlineNumber>5.11</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish>
 <Duration>PT128H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -805,7 +835,7 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>49</UID><ID>49</ID><Name>Deploy + Validação</Name><Type>1</Type>
+<UID>51</UID><ID>51</ID><Name>Deploy + Validação</Name><Type>1</Type>
 <OutlineNumber>5.12</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish>
 <Duration>PT128H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -820,7 +850,7 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>50</UID><ID>50</ID><Name>Liberar acesso externo ao MySQL para a BC Data API</Name><Type>1</Type>
+<UID>52</UID><ID>52</ID><Name>Liberar acesso externo ao MySQL para a BC Data API</Name><Type>1</Type>
 <OutlineNumber>5.13</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-29T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
 <Duration>PT32H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -837,7 +867,7 @@ Origem: atividade definida no planejamento
 Comentário: Responsãvel: Daniel Lima Disponibilizar conectividade externa ao banco MySQL gerenciado pela Canonical para permitir acesso da BC Data API. O usuário e as permissões nas tabelas já foram criados; permanece pendente a exposição do endpoint/rede.</Notes>
 </Task>
 <Task>
-<UID>51</UID><ID>51</ID><Name>Apresentar calculadora ao time do Portal</Name><Type>1</Type>
+<UID>53</UID><ID>53</ID><Name>Apresentar calculadora ao time do Portal</Name><Type>1</Type>
 <OutlineNumber>5.14</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-29T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish>
 <Duration>PT48H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -852,7 +882,7 @@ Status no painel: Não iniciado
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
-<UID>52</UID><ID>52</ID><Name>Validar acessos e endpoints das regiões Canonical</Name><Type>1</Type>
+<UID>54</UID><ID>54</ID><Name>Validar acessos e endpoints das regiões Canonical</Name><Type>1</Type>
 <OutlineNumber>5.15</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -869,7 +899,7 @@ Origem: atividade definida no planejamento
 Comentário: Responsável: Daniel Lima Validar acesso via Horizon/API aos endpoints disponibilizados para Nordeste, Sul, São Paulo DR e São Paulo Staging.</Notes>
 </Task>
 <Task>
-<UID>53</UID><ID>53</ID><Name>Validar endpoint São Paulo DR;</Name><Type>1</Type>
+<UID>55</UID><ID>55</ID><Name>Validar endpoint São Paulo DR;</Name><Type>1</Type>
 <OutlineNumber>5.16</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -885,7 +915,7 @@ Origem: atividade definida no planejamento
 Comentário: cloudplus.sp.cloudalgar.com.br</Notes>
 </Task>
 <Task>
-<UID>54</UID><ID>54</ID><Name>Validar endpoint São Paulo;</Name><Type>1</Type>
+<UID>56</UID><ID>56</ID><Name>Validar endpoint São Paulo;</Name><Type>1</Type>
 <OutlineNumber>5.17</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -901,7 +931,7 @@ Origem: atividade definida no planejamento
 Comentário: cloudplus.stg.sp.cloudalgar.com.br</Notes>
 </Task>
 <Task>
-<UID>55</UID><ID>55</ID><Name>Validar Endpoint Porto Alegre;</Name><Type>1</Type>
+<UID>57</UID><ID>57</ID><Name>Validar Endpoint Porto Alegre;</Name><Type>1</Type>
 <OutlineNumber>5.18</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -918,7 +948,7 @@ Origem: atividade definida no planejamento
 Comentário: cloudplus.sul.cloudalgar.com.br</Notes>
 </Task>
 <Task>
-<UID>56</UID><ID>56</ID><Name>Validar endpoint Fortaleza;</Name><Type>1</Type>
+<UID>58</UID><ID>58</ID><Name>Validar endpoint Fortaleza;</Name><Type>1</Type>
 <OutlineNumber>5.19</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -935,7 +965,7 @@ Origem: atividade definida no planejamento
 Comentário: cloudplus.ne.cloudalgar.com.br</Notes>
 </Task>
 <Task>
-<UID>57</UID><ID>57</ID><Name>Validar conectividade BC Data API → MySQL</Name><Type>1</Type>
+<UID>59</UID><ID>59</ID><Name>Validar conectividade BC Data API → MySQL</Name><Type>1</Type>
 <OutlineNumber>5.20</OutlineNumber><OutlineLevel>2</OutlineLevel>
 <Start>2026-11-04T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish>
 <Duration>PT24H0M0S</Duration><DurationFormat>7</DurationFormat>
@@ -994,26 +1024,28 @@ Comentário: Testar autenticação, rota de rede, endpoint, porta e acesso às t
 <Assignment><UID>36</UID><TaskUID>35</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-27T08:00:00</Start><Finish>2026-11-09T17:00:00</Finish><Work>PT72H0M0S</Work></Assignment>
 <Assignment><UID>37</UID><TaskUID>36</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish><Work>PT72H0M0S</Work></Assignment>
 <Assignment><UID>38</UID><TaskUID>36</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish><Work>PT72H0M0S</Work></Assignment>
-<Assignment><UID>39</UID><TaskUID>38</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-10-15T17:00:00</Finish><Work>PT64H0M0S</Work></Assignment>
-<Assignment><UID>40</UID><TaskUID>39</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-09T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
-<Assignment><UID>41</UID><TaskUID>40</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish><Work>PT192H0M0S</Work></Assignment>
-<Assignment><UID>42</UID><TaskUID>41</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-13T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish><Work>PT72H0M0S</Work></Assignment>
-<Assignment><UID>43</UID><TaskUID>42</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-13T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish><Work>PT176H0M0S</Work></Assignment>
-<Assignment><UID>44</UID><TaskUID>43</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-15T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
-<Assignment><UID>45</UID><TaskUID>44</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-19T08:00:00</Start><Finish>2026-10-26T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
-<Assignment><UID>46</UID><TaskUID>45</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-21T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT96H0M0S</Work></Assignment>
-<Assignment><UID>47</UID><TaskUID>46</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
-<Assignment><UID>48</UID><TaskUID>47</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
+<Assignment><UID>39</UID><TaskUID>37</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-11-04T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
+<Assignment><UID>40</UID><TaskUID>38</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-11-04T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
+<Assignment><UID>41</UID><TaskUID>40</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-05T08:00:00</Start><Finish>2026-10-15T17:00:00</Finish><Work>PT64H0M0S</Work></Assignment>
+<Assignment><UID>42</UID><TaskUID>41</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-10-09T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
+<Assignment><UID>43</UID><TaskUID>42</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-07T08:00:00</Start><Finish>2026-11-11T17:00:00</Finish><Work>PT192H0M0S</Work></Assignment>
+<Assignment><UID>44</UID><TaskUID>43</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-13T08:00:00</Start><Finish>2026-10-23T17:00:00</Finish><Work>PT72H0M0S</Work></Assignment>
+<Assignment><UID>45</UID><TaskUID>44</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-13T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish><Work>PT176H0M0S</Work></Assignment>
+<Assignment><UID>46</UID><TaskUID>45</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-15T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
+<Assignment><UID>47</UID><TaskUID>46</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-19T08:00:00</Start><Finish>2026-10-26T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
+<Assignment><UID>48</UID><TaskUID>47</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-21T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT96H0M0S</Work></Assignment>
 <Assignment><UID>49</UID><TaskUID>48</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
 <Assignment><UID>50</UID><TaskUID>49</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
-<Assignment><UID>51</UID><TaskUID>50</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT32H0M0S</Work></Assignment>
-<Assignment><UID>52</UID><TaskUID>51</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
-<Assignment><UID>53</UID><TaskUID>52</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
-<Assignment><UID>54</UID><TaskUID>52</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
-<Assignment><UID>55</UID><TaskUID>53</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
-<Assignment><UID>56</UID><TaskUID>54</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
+<Assignment><UID>51</UID><TaskUID>50</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
+<Assignment><UID>52</UID><TaskUID>51</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-22T08:00:00</Start><Finish>2026-11-13T17:00:00</Finish><Work>PT128H0M0S</Work></Assignment>
+<Assignment><UID>53</UID><TaskUID>52</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT32H0M0S</Work></Assignment>
+<Assignment><UID>54</UID><TaskUID>53</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-29T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT48H0M0S</Work></Assignment>
+<Assignment><UID>55</UID><TaskUID>54</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
+<Assignment><UID>56</UID><TaskUID>54</TaskUID><ResourceUID>2</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
 <Assignment><UID>57</UID><TaskUID>55</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
 <Assignment><UID>58</UID><TaskUID>56</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
-<Assignment><UID>59</UID><TaskUID>57</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-11-04T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
+<Assignment><UID>59</UID><TaskUID>57</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
+<Assignment><UID>60</UID><TaskUID>58</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-10-30T08:00:00</Start><Finish>2026-11-04T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
+<Assignment><UID>61</UID><TaskUID>59</TaskUID><ResourceUID>1</ResourceUID><Units>1</Units><Start>2026-11-04T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish><Work>PT24H0M0S</Work></Assignment>
 </Assignments>
 </Project>

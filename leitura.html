@@ -822,6 +822,40 @@ const PROPOSTA = {
 const PROXIMOS_PASSOS = [];
 
 const REUNIOES = [
+ { data:'2026-11-13', titulo:'Demonstração e avaliação da Calculadora de Billing', duracao:'13h59 às 14h54 · 55 min',
+   participantes:[['Diogo Lerison','binario'],['Cassio Nascimento dos Santos','binario'],['Guilherme Soares','binario'],['Ari Montoya','binario'],['Joab de Araújo Silva','binario'],['Emerson Alexandre de Paulo','algar'],['Flavio Roberto Janones de Sousa','algar'],['Julis Rimet Laini Oliveira','algar'],['Gabriela Marchente Pacheco','algar'],['Jessica Thais Weiss Block','algar'],['Nayanne Carolinne Fernandes Amaral','algar']],
+   decisoes:[
+     ['Uso da calculadora: foco em consultores internos e clientes autenticados, sem exposição pública irrestrita.','Algar / Binário'],
+     ['Portfólio Algar: usar os SKUs já existentes no BCP e avaliar a inclusão de serviços adicionais em "Outros Serviços".','Algar / Binário'],
+     ['Customizações: a Algar testa a ferramenta antes de consolidar ajustes de layout, módulos ou modelo de precificação.','Algar'],
+     ['Acesso do consultor: avaliar o processo corporativo via Blazon e o uso do Portal do Consultor, respeitando segurança e canais de venda.','Algar'],
+     ['Rastreamento comercial: avaliar a reativação de notificações ao consultor quando clientes interagirem com a calculadora.','Cassio / Tiago'],
+     ['Ambiente de testes: não é obrigatório criar projeto para simular; os testes podem ser feitos direto na calculadora disponibilizada.','Algar / Binário']
+   ],
+   pontos:[
+     'Foi apresentada a Calculadora 2.0. Ela não é uma ferramenta pública de prospecção: o acesso é pelo time comercial e por clientes autenticados no BCP, que podem simular cenários de contratação ou upgrade.',
+     'A Algar quer usar a calculadora com dois públicos: consultores internos (cenários e propostas) e clientes finais (simulação de custos).',
+     'Portfólio demonstrado: computação, armazenamento, rede, backup, banco de dados, containers, disaster recovery e "Outros Serviços" (hora-homem, consultoria, licenças, firewall, suporte, serviços gerenciados).',
+     'Computação é precificada por instância/flavor. Uma possível evolução é precificar por recurso (vCPU e memória), a ser avaliada pela Algar antes de customizar.',
+     'As estimativas podem ser salvas e compartilhadas por link (que pode ir para o CRM) e exportadas em PDF ou JPEG. O histórico das salvas fica na BC API; simulações não salvas não ficam registradas.',
+     'A calculadora usa os SKUs do BCP pela API de preços, então serviços novos cadastrados entram automaticamente. Menus fora do portfólio da Algar podem ser ocultados, se não houver dependência técnica.',
+     'Clientes finais acessam pelo fluxo do Portal B2B/BCP, sem pedir acesso via Blazon. Para consultores, avalia-se perfil corporativo via Blazon ou o Portal do Consultor; canais externos exigem tratamento específico.',
+     'O envio de e-mail já existiu na solução e está desativado; o Cassio vai confirmar com o Tiago a reativação para a Algar.',
+     'A calculadora funcionou bem no celular durante a reunião. Percepção inicial: boa aderência às necessidades da Algar.'
+   ],
+   pendencias:[
+     ['Compartilhar gravação, transcrição e link da calculadora por e-mail','Diogo · após a reunião','M4'],
+     ['Grupo de trabalho da Algar para testar a calculadora e consolidar feedback de negócio, UX e customizações','Janones / Julis / Gabriela / Jessica · 18 ou 19/11','M4'],
+     ['Confirmar a reativação da notificação por e-mail ao consultor (ao salvar e também ao interagir sem salvar)','Cassio / Tiago · próximo alinhamento','M4'],
+     ['Definir serviços/SKUs adicionais e customizações (itens fora do OpenStack, precificação por recurso se prioritária)','Algar / Binário · após os testes','M4'],
+     ['Definir o modelo de acesso dos consultores internos (Blazon, Portal do Consultor, canais externos)','Algar · após a validação funcional','M4']
+   ],
+   riscos:[
+     ['Customizações de portfólio, acesso e precificação ainda indefinidas até a Algar concluir os testes.','Grupo de trabalho em 18 ou 19/11 para consolidar o feedback antes de qualquer customização.'],
+     ['Acesso de consultores e canais externos envolve regras de segurança e proteção de dados de clientes.','Avaliar Blazon e Portal do Consultor junto com as regras de segurança e canais de venda.']
+   ],
+   obs:'Registrado a partir da ata de 13/11/2026 (Demonstração e avaliação da Calculadora de Billing).'
+ },
  { data:'2026-11-04', titulo:'Follow-up técnico e atualização de pendências', duracao:'15h29 às 16h08 · 39 min',
    participantes:[['Diogo Lerison','binario'],['Joab de Araújo Silva','binario'],['Guilherme Soares','binario'],['Julis Rimet Laini Oliveira','algar'],['Emerson Alexandre de Paulo','algar'],['Flavio Roberto Janones de Sousa','algar'],['Daniel Prado Pereira Lima','algar'],['Glauberson Vilar de Oliveira','algar']],
    decisoes:[

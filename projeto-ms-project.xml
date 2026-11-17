@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-11-17T14:02:27</CreationDate><LastSaved>2026-11-17T14:02:27</LastSaved>
+<CreationDate>2026-11-17T14:32:23</CreationDate><LastSaved>2026-11-17T14:32:23</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-05T08:00:00</StartDate><FinishDate>2026-12-04T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -669,7 +669,7 @@ Origem: atividade definida no planejamento</Notes>
 <Start>2026-10-05T08:00:00</Start><Finish>2026-11-27T17:00:00</Finish>
 <Duration>PT296H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>32</PercentComplete>
+<PercentComplete>35</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -874,14 +874,15 @@ Origem: atividade definida no planejamento</Notes>
 <Start>2026-10-29T08:00:00</Start><Finish>2026-11-12T17:00:00</Finish>
 <Duration>PT80H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>25</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-29T08:00:00</ConstraintDate>
 <ActualStart>2026-10-29T08:00:00</ActualStart>
+<ActualFinish>2026-11-12T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Diogo Lerison / Tiago Gomes de Oliveira</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Aguardando retorno</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Diogo Lerison / Tiago Gomes de Oliveira
-Status no painel: Aguardando retorno
+Status no painel: Concluído
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
@@ -955,15 +956,14 @@ Comentário: cloudplus.stg.sp.cloudalgar.com.br</Notes>
 <Start>2026-10-30T08:00:00</Start><Finish>2026-11-19T17:00:00</Finish>
 <Duration>PT112H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>100</PercentComplete>
+<PercentComplete>75</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-30T08:00:00</ConstraintDate>
 <ActualStart>2026-10-30T08:00:00</ActualStart>
-<ActualFinish>2026-11-19T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Joab de Araújo Silva</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em revisão</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Joab de Araújo Silva
-Status no painel: Concluído
+Status no painel: Em revisão
 Origem: atividade definida no planejamento
 Comentário: cloudplus.sul.cloudalgar.com.br (openstack-cli) ubuntu@bcapi:~$ openstack endpoint list +----------------------------------+--------+--------------+-----------------+---------+-----------+------------------------------------------------------------------------------------+ | ID | Region | Service Name | Service Type | Enabled | Interface | URL | +----------------------------------+--------+--------------+-----------------+---------+-----------+------------------------------------------------------------------------------------+ | 0af724ffaae745b3be5e246dcc398b6d | sul | cinder | block-storage | True | admin | http://10.152.183.26:8776/v3/$(tenant_id)s | | 199789a527d4420ca6d391e2c3c6fa44 | sul | image-stream | product-streams | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-images-sync/sul | | 20ceb463346e42fc9522bf170d349988 | sul | heat-cfn | cloudformation | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-heat-cfn/v1/$(tenant_id)s | | 21341de195f945bea302f7549999743d | sul | swift | object-store | True | internal | https://rgw.sul.cloudalgar.com.br/swift/v1/AUTH_$(project_id)s | | 219052968bf7416381528bc3951d2aa5 | sul | keystone | identity | True | internal | https://api-internal.sul.cloudalgar.com.br/openstack-keystone/v3 | | 24c5ea0f2cc14a11aa662f431a43faff | sul | watcher | infra-optim | True | admin | http://10.152.183.195:9322 | | 25ad262f36374731b2fe85d0ace86e5b | sul | neutron | network | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-neutron | | 348209da08a7490c8b016d2c4d5f0b3c | sul | glance | image | True | admin | http://10.152.183.72:9292 | | 3f8c32bb448849daacf45b17ed70e80f | sul | nova | compute | True | admin | http://10.152.183.157:8774/v2.1 | | 4e4b124303bf4449841625952e938595 | sul | watcher | infra-optim | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-watcher | | 4eda28faf0be42e4976f48c1f44938f7 | sul | designate | dns | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-designate | | 50a32307e4334e9ca08b4a8dfed21dbe | sul | neutron | network | True | admin | http://10.152.183.187:9696 | | 61de50dce77d4c2ea53824d10cac1b94 | sul | keystone | identity | True | public | https://cloudplus.sul.cloudalgar.com.br/openstack-keystone/v3 | | 67f5e54dea164bd0a1e649b1f359e47b | sul | heat | orchestration | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-heat/v1/$(tenant_id)s | | 69388ef6d9e8497d967512be02598d80 | sul | gnocchi | metric | True | admin | http://10.152.183.105:8041 | | 6c384d01a40e47b684c87bff2a1836dc | sul | designate | dns | True | admin | http://10.152.183.243:9001 | | 6fb988d572d14851bc94c1c577e732c7 | sul | image-stream | product-streams | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-images-sync/sul | | 70ee8c36a86f485bbc69a5940db8f153 | sul | masakari | instance-ha | True | admin | http://10.152.183.90:15868/v1/$(tenant_id)s | | 77efcacbb341411c9d03d2da43632a27 | sul | aodh | alarming | True | admin | http://10.152.183.224:8042 | | 7e2deb4e6ae547aea831d24b640272e9 | sul | gnocchi | metric | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-gnocchi | | 7fc20ac250ba42f9872d1d28b30a48c8 | sul | image-stream | product-streams | True | admin | http://10.152.183.219:80/sul | | 837e60ab0d96460eb84c40d371d5aec2 | sul | cinder | block-storage | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-cinder/v3/$(tenant_id)s | | 8fa236183c374c6ab1e1c81e21509ac2 | sul | s3 | s3 | True | admin | https://rgw.sul.cloudalgar.com.br | | 91e49c32354a4a69b613deceee36a425 | sul | heat-cfn | cloudformation | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-heat-cfn/v1/$(tenant_id)s | | 968b06d1f7714098b7971723f7899c4d | sul | aodh | alarming | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-aodh | | 96eb1a630eb44b81b883a19fee455ccf | sul | s3 | s3 | True | public | https://rgw.sul.cloudalgar.com.br | | 97ec6ff53d71448898ee4078d4299ff3 | sul | glance | image | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-glance | | 9b9fa85d87dd4606993520148187a65a | sul | heat | orchestration | True | admin | http://10.152.183.109:8004/v1/$(tenant_id)s | | a87331b59b044b21ab7b22b2e30c5642 | sul | gnocchi | metric | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-gnocchi | | ab1cee41946640728098fb4213c91069 | sul | cinderv3 | volumev3 | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-cinder/v3/$(tenant_id)s | | b016b5cb5c804ab8874bcecf57a2a55b | sul | placement | placement | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-placement | | b4a9662107a74aaa97b43f0ffdcb176b | sul | heat-cfn | cloudformation | True | admin | http://10.152.183.109:8000/v1/$(tenant_id)s | | c0ec8bbc57cf4ad1a8a5133f070ac30f | sul | keystone | identity | True | admin | https://api-internal.sul.cloudalgar.com.br/openstack-keystone/v3 | | c67236dc5ce94156a0bfcf08919519ea | sul | nova | compute | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-nova/v2.1 | | c8adfe6b42fe49efbe843512c248cee1 | sul | swift | object-store | True | public | https://rgw.sul.cloudalgar.com.br/swift/v1/AUTH_$(project_id)s | | cb38f60e1b4946b2890926a6566a940c | sul | glance | image | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-glance | | d2f3b31a0ca3464d847839b26e1ee190 | sul | watcher | infra-optim | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-watcher | | d4c1cb7fd13544baab389176744f19d6 | sul | masakari | instance-ha | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-masakari/v1/$(tenant_id)s | | d4ff2dc5bc0a4624ad8265fb2aa679e1 | sul | cinder | block-storage | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-cinder/v3/$(tenant_id)s | | e07a4ce2cfc340d6affc4af962b1fc96 | sul | cinderv3 | volumev3 | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-cinder/v3/$(tenant_id)s | | e30ee0c3bba0437f8741d24fabeee3f0 | sul | designate | dns | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-designate | | e3537714134d4857a81367ba3149bf25 | sul | nova | compute | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-nova/v2.1 | | e39a2b4ed242493487719b27ca63368b | sul | placement | placement | True | admin | http://10.152.183.161:8778 | | e4c5f4e2bf3144efbe256522014a787f | sul | heat | orchestration | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-heat/v1/$(tenant_id)s | | e9f5acc5c2824b4b87359002e1c02db8 | sul | cinderv3 | volumev3 | True | admin | http://10.152.183.26:8776/v3/$(tenant_id)s | | ea86357544ae4247a7a159f1ea3300b1 | sul | neutron | network | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-neutron | | eb0743228d114f8cb5013588f5959984 | sul | aodh | alarming | True | internal | https://api-internal.sul.cloudalgar.com.br:443/openstack-aodh | | ed1bcc22603942cca2c7f0f4770f88d4 | sul | s3 | s3 | True | internal | https://rgw.sul.cloudalgar.com.br | | ef2d92a621c74b9aa9a9b895ec240c56 | sul | masakari | instance-ha | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-masakari/v1/$(tenant_id)s | | f3becf7cfa00466284e3240bfc61527e | sul | placement | placement | True | public | https://cloudplus.sul.cloudalgar.com.br:443/openstack-placement | | f61cd1925d58486eb7408a0c81c4a8a2 | sul | swift | object-store | True | admin | https://rgw.sul.cloudalgar.com.br/swift/v1 | +----------------------------------+--------+--------------+-----------------+---------+-----------+------------------------------------------------------------------------------------+</Notes>
 </Task>

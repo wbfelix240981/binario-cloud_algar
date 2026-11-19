@@ -822,6 +822,81 @@ const PROPOSTA = {
 const PROXIMOS_PASSOS = [];
 
 const REUNIOES = [
+ { data:'2026-11-17', titulo:'Checkpoint do projeto: SSO, acessos, certificado, Blazon e monitoramento', duracao:'15h59 às 16h50 · 51 min',
+   participantes:[['Diogo Lerison','binario'],['Joab de Araújo Silva','binario'],['Ayrton Marinho','binario'],['Guilherme Soares','binario'],['Julis Rimet Laini Oliveira','algar'],['Daniel Prado Pereira Lima','algar'],['Flavio Roberto Janones de Sousa','algar'],['Jessica Thais Weiss Block','algar'],['Gabriela Marchente Pacheco','algar']],
+   decisoes:[
+     ['Prioridade: concluir o SSO e liberar o painel de consumo antes da bilhetagem completa das novas regiões (ainda não há vendas nessas regiões).','Algar / Binário'],
+     ['Certificado: fechar a lista de domínios e emitir um certificado que contemple todos os serviços previstos, evitando retrabalho.','Daniel / Algar'],
+     ['Blazon: separar a parte de infraestrutura/firewall (já feita) das configurações funcionais, e escalar a priorização do responsável técnico.','Julis'],
+     ['Novas regiões: validação de acessos e endpoints segue em paralelo, sem bloquear o SSO único.','Joab / Daniel'],
+     ['Monitoramento: avaliar a ferramenta oficial de sustentação e definir onde fica a monitoração operacional.','Daniel / Julis']
+   ],
+   pontos:[
+     'Página de consumo: interface pronta e publicada em produção, mas sem dados enquanto os acessos e o SSO não forem concluídos.',
+     'SSO: os usuários de Porto Alegre e Nordeste existem, mas a autenticação falha nos ambientes novos (suspeita de falta de projeto, role ou associação). São Paulo e Uberlândia seguem no SSO antigo.',
+     'A migração de São Paulo e Uberlândia para o novo SSO exige limpeza de base, comunicação aos clientes, treinamento e novo MFA no primeiro acesso. O Luiz Gustavo confirmou a entrega do SSO; a preparação da migração deve terminar na semana seguinte.',
+     'Usuário de serviço: Sul/Porto Alegre já entregue; Nordeste/Fortaleza ainda a confirmar.',
+     'Rede: produção já alcança São Paulo e Uberlândia; Nordeste e Porto Alegre ainda precisam de validação completa. O Daniel pediu apoio da Binário para validar firewall e acessos.',
+     'Canonical/banco: o endpoint foi criado, mas o nó 3 de Fortaleza tem falha de PBR na public API. O Daniel abre chamado na Canonical e depois reaplica a regra.',
+     'Certificado SSL: a página de consumo ainda está sem certificado válido. Domínios citados: consumo, BC API, Mesa TI, monitoramento e calculadora (Centro).',
+     'Blazon: firewall para o IdP na porta 9443 liberado antes da reunião. Credenciais, grupos e usuários dependem do time Blazon; a demanda foi escalada para Johnny e Bruna e vai à sync executiva.',
+     'Calculadora: será usada por clientes e consultores; é a aplicação separada Centro, acessada por redirect, e ainda não está implantada no ambiente Algar.',
+     'Monitoramento: disponível em produção e em ajustes, com poucos alertas restantes (banco/acessos). O Julis pediu avaliar integração com a ferramenta da sustentação/NAV.',
+     'A senha da máquina BCP do time de desenvolvimento expirou; o Joab gera e envia uma nova ao Ayrton.'
+   ],
+   pendencias:[
+     ['Incluir Julis e Luiz Gustavo na trilha de pendências de SSO e acessos','Diogo · imediato','M1'],
+     ['Validar o erro de autenticação SSO em Porto Alegre e Nordeste (projeto, role, mapping, associação)','Daniel / Luiz Gustavo · prioridade alta','M1'],
+     ['Concluir o planejamento da migração para o novo SSO (limpeza de base, MFA, treinamento, comunicação)','Algar · semana seguinte','M1'],
+     ['Gerar o par de chaves e o certificado SSL (consumo, BC API, Mesa TI, monitoramento, calculadora)','Daniel · após a lista final de domínios','M2'],
+     ['Fechar a lista final de domínios','Algar / Produto · até o próximo checkpoint','M2'],
+     ['Escalar a priorização do Blazon (Johnny e Bruna já acionados)','Julis · sync executiva seguinte','M1'],
+     ['Validar comunicação e endpoints das novas regiões após as liberações de firewall','Joab / Daniel · imediato','M4'],
+     ['Registrar o incidente de PBR em Fortaleza na Canonical e reaplicar a regra','Daniel · imediato','M4'],
+     ['Enviar nova senha da máquina BCP','Joab · imediato',''],
+     ['Definir a integração do monitoramento com a sustentação/NAV','Daniel / Julis · a definir',''],
+     ['Adicionar Jéssica e Gabriela ao grupo do projeto','Julis / Emerson · próximo contato','']
+   ],
+   riscos:[
+     ['Erro de autenticação do novo SSO em Porto Alegre e Nordeste impede validar o painel de consumo de ponta a ponta nas novas regiões.','Daniel e Luiz Gustavo verificam projeto, role e mapping com prioridade alta.'],
+     ['A migração de São Paulo e Uberlândia para o novo SSO depende de planejamento, comunicação, limpeza de base e MFA.','Planejamento da Algar previsto para a semana seguinte.'],
+     ['Sem certificado SSL definitivo, a página de consumo não pode ser liberada adequadamente em HTTPS.','Fechar a lista de domínios e emitir certificado único.'],
+     ['As pendências funcionais do Blazon dependem da priorização do time responsável na Algar.','Escalonamento para Johnny e Bruna e pauta na sync executiva.'],
+     ['Conectividade e endpoint de banco das novas regiões ainda exigem validação, incluindo o incidente de PBR no nó 3 de Fortaleza.','Chamado na Canonical e validação conjunta Joab/Daniel.']
+   ],
+   obs:'Registrado a partir da ata de 17/11/2026. Próximo checkpoint: SSO nas novas regiões, certificado SSL, Blazon, conectividade/endpoint de banco e liberações de infraestrutura.'
+ },
+ { data:'2026-11-13', titulo:'Alinhamento técnico: Canonical, banco de dados e conectividade', duracao:'15h00 às 15h39 · 39 min',
+   participantes:[['Diogo Lerison','binario'],['Joab de Araújo Silva','binario'],['Ayrton Marinho','binario'],['Daniel Prado Pereira Lima','algar'],['Julis Rimet Laini Oliveira','algar'],['Emerson Alexandre de Paulo','algar']],
+   decisoes:[
+     ['Manter a integração via banco como caminho principal, tentando primeiro um MySQL Router controlado pelo Juju.','Joab / Daniel'],
+     ['Não fazer alterações manuais fora do Juju/Charms, para não serem sobrescritas pelo próprio ambiente.','Joab / Daniel'],
+     ['Validar a solução em staging antes de aplicar em produção, sempre que possível.','Daniel'],
+     ['Tratar a liberação dos hosts .43 e .44 como frente independente e prioritária de conectividade.','Daniel / Algar'],
+     ['Seguir com comunicação assíncrona após os testes, sem depender de nova reunião.','Todos']
+   ],
+   pontos:[
+     'Na Canonical/Sunbeam o MySQL é gerenciado por Kubernetes e Juju/Charms e não existe endpoint exposto em VLAN acessível pela BC API, como nos ambientes Red Hat.',
+     'O Daniel já criou o usuário de leitura no MySQL e as permissões nas tabelas; o bloqueio é expor um endpoint de banco consumível de fora.',
+     'A Canonical classificou o pedido como customização fora do suporte padrão; por isso o time optou por uma solução própria de baixo risco.',
+     'Solução proposta: criar uma nova aplicação MySQL Router no Juju, dedicada à BC API, sem alterar o roteamento já usado pelo cluster. O Joab revisou os comandos e considerou a abordagem coerente.',
+     'Se o MySQL Router não avançar, avaliar alternativa por API, sem acesso direto ao banco.',
+     'Rede produtiva: o host 10.51.8.40 (da POC) foi formatado e já tem comunicação; os hosts finais .43 e .44 ainda não falavam com São Paulo e Uberlândia (confirmado pelo Joab na reunião).',
+     'A pendência de rede é separada da exposição do MySQL na Canonical; as duas precisam andar em paralelo.'
+   ],
+   pendencias:[
+     ['Aplicar a configuração do MySQL Router via Juju (preferencialmente em staging) e compartilhar o resultado','Daniel · em andamento','M4'],
+     ['Validar a abordagem e apoiar o troubleshooting do MySQL Router','Joab / Binário · apoio técnico','M4'],
+     ['Liberar a comunicação dos hosts .43 e .44 com São Paulo e Uberlândia','Daniel / Algar · pendente','M4'],
+     ['Revalidar a conectividade dos hosts .43 e .44','Joab · após a liberação','M4'],
+     ['Avaliar alternativa sem acesso direto ao banco, se o MySQL Router não for viável','Binário / Algar · condicional','M4']
+   ],
+   riscos:[
+     ['A Canonical não dá suporte à exposição do MySQL (customização fora do padrão).','Solução própria via MySQL Router no Juju, testada em staging; alternativa por API se não avançar.'],
+     ['Hosts produtivos .43 e .44 sem comunicação com São Paulo e Uberlândia.','Daniel aciona o time de rede; Joab revalida após a liberação.']
+   ],
+   obs:'Registrado a partir da ata de 13/11/2026 (alinhamento técnico Canonical, banco e conectividade). Situação ao final: usuário e permissões do MySQL prontos; endpoint em análise via MySQL Router; host .40 liberado; .43 e .44 pendentes.'
+ },
  { data:'2026-11-13', titulo:'Demonstração e avaliação da Calculadora de Billing', duracao:'13h59 às 14h54 · 55 min',
    participantes:[['Diogo Lerison','binario'],['Cassio Nascimento dos Santos','binario'],['Guilherme Soares','binario'],['Ari Montoya','binario'],['Joab de Araújo Silva','binario'],['Emerson Alexandre de Paulo','algar'],['Flavio Roberto Janones de Sousa','algar'],['Julis Rimet Laini Oliveira','algar'],['Gabriela Marchente Pacheco','algar'],['Jessica Thais Weiss Block','algar'],['Nayanne Carolinne Fernandes Amaral','algar']],
    decisoes:[

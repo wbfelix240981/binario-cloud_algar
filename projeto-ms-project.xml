@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-11-25T17:02:22</CreationDate><LastSaved>2026-11-25T17:02:22</LastSaved>
+<CreationDate>2026-11-25T17:32:24</CreationDate><LastSaved>2026-11-25T17:32:24</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-05T08:00:00</StartDate><FinishDate>2026-12-04T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -166,7 +166,7 @@ Comentário: Aguardando retorno Emerson / Julis / Produtos · Responsável: Emer
 <Start>2026-10-05T08:00:00</Start><Finish>2026-11-27T17:00:00</Finish>
 <Duration>PT296H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>62</PercentComplete>
+<PercentComplete>69</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -435,13 +435,15 @@ Comentário: Informações encaminhadas Quarta-feira 11/11 para Vanessa e Landro
 <Start>2026-11-11T08:00:00</Start><Finish>2026-11-27T17:00:00</Finish>
 <Duration>PT96H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>0</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-11-11T08:00:00</ConstraintDate>
+<ActualStart>2026-11-11T08:00:00</ActualStart>
+<ActualFinish>2026-11-27T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Joab de Araújo Silva / Diogo Lerison</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Não iniciado</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Joab de Araújo Silva / Diogo Lerison
-Status no painel: Não iniciado
+Status no painel: Concluído
 Origem: atividade definida no planejamento
 Comentário: Registrar plano, rollback, janela e responsáveis antes da mudança definitiva.</Notes>
 </Task>

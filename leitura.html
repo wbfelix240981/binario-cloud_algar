@@ -822,6 +822,93 @@ const PROPOSTA = {
 const PROXIMOS_PASSOS = [];
 
 const REUNIOES = [
+ { data:'2026-11-24', titulo:'Checkpoint: cliente RUFF, certificado, faturamento, snapshot e Blazon', duracao:'45 min',
+   participantes:[['Diogo Lerison','binario'],['Guilherme Soares','binario'],['Julis Rimet Laini Oliveira','algar'],['Daniel Prado Pereira Lima','algar'],['Emerson Alexandre de Paulo','algar'],['Jessica Thais Weiss Block','algar'],['Gabriela Marchente Pacheco','algar']],
+   decisoes:[
+     ['O marco de início do faturamento da Binário é 01/09/2026.','Julis / Algar'],
+     ['Remover temporariamente o seletor de login da página de consumo e deixar só o acesso via Keystone; no cenário definitivo o fluxo aponta para o Identity Hub.','Diogo / front-end Binário'],
+     ['Cadastrar o SKU de snapshot inicialmente com valor zero, para dimensionar o consumo antes de qualquer cobrança.','Janones / Emerson'],
+     ['A exportação de consumo deve oferecer CSV (para tratamento dos dados) e PDF (para compartilhar).','Diogo / time Binário'],
+     ['Para a calculadora/DALX, fazer scale-up de uma VM existente em vez de criar VM nova, porque o segmento /28 tem poucos IPs livres.','Diogo / Daniel'],
+     ['Na sustentação pós-projeto, a Binário atua como N3; a Algar revisa internamente N1 e N2.','Diogo / Algar']
+   ],
+   pontos:[
+     'Cliente RUFF: falta o Janones validar os valores de consumo antes do contato final com o cliente. Até o Identity Hub, o acesso segue com credenciais locais do Keystone.',
+     'Certificado SSL: solicitado pelo Daniel no fim do dia 23/11, com emissão prevista em 1 a 2 dias úteis; depois ele encaminha para instalação.',
+     'O seletor de login atual pode levar o usuário a uma tela de erro, por isso será retirado temporariamente.',
+     'Faturamento: setembro e outubro rodaram manualmente, validados com o Janones. O ciclo do dia 21 já foi automático, pela mediação da Algar, que busca os dados na Binário e lança no faturamento.',
+     'Snapshot: a coleta já está no BC Data; falta só criar o SKU para ligar o recurso à cobrança.',
+     'O DALX foi apresentado como evolução do sistema de coleta e pode substituir o mecanismo atual; a Binário vai definir a estratégia de adoção.',
+     'Pode haver outros recursos ainda não coletados, como Object Storage; será feito um comparativo com o que outros parceiros cobram.',
+     'Blazon: segue pendente e afeta os usuários internos da Algar, não os clientes. Escalado para a Bruna; sem retorno, sobe para a Laura. Enquanto isso, acessos internos podem ser feitos manualmente.',
+     'Página de consumo e calculadora continuam como prioridades críticas, por causa da meta de 11/12 e de clientes já pedindo a visão de consumo.',
+     'Regiões Canonical: no dia, as credenciais do banco da região Sul (Porto Alegre) foram liberadas e validadas. O Daniel segue com São Paulo/DR.'
+   ],
+   pendencias:[
+     ['Validar os valores de consumo do cliente RUFF e seguir com a orientação de acesso temporário','Janones / Emerson / Daniel','M2'],
+     ['Receber e encaminhar o certificado SSL para instalação','Daniel · 1 a 2 dias úteis','M2'],
+     ['Remover temporariamente o seletor de login e manter só credenciais Keystone','Diogo / front-end Binário','M2'],
+     ['Criar o SKU de snapshot, inicialmente com valor zero','Janones / Emerson','M3'],
+     ['Confirmar o servidor e pedir o scale-up para a calculadora/DALX','Diogo / Daniel','M4'],
+     ['Disponibilizar a exportação de consumo em CSV e PDF','Diogo / time Binário','M2'],
+     ['Levantar recursos cobrados por outros parceiros e ainda não cobrados pela Algar (snapshot, Object Storage etc.)','Diogo / time Binário','M3'],
+     ['Obter retorno e concluir os predecessores da autenticação via Blazon','Julis / Algar · escalado para Bruna (depois Laura)','M1'],
+     ['Avançar os acessos de banco das demais regiões (Sul validado; seguir com São Paulo/DR)','Daniel','M4'],
+     ['Revisar o fluxo de sustentação e a matriz RACI N1/N2/N3 (alinhar com Tiago e Wagner)','Diogo / Emerson / Gabriela · próximo checkpoint','']
+   ],
+   obs:'Registrado a partir da ata de 24/11/2026. Prioridades imediatas: certificado da página de consumo, exceção do cliente RUFF, scale-up para calculadora/DALX, SKU de snapshot, retorno do Blazon e liberações de banco nas demais regiões. Prazo geral de referência: 15/12/2026.'
+ },
+ { data:'2026-11-23', titulo:'Checkpoint ampliado: liberação da visão de consumo (sala de guerra)', duracao:'09h00 às 11h53 · 2h53',
+   participantes:[['Diogo Lerison','binario'],['Joab de Araújo Silva','binario'],['Guilherme Soares','binario'],['Ayrton Marinho','binario'],['Tiago Oliveira','binario'],['Julis Rimet Laini Oliveira','algar'],['Daniel Prado Pereira Lima','algar'],['Glauberson Vilar de Oliveira','algar'],['Emerson Alexandre de Paulo','algar'],['Flavio Roberto Janones de Sousa','algar'],['Paulo Eduardo de Souza Latado','algar'],['Jessica Thais Weiss Block','algar'],['Gabriela Marchente Pacheco','algar'],['Rafaela Santana de Freitas','algar']],
+   decisoes:[
+     ['Exceção para cliente: liberar acesso temporário à página de consumo com usuário local no Keystone, limitado aos projetos do cliente, até a conclusão do Identity Hub.','Algar / Binário'],
+     ['Permissões do usuário provisório: só leitura e perfil financeiro, apenas nos projetos autorizados.','Daniel'],
+     ['Criar o usuário no domínio Default, para o cliente não precisar digitar "@federateddomain" no login.','Daniel'],
+     ['Testar com o projeto real e conferir os valores antes de orientar o cliente.','Daniel / Janones / Binário'],
+     ['Certificado: a solução provisória vale só até o certificado definitivo; o Daniel conduz o CSR com a Certigo e o Joab instala.','Daniel / Joab'],
+     ['Atender o cliente em risco sem perder o foco na solução definitiva pelo Identity Hub. O Odin foi descartado como solução futura de autenticação.','Algar'],
+     ['Prazo: meta interna em 11/12/2026 e prazo final em 15/12/2026, condicionados à remoção dos bloqueios restantes.','Algar / Binário']
+   ],
+   pontos:[
+     'Contexto: risco de perda (churn) de um cliente formador de opinião em São Paulo por falta da visão de consumo do Cloud Plus; daí a exceção emergencial.',
+     'A página de consumo já está publicada na internet por VIP/IP externo. Página e BC API usam a mesma VLAN /28 e o mesmo VIP; o BC API foi direcionado ao VIP e no futuro pode ser internalizado por proxy reverso/NGINX.',
+     'O Joab confirmou a migração dos dados da POC para o novo BC API (VIP final .45), com validação técnica concluída.',
+     'As senhas atuais dos usuários não são recuperáveis (só o hash é guardado); a exceção exige uma credencial provisória específica.',
+     'Sem o certificado, o acesso só funciona aceitando manualmente o certificado inválido no navegador. Fluxo: consolidar domínios → Daniel gera CSR → Certigo emite (1 a 2 dias úteis) → Joab instala.',
+     'Identity Hub: substitui o Red Hat IDM para os clientes. A migração exige limpeza da base, comunicação e novo login, possivelmente por e-mail; clientes identificados só por CNPJ sem e-mail confiável podem ter o acesso recriado. O app de MFA ainda precisa ser confirmado com o Luiz Gustavo. O Red Hat IDP fica ativo por um período de rollback a definir.',
+     'Blazon vale para os usuários internos da Algar no Mesa TI, não para os clientes. Continua escalado pelo Julis; o Diogo vai levantar a data limite sem afetar 11/12 e 15/12.',
+     'Regiões Canonical: Fortaleza liberada e validada pela Binário (falta confirmar a leitura direta das tabelas). São Paulo/DR em finalização; Porto Alegre e DR ainda pendentes. Estimativas: 1 dia (Daniel) por liberação e ~2 dias (Guilherme Soares) para subir a coleta e validar.',
+     'Governança: o TEP (Termo de Encerramento) vai consolidar entregas e aceite, com os mesmos aprovadores do TAP (Emerson, Julis, Janones e Daniel).',
+     'Dados: o painel usa OpenStack Canonical e Red Hat, com coleta horária. Exportação em CSV já existe no BCP (Action > Download CSV); no Mesa TI ainda a confirmar. Coleta retroativa a setembro, sem cobrança retroativa. Prazo de 7 dias para contestações ainda a confirmar com Janones/Terezinha.',
+     'O único ponto de faturamento ainda aberto é o SKU de snapshot.'
+   ],
+   pendencias:[
+     ['Criar/ajustar o usuário provisório do cliente no Keystone (domínio Default, leitura + financeiro) e associar aos projetos corretos','Daniel · imediato','M2'],
+     ['Validar o acesso com o projeto real e conferir os valores exibidos','Daniel / Janones / Binário · antes do contato com o cliente','M2'],
+     ['Agendar orientação de 5 minutos com o cliente','Emerson · após a validação do usuário','M2'],
+     ['Consolidar a lista final de domínios para o certificado','Algar / Produto · imediato','M2'],
+     ['Gerar o CSR e solicitar o certificado à Certigo','Daniel · após os nomes confirmados','M2'],
+     ['Instalar o certificado no ambiente produtivo e validar consumo e BC API em HTTPS','Joab · após o recebimento','M2'],
+     ['Confirmar o aplicativo e o procedimento de MFA para os clientes','Luiz Gustavo / Algar · prioridade alta','M1'],
+     ['Definir a estratégia de migração CNPJ → e-mail e a comunicação aos clientes','Algar / Produto (Janones, Emerson, Jéssica, Gabriela) · curto prazo','M1'],
+     ['Levantar a data limite para o desbloqueio do Blazon','Diogo · imediato','M1'],
+     ['Avançar as liberações de banco das demais regiões (Porto Alegre e São Paulo/DR)','Daniel · ~1 dia por liberação','M4'],
+     ['Subir BC API/BC Data e validar as novas regiões após a liberação','Guilherme Soares / Binário · ~2 dias após a liberação','M4'],
+     ['Enviar o TAP assinado e o TEP para a Jéssica','Diogo · imediato','M0'],
+     ['Validar o SKU de snapshot','Diogo / desenvolvimento · imediato','M3'],
+     ['Confirmar a data exata de início da coleta em setembro','Diogo · próximo checkpoint',''],
+     ['Confirmar a exportação no Mesa TI','Diogo / Guilherme Lopes · próximo checkpoint',''],
+     ['Formalizar o plano de rollback e o período de convivência do Red Hat IDP','Julis / Algar · antes da virada','M1']
+   ],
+   riscos:[
+     ['Certificado SSL ainda não emitido para os domínios produtivos, exigindo workaround inseguro para acesso externo.','CSR e emissão pela Certigo (1 a 2 dias úteis) e instalação pelo Joab.'],
+     ['A migração para o Identity Hub depende de decisões e comunicação sobre cadastro por e-mail, MFA e base legada.','Algar/Produto definem a estratégia; Luiz Gustavo confirma o MFA.'],
+     ['A integração do Mesa TI via Blazon segue sem retorno e pode afetar o prazo.','Diogo levanta a data limite; Julis mantém o escalonamento.'],
+     ['Porto Alegre e São Paulo/DR ainda dependem de liberação de banco e da implantação do BC API/BC Data.','Daniel libera (~1 dia cada) e Guilherme Soares sobe e valida (~2 dias).'],
+     ['Data de início da coleta, SKU de snapshot, prazo de contestações e plano de rollback ainda sem formalização.','Fechar documentalmente até o próximo checkpoint e no TEP.']
+   ],
+   obs:'Registrado a partir da ata de 23/11/2026 (reunião em formato sala de guerra). Próximo checkpoint: acesso provisório do cliente, certificado, decisões do Identity Hub, Blazon, liberações de banco e planilha de governança.'
+ },
  { data:'2026-11-17', titulo:'Checkpoint do projeto: SSO, acessos, certificado, Blazon e monitoramento', duracao:'15h59 às 16h50 · 51 min',
    participantes:[['Diogo Lerison','binario'],['Joab de Araújo Silva','binario'],['Ayrton Marinho','binario'],['Guilherme Soares','binario'],['Julis Rimet Laini Oliveira','algar'],['Daniel Prado Pereira Lima','algar'],['Flavio Roberto Janones de Sousa','algar'],['Jessica Thais Weiss Block','algar'],['Gabriela Marchente Pacheco','algar']],
    decisoes:[

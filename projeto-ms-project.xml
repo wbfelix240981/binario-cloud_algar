@@ -4,7 +4,7 @@
 <Name>Projeto Algar - BCAPI BC Billing</Name>
 <Title>Projeto Algar · BCAPI | BC Billing</Title>
 <Company>Binário Cloud</Company><Author>Wagner Bento Felix</Author>
-<CreationDate>2026-11-26T17:02:27</CreationDate><LastSaved>2026-11-26T17:02:27</LastSaved>
+<CreationDate>2026-11-26T17:32:28</CreationDate><LastSaved>2026-11-26T17:32:28</LastSaved>
 <ScheduleFromStart>1</ScheduleFromStart>
 <StartDate>2026-10-05T08:00:00</StartDate><FinishDate>2026-12-04T17:00:00</FinishDate>
 <CalendarUID>1</CalendarUID><DefaultStartTime>08:00:00</DefaultStartTime><DefaultFinishTime>17:00:00</DefaultFinishTime>
@@ -675,7 +675,7 @@ Origem: atividade definida no planejamento</Notes>
 <Start>2026-10-05T08:00:00</Start><Finish>2026-11-27T17:00:00</Finish>
 <Duration>PT296H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>1</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>70</PercentComplete>
+<PercentComplete>81</PercentComplete>
 <Notes></Notes>
 </Task>
 <Task>
@@ -773,14 +773,15 @@ Comentário: Definir com o time do Portal como a calculadora será disponibiliza
 <Start>2026-10-15T08:00:00</Start><Finish>2026-11-06T17:00:00</Finish>
 <Duration>PT128H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>75</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-15T08:00:00</ConstraintDate>
 <ActualStart>2026-10-15T08:00:00</ActualStart>
+<ActualFinish>2026-11-06T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Algar</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Algar (a definir)</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em revisão</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Algar · Algar (a definir)
-Status no painel: Em revisão
+Status no painel: Concluído
 Origem: atividade definida no planejamento
 Comentário: Confirmar certificado, cadeia, domínio e acesso HTTPS do ambiente produtivo após a definição definitiva de VIP e DNS.</Notes>
 </Task>
@@ -824,14 +825,15 @@ Comentário: Confirmar regras de firewall, NAT, porta 443 e acessibilidade exter
 <Start>2026-10-22T08:00:00</Start><Finish>2026-11-27T17:00:00</Finish>
 <Duration>PT200H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-22T08:00:00</ConstraintDate>
 <ActualStart>2026-10-22T08:00:00</ActualStart>
+<ActualFinish>2026-11-27T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Soares</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Guilherme Soares
-Status no painel: Em andamento
+Status no painel: Concluído
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
@@ -856,14 +858,15 @@ Origem: atividade definida no planejamento</Notes>
 <Start>2026-10-22T08:00:00</Start><Finish>2026-11-27T17:00:00</Finish>
 <Duration>PT200H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>50</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-22T08:00:00</ConstraintDate>
 <ActualStart>2026-10-22T08:00:00</ActualStart>
+<ActualFinish>2026-11-27T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Guilherme Soares</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Em andamento</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Guilherme Soares
-Status no painel: Em andamento
+Status no painel: Concluído
 Origem: atividade definida no planejamento</Notes>
 </Task>
 <Task>
@@ -956,13 +959,15 @@ Comentário: cloudplus.sp.cloudalgar.com.br</Notes>
 <Start>2026-10-30T08:00:00</Start><Finish>2026-11-19T17:00:00</Finish>
 <Duration>PT112H0M0S</Duration><DurationFormat>7</DurationFormat>
 <Summary>0</Summary><Milestone>0</Milestone><Manual>0</Manual>
-<PercentComplete>0</PercentComplete>
+<PercentComplete>100</PercentComplete>
 <ConstraintType>4</ConstraintType><ConstraintDate>2026-10-30T08:00:00</ConstraintDate>
+<ActualStart>2026-10-30T08:00:00</ActualStart>
+<ActualFinish>2026-11-19T17:00:00</ActualFinish>
 <ExtendedAttribute><FieldID>188743731</FieldID><Value>Binário</Value></ExtendedAttribute>
 <ExtendedAttribute><FieldID>188743734</FieldID><Value>Joab de Araújo Silva</Value></ExtendedAttribute>
-<ExtendedAttribute><FieldID>188743737</FieldID><Value>Bloqueada</Value></ExtendedAttribute>
+<ExtendedAttribute><FieldID>188743737</FieldID><Value>Concluído</Value></ExtendedAttribute>
 <Notes>Responsável: Binário · Joab de Araújo Silva
-Status no painel: Bloqueada
+Status no painel: Concluído
 Origem: atividade definida no planejamento
 Comentário: cloudplus.stg.sp.cloudalgar.com.br</Notes>
 </Task>
